@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import profGalkowskiImg from "@/assets/prof-galkowski.png";
 import anetaPakielaImg from "@/assets/aneta-pakiela.png";
 import heroChildImg from "@/assets/hero-child-headphones.png";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { 
   Play, 
   Download, 
@@ -41,8 +42,11 @@ export default function HomePage() {
       <div className="pt-16">
         
         {/* SECTION 1 - Hero */}
-        <section className="relative py-16 md:py-24 overflow-hidden bg-card/30">
-          <div className="container mx-auto px-4">
+        <section className="relative py-16 md:py-24 overflow-hidden">
+          <AuroraBackground className="absolute inset-0" showRadialGradient={true}>
+            <span />
+          </AuroraBackground>
+          <div className="relative z-10 container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Text */}
               <motion.div 
@@ -104,7 +108,6 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
         </section>
 
         {/* SECTION 2 - Products */}
