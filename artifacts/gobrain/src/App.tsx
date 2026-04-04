@@ -4,7 +4,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
-import PlaceholderPage from "@/pages/PlaceholderPage";
+import ItsPage from "@/pages/ItsPage";
+import StrefaTerapeutyPage from "@/pages/StrefaTerapeutyPage";
+import SzkoleniaPage from "@/pages/SzkoleniaPage";
+import BlogPage from "@/pages/BlogPage";
+import FaqPage from "@/pages/FaqPage";
+import PomocPage from "@/pages/PomocPage";
 
 const queryClient = new QueryClient();
 
@@ -12,27 +17,12 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
-      <Route path="/its">
-        <PlaceholderPage title="ITS GoBrain - Zabawy z dźwiękami" />
-      </Route>
-      <Route path="/its-school">
-        <PlaceholderPage title="ITS GoBrain School" />
-      </Route>
-      <Route path="/strefa-terapeuty">
-        <PlaceholderPage title="Strefa Terapeuty" />
-      </Route>
-      <Route path="/szkolenia-i-webinary">
-        <PlaceholderPage title="Szkolenia i Webinary" />
-      </Route>
-      <Route path="/blog">
-        <PlaceholderPage title="Blog GoBrain" />
-      </Route>
-      <Route path="/faq">
-        <PlaceholderPage title="Często zadawane pytania (FAQ)" />
-      </Route>
-      <Route path="/pomoc">
-        <PlaceholderPage title="Centrum Pomocy" />
-      </Route>
+      <Route path="/its" component={ItsPage} />
+      <Route path="/strefa-terapeuty" component={StrefaTerapeutyPage} />
+      <Route path="/szkolenia-i-webinary" component={SzkoleniaPage} />
+      <Route path="/blog" component={BlogPage} />
+      <Route path="/faq" component={FaqPage} />
+      <Route path="/pomoc" component={PomocPage} />
       <Route component={NotFound} />
     </Switch>
   );

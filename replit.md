@@ -29,7 +29,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
   - `src/components/Footer.tsx` — Footer with navigation links
   - `src/index.css` — GoBrain theme (primary blue #0066cc, accent green #00aa55)
 - **Routing (wouter)**: `/` (Home), `/its`, `/strefa-terapeuty`, `/szkolenia-i-webinary`, `/blog`, `/faq`, `/pomoc`
-- **Pending (Task #2)**: Full subpage implementations
+- **Subpages complete**: All 6 subpages implemented with real content from gobrain.pl
 
 ## Key Commands
 
