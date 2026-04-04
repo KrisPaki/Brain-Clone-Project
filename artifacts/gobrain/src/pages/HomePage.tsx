@@ -1,5 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "wouter";
+import profGalkowskiImg from "@/assets/prof-galkowski.png";
+import anetaPakielaImg from "@/assets/aneta-pakiela.png";
 import { 
   Play, 
   Download, 
@@ -282,21 +284,33 @@ export default function HomePage() {
 
         {/* SECTION 6 - Prof Recommendation */}
         <section className="py-24 bg-foreground text-background">
-          <div className="container mx-auto px-4 max-w-4xl relative">
+          <div className="container mx-auto px-4 max-w-5xl relative">
             <Quote className="absolute top-0 left-4 w-24 h-24 text-background/10 -translate-y-8 -translate-x-8" />
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="relative z-10"
+              className="relative z-10 flex flex-col md:flex-row gap-10 items-start"
             >
-              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
-                "Chciałbym powiedzieć jako przewodniczący Polskiego Komitetu Audiofonologii, że program Zabawy z dźwiękami to jest pomysł wspaniały dostosowany do potrzeb rozwojowych dzieci mających dość często duże kłopoty z przetwarzaniem bodźców słuchowych. Program GoBrain z czystym sumieniem mogę polecić i zachęcić do stosowania zarówno w domu jak i ośrodkach logopedycznych program ten ćwiczy i uwagę i pamięć słuchową. GoBrain przyczynia się do postępu szkolnych dzieci, zwłaszcza jeśli chodzi o czytanie i pisanie. Także GoBrain to dobry pomysł warty wykorzystania tam wszędzie gdzie to możliwe zarówno w placówkach szkolnych, w poradniach jak i na terenie rodzinnego domu."
-              </blockquote>
-              <div className="border-t border-background/20 pt-6">
-                <p className="font-bold text-lg">Prof. dr hab. Tadeusz Stanisław Gałkowski</p>
-                <p className="text-background/70 text-sm mt-1">Wybitny polski psycholog, profesor nauk humanistycznych, pracownik naukowy Wydziału Psychologii Uniwersytetu Warszawskiego. Przewodniczący Polskiego Komitetu Audiofonologii.</p>
+              <div className="shrink-0 flex flex-col items-center gap-4">
+                <img 
+                  src={profGalkowskiImg} 
+                  alt="Prof. dr hab. Tadeusz Stanisław Gałkowski" 
+                  className="w-36 h-36 rounded-full object-cover object-top border-4 border-background/20 shadow-xl"
+                />
+                <div className="text-center hidden md:block">
+                  <p className="font-bold text-sm leading-tight max-w-[140px]">Prof. dr hab. T.S. Gałkowski</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <blockquote className="text-lg md:text-xl font-medium leading-relaxed mb-8">
+                  „Chciałbym powiedzieć jako przewodniczący Polskiego Komitetu Audiofonologii, że program Zabawy z dźwiękami to jest pomysł wspaniały dostosowany do potrzeb rozwojowych dzieci mających dość często duże kłopoty z przetwarzaniem bodźców słuchowych. Program GoBrain z czystym sumieniem mogę polecić i zachęcić do stosowania zarówno w domu jak i ośrodkach logopedycznych program ten ćwiczy i uwagę i pamięć słuchową. GoBrain przyczynia się do postępu szkolnych dzieci, zwłaszcza jeśli chodzi o czytanie i pisanie. Także GoBrain to dobry pomysł warty wykorzystania tam wszędzie gdzie to możliwe zarówno w placówkach szkolnych, w poradniach jak i na terenie rodzinnego domu."
+                </blockquote>
+                <div className="border-t border-background/20 pt-6">
+                  <p className="font-bold text-lg">Prof. dr hab. Tadeusz Stanisław Gałkowski</p>
+                  <p className="text-background/70 text-sm mt-1">Wybitny polski psycholog, profesor nauk humanistycznych, pracownik naukowy Wydziału Psychologii Uniwersytetu Warszawskiego. Przewodniczący Polskiego Komitetu Audiofonologii.</p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -312,9 +326,11 @@ export default function HomePage() {
               variants={fadeInUp}
               className="flex flex-col md:flex-row items-center md:items-start gap-12"
             >
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary to-accent shrink-0 flex items-center justify-center text-white text-5xl font-bold shadow-xl">
-                AP
-              </div>
+              <img
+                src={anetaPakielaImg}
+                alt="Aneta Pakieła – twórczyni metody GoBrain"
+                className="w-48 h-48 rounded-full object-cover object-top shrink-0 shadow-xl border-4 border-primary/10"
+              />
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-2">Aneta Pakieła – twórczyni metody GoBrain</h2>
                 <p className="text-sm font-medium text-primary mb-6 leading-relaxed">
@@ -366,9 +382,13 @@ export default function HomePage() {
                   Najpopularniejszy
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2 mt-2">ITS GoBrain</h3>
-                <p className="text-muted-foreground mb-6 h-10">Dla dzieci 5-12 lat, do stosowania w domu</p>
+                <p className="text-muted-foreground mb-4">Dla dzieci 5-12 lat, do stosowania w domu</p>
+                <div className="flex gap-2 mb-6 flex-wrap">
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Licencja 365 dni</span>
+                  <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full font-medium">Licencja bezterminowa</span>
+                </div>
                 <ul className="space-y-4 mb-8 min-h-[200px]">
-                  {["Pełny trening słuchowy (2 etapy)", "Program Zabawy z dźwiękami", "Postęp zapisywany automatycznie", "PC i Android"].map((feat, i) => (
+                  {["Pełny trening słuchowy (2 etapy)", "Program Zabawy z dźwiękami", "Postęp zapisywany automatycznie", "PC (Windows) i Android"].map((feat, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm font-medium">
                       <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                       {feat}
@@ -422,34 +442,73 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 10 & 11 - Therapists & Partners */}
+        {/* SECTION 10 - Therapist Map */}
         <section className="py-24 bg-background">
-          <div className="container mx-auto px-4 text-center max-w-3xl">
+          <div className="container mx-auto px-4 max-w-5xl">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="mb-20"
+              className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-foreground mb-4">Rozwijamy potencjał dzieci nie tylko w Polsce</h2>
-              <p className="text-lg text-muted-foreground mb-8">Nasza sieć Providerów GoBrain obejmuje specjalistów w całej Polsce.</p>
-              <Button variant="outline" size="lg" asChild data-testid="locations-btn">
-                <Link href="/strefa-terapeuty">Sprawdź lokalizacje terapeutów</Link>
-              </Button>
+              <h2 className="text-3xl font-bold text-foreground mb-4">Rozwijamy potencjał dzieci w całej Polsce</h2>
+              <p className="text-lg text-muted-foreground">Nasza sieć Providerów GoBrain obejmuje specjalistów w całej Polsce.</p>
             </motion.div>
-
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="pt-20 border-t border-border"
+              className="rounded-2xl overflow-hidden border border-border shadow-lg mb-8"
+              style={{ height: 400 }}
             >
-              <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Nasi partnerzy</h2>
-              <div className="flex flex-wrap justify-center items-center gap-12 text-muted-foreground font-semibold text-xl">
-                <div className="hover:text-foreground transition-colors cursor-default">SAS Centre</div>
-                <div className="hover:text-foreground transition-colors cursor-default">Jakanie.pl</div>
+              <iframe
+                title="Mapa terapeutów GoBrain"
+                src="https://www.google.com/maps/d/embed?mid=1vzg81TvhC_-i_qYRo5o-VZ05K6dSfcy-"
+                width="100%"
+                height="400"
+                style={{ border: 0, display: "block" }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
+            <div className="text-center">
+              <Button variant="outline" size="lg" asChild data-testid="locations-btn">
+                <Link href="/strefa-terapeuty">Sprawdź listę terapeutów</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 11 - Partners */}
+        <section className="py-20 bg-card border-y border-border">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center"
+            >
+              <h2 className="text-2xl font-bold text-foreground mb-12">Nasi partnerzy</h2>
+              <div className="flex flex-wrap justify-center items-center gap-16">
+                {/* SAS Centre */}
+                <a href="https://www.sascentre.pl" target="_blank" rel="noopener noreferrer" 
+                   className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                  <div className="w-20 h-20 rounded-2xl bg-background border border-border shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
+                    <span className="text-2xl font-bold text-primary tracking-tight">SAS</span>
+                  </div>
+                  <span className="text-sm font-semibold text-foreground">SAS Centre</span>
+                </a>
+                {/* Jakanie.pl */}
+                <a href="https://jakanie.pl" target="_blank" rel="noopener noreferrer"
+                   className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                  <div className="w-20 h-20 rounded-2xl bg-background border border-border shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
+                    <span className="text-2xl font-bold text-foreground tracking-tight" style={{ fontFamily: "Georgia, serif" }}>J.</span>
+                  </div>
+                  <span className="text-sm font-semibold text-foreground">Jakanie.pl</span>
+                </a>
               </div>
             </motion.div>
           </div>

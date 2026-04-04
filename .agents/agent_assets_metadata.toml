@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "uSIKWRmoG5EAfLYPNgJJI"
+uri = "file://artifacts/gobrain/src/assets/prof-galkowski.png"
+type = "image"
+title = "professor portrait"
+
+[[generated]]
+id = "34uhWJeM87rAemtnyHETo"
+uri = "file://artifacts/gobrain/src/assets/aneta-pakiela.png"
+type = "image"
+title = "speech therapist portrait"
