@@ -74,6 +74,6 @@
     "zod": "catalog:"
   },
   "dependencies": {
-    "react-router-dom": "^7.14.0"
+    "react-router-dom": "^6.30.3"
   }
 }
