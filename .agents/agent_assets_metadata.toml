@@ -60,3 +60,27 @@ id = "AYGcmOIkacUe8HPp6htJ-"
 uri = "file://artifacts/gobrain/src/assets/parent-child-home.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "TrZQ0gaiIu0oLCZgE4OMP"
+uri = "file://artifacts/gobrain/src/assets/therapist-dashboard.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "uV31G7ZAy-8gynMGIytP-"
+uri = "file://artifacts/gobrain/src/assets/test-results-screen.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "B4ZmtPPbsJMxXmc-deX_B"
+uri = "file://artifacts/gobrain/src/assets/child-success.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "dzCQy2bqhb_YOIIp6aBUv"
+uri = "file://artifacts/gobrain/src/assets/therapist-office.png"
+type = "image"
+title = "generated_image"
