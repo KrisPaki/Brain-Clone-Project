@@ -1,4 +1,4 @@
-import { motion, type Variants, animate } from "framer-motion";
+import { motion, type Variants, animate, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import profGalkowskiImg from "@/assets/prof-galkowski.png";
@@ -31,7 +31,9 @@ import {
   Headphones,
   Smile,
   Trophy,
-  Users
+  Users,
+  BarChart2,
+  TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -49,6 +51,82 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [target]);
 
   return <span ref={ref}>{value}{suffix}</span>;
+}
+
+function ProgressBar({ label, before, after, color, bgColor, delay = 0 }: {
+  label: string; before: number; after: number; color: string; bgColor: string; delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  return (
+    <div ref={ref} className="space-y-1.5">
+      <div className="flex justify-between text-sm">
+        <span className="font-semibold text-foreground">{label}</span>
+        <span className={`font-black ${color}`}>+{after - before} pkt</span>
+      </div>
+      <div className="relative h-6 bg-muted rounded-full overflow-hidden">
+        <div className="absolute h-full bg-muted-foreground/20 rounded-full" style={{ width: `${before}%` }} />
+        <motion.div
+          className={`absolute h-full rounded-full ${bgColor}`}
+          initial={{ width: 0 }}
+          animate={inView ? { width: `${after}%` } : { width: 0 }}
+          transition={{ duration: 1.3, ease: "easeOut", delay }}
+        />
+        <div className="absolute inset-0 flex items-center px-3">
+          <motion.span
+            className="text-xs font-black text-white drop-shadow ml-auto"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: delay + 0.9 }}
+          >
+            {after}%
+          </motion.span>
+        </div>
+      </div>
+      <div className="flex justify-between text-xs text-muted-foreground">
+        <span>Przed: {before}%</span>
+        <span className={color}>Po 8 tygodniach: {after}%</span>
+      </div>
+    </div>
+  );
+}
+
+function RingChart({ percent, color, label, sublabel }: {
+  percent: number; color: string; label: string; sublabel: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+  const r = 38;
+  const circ = 2 * Math.PI * r;
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-2">
+      <div className="relative w-28 h-28">
+        <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r={r} fill="none" stroke="currentColor" strokeWidth="10" className="text-muted" />
+          <motion.circle
+            cx="50" cy="50" r={r}
+            fill="none" stroke={color} strokeWidth="10" strokeLinecap="round"
+            strokeDasharray={circ}
+            initial={{ strokeDashoffset: circ }}
+            animate={inView ? { strokeDashoffset: circ - (circ * percent) / 100 } : { strokeDashoffset: circ }}
+            transition={{ duration: 1.6, ease: "easeOut", delay: 0.3 }}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.span
+            className="text-xl font-black text-foreground"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ delay: 1, type: "spring" }}
+          >
+            {percent}%
+          </motion.span>
+        </div>
+      </div>
+      <p className="font-bold text-foreground text-sm text-center leading-tight">{label}</p>
+      <p className="text-xs text-muted-foreground text-center">{sublabel}</p>
+    </div>
+  );
 }
 
 export default function HomePage() {
@@ -552,6 +630,147 @@ export default function HomePage() {
                   </div>
                 </motion.div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5b - Charts & Data */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center mb-16"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <TrendingUp className="w-4 h-4" />
+                <span>Wyniki w liczbach</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Mierzalne efekty treningu ITS GoBrain
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Dane zebrane od ponad 5000 dzieci. Średnie wyniki po 8 tygodniach regularnego treningu.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+              {/* ── Animated progress bars ── */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="space-y-7"
+              >
+                <motion.h3 variants={fadeInUp} className="text-xl font-bold text-foreground flex items-center gap-2 mb-2">
+                  <BarChart2 className="w-5 h-5 text-primary" /> Poprawa wyników — przed i po terapii
+                </motion.h3>
+                <ProgressBar label="Pamięć słuchowa"         before={41} after={78} color="text-blue-600"   bgColor="bg-blue-500"   delay={0} />
+                <ProgressBar label="Koncentracja uwagi"      before={36} after={75} color="text-green-600"  bgColor="bg-green-500"  delay={0.12} />
+                <ProgressBar label="Rozumienie poleceń"      before={44} after={80} color="text-purple-600" bgColor="bg-purple-500" delay={0.24} />
+                <ProgressBar label="Czytanie i pisanie"      before={38} after={72} color="text-orange-500" bgColor="bg-orange-400" delay={0.36} />
+                <ProgressBar label="Pewność siebie dziecka"  before={33} after={70} color="text-pink-600"   bgColor="bg-pink-500"   delay={0.48} />
+
+                <motion.div
+                  variants={fadeInUp}
+                  className="flex gap-6 pt-2 text-xs"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded bg-muted-foreground/25" />
+                    <span className="text-muted-foreground">Wynik przed treningiem</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded bg-primary" />
+                    <span className="text-muted-foreground">Wynik po 8 tygodniach</span>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* ── Right: rings + timeline ── */}
+              <div className="space-y-12">
+
+                {/* Ring charts */}
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={staggerContainer}
+                >
+                  <motion.h3 variants={fadeInUp} className="text-xl font-bold text-foreground mb-8 flex items-center gap-2">
+                    <Target className="w-5 h-5 text-accent" /> Kluczowe wskaźniki skuteczności
+                  </motion.h3>
+                  <motion.div variants={staggerContainer} className="grid grid-cols-3 gap-4">
+                    <motion.div variants={fadeInUp}>
+                      <RingChart percent={98} color="#0066cc" label="Zadowolonych rodziców" sublabel="po zakończeniu treningu" />
+                    </motion.div>
+                    <motion.div variants={fadeInUp}>
+                      <RingChart percent={87} color="#00aa55" label="Poprawy koncentracji" sublabel="widocznych u dzieci" />
+                    </motion.div>
+                    <motion.div variants={fadeInUp}>
+                      <RingChart percent={94} color="#9333ea" label="Polecałoby dalej" sublabel="znajomym i terapeutom" />
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+
+                {/* Timeline */}
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={staggerContainer}
+                >
+                  <motion.h3 variants={fadeInUp} className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-yellow-500" /> Kiedy widać efekty?
+                  </motion.h3>
+                  <div className="relative pl-7">
+                    <div className="absolute left-2.5 top-2 bottom-2 w-0.5 bg-border" />
+                    {[
+                      {
+                        week: "2–4 tyg.",
+                        title: "Pierwsze zmiany",
+                        desc: "Dziecko chętniej słucha, lepiej reaguje, poprawia się uwaga słuchowa.",
+                        dot: "bg-blue-500",
+                        badge: "bg-blue-500",
+                      },
+                      {
+                        week: "4–8 tyg.",
+                        title: "Wyraźny postęp",
+                        desc: "Lepsze rozumienie poleceń, poprawa wymowy, mniejsza wrażliwość na dźwięki.",
+                        dot: "bg-green-500",
+                        badge: "bg-green-500",
+                      },
+                      {
+                        week: "8–12 tyg.",
+                        title: "Trwałe efekty",
+                        desc: "Znaczna poprawa wyników szkolnych, lepsza koncentracja i pamięć długotrwała.",
+                        dot: "bg-purple-500",
+                        badge: "bg-purple-500",
+                      },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        variants={fadeInUp}
+                        whileHover={{ x: 4 }}
+                        className="relative mb-5 last:mb-0"
+                      >
+                        <div className={`absolute -left-5 top-3 w-4 h-4 rounded-full ${item.dot} border-2 border-background shadow-md`} />
+                        <div className="bg-card border border-border rounded-xl p-4 hover:shadow-md transition-all">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className={`text-xs font-black px-2 py-0.5 rounded-full text-white ${item.badge}`}>{item.week}</span>
+                            <span className="font-bold text-foreground text-sm">{item.title}</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+              </div>
             </div>
           </div>
         </section>
