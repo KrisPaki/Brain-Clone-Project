@@ -847,7 +847,7 @@ export default function HomePage() {
                       src={anetaPakielaImg}
                       alt="Aneta Pakieła – twórczyni metody GoBrain"
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: "76% 10%" }}
+                      style={{ objectPosition: "76% 10%", transform: "scale(2.2)", transformOrigin: "76% 14%" }}
                     />
                   </div>
                   <motion.div
