@@ -951,24 +951,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 9 - Testimonial */}
-        <section className="py-24 bg-primary/5">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <Quote className="w-12 h-12 text-primary mx-auto mb-8 opacity-50" />
-            <motion.p 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="text-xl md:text-2xl font-medium text-foreground leading-relaxed mb-8"
-            >
-              "Zainteresowałam się ITS GoBrain po tym, jak zobaczyłam efekty jego zastosowania u mojego podopiecznego. To było niesamowite, dziecko nareszcie w codziennej mowie zaczęło stosować to, czego go nauczyłam w gabinecie. Dużym atutem dla mnie jest to że dziecko w domu ćwiczy w atrakcyjnej formie a ja mogę w dowolnym momencie śledzić jego postępy."
-            </motion.p>
-            <motion.div variants={fadeInUp} className="font-semibold text-primary">
-              Wiola, Logopeda pedagog
-            </motion.div>
-          </div>
-        </section>
 
         {/* SECTION 10 - Therapist Map */}
         <section className="py-24 bg-background">
