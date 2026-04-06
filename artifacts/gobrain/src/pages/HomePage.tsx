@@ -289,8 +289,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 2 - For whom? — COLORFUL */}
-        <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #fef9ff 0%, #f0f7ff 50%, #f0fff8 100%)" }}>
+        {/* SECTION 2+3 — Dla kogo & Co zyskuje — MERGED */}
+        <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #fef9ff 0%, #f0f7ff 50%, #dbeafe 100%)" }}>
           {/* Floating decorative blobs */}
           <motion.div animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 pointer-events-none"
@@ -303,256 +303,139 @@ export default function HomePage() {
             style={{ background: "radial-gradient(circle, #55efc4, #00b894)" }} />
           <motion.div animate={{ y: [0, 18, 0], x: [0, 8, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute bottom-24 right-1/3 w-16 h-16 rounded-full opacity-15 pointer-events-none"
-            style={{ background: "radial-gradient(circle, #fdcb6e, #e17055)" }} />
+            style={{ background: "radial-gradient(circle, #93c5fd, #3b82f6)" }} />
 
-          <div className="container mx-auto px-4 max-w-6xl relative">
-            {/* Header */}
+          <div className="container mx-auto px-4 max-w-7xl relative">
+
+            {/* Shared header */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-center mb-14"
+              className="text-center mb-12"
             >
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-5xl mb-4 inline-block"
-              >
-                &#x1F9E0;
-              </motion.div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-4"
-                style={{ background: "linear-gradient(135deg, #a29bfe22, #6c5ce722)", color: "#6c5ce7", border: "2px solid #a29bfe55" }}>
-                <Users className="w-4 h-4" />
-                <span>Dla kogo?</span>
-              </div>
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                Dla kogo jest program{" "}
-                <span style={{ background: "linear-gradient(90deg, #6c5ce7, #0984e3, #00b894)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  ITS GoBrain?
-                </span>
+                <span style={{ background: "linear-gradient(90deg, #6c5ce7, #0984e3)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Dla kogo</span>
+                {" "}&amp;{" "}
+                <span style={{ background: "linear-gradient(90deg, #0984e3, #00b894)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>co zyskuje dziecko?</span>
               </h2>
-              <p className="text-xl text-muted-foreground">Dedykowany dzieciom w wieku <strong>5&#x2013;12 lat</strong>, kt&oacute;re potrzebuj&#x0105; wsparcia w nauce i komunikacji</p>
+              <p className="text-xl text-muted-foreground">Program ITS GoBrain dla dzieci w wieku <strong>5&#x2013;12 lat</strong></p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Colorful cards */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
-                {[
-                  { emoji: "\ud83d\udc42", text: "S\u0142yszy, ale nie s\u0142ucha", bg: "#fff0f6", border: "#ff9cc8", icon: "#ff6b9d", shadow: "rgba(255,107,157,0.2)" },
-                  { emoji: "\ud83e\udde0", text: "Nie rozumie polece\u0144", bg: "#f3f0ff", border: "#b197fc", icon: "#7950f2", shadow: "rgba(121,80,242,0.2)" },
-                  { emoji: "\ud83d\udcda", text: "Problemy z czytaniem i pisaniem", bg: "#fff8e1", border: "#ffd43b", icon: "#f59f00", shadow: "rgba(245,159,0,0.2)" },
-                  { emoji: "\ud83c\udfaf", text: "Trudno\u015bci z koncentracj\u0105", bg: "#e8f5e9", border: "#69db7c", icon: "#2f9e44", shadow: "rgba(47,158,68,0.2)" },
-                  { emoji: "\ud83c\udfa7", text: "Wra\u017cliwe na d\u017awi\u0119ki", bg: "#e3f2fd", border: "#74c0fc", icon: "#1971c2", shadow: "rgba(25,113,194,0.2)" },
-                  { emoji: "\ud83d\udce1", text: "Zaburzenia przetwarzania (CAPD)", bg: "#fce4ec", border: "#f48fb1", icon: "#c2185b", shadow: "rgba(194,24,91,0.2)" },
-                  { emoji: "\ud83d\udd04", text: "Wymaga powtarzania polece\u0144", bg: "#fff3e0", border: "#ffb74d", icon: "#e65100", shadow: "rgba(230,81,0,0.2)" },
-                  { emoji: "\ud83d\udc9a", text: "Po problemach ze s\u0142uchem", bg: "#e8f5e9", border: "#a5d6a7", icon: "#388e3c", shadow: "rgba(56,142,60,0.2)" },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.05, y: -4, transition: { type: "spring", stiffness: 400 } }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-3 p-4 rounded-2xl cursor-default"
-                    style={{
-                      background: item.bg,
-                      border: `2px solid ${item.border}`,
-                      boxShadow: `0 4px 16px ${item.shadow}`,
-                    }}
-                  >
-                    <motion.span
-                      animate={{ rotate: [0, 8, -8, 0] }}
-                      transition={{ duration: 3 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
-                      className="text-2xl shrink-0"
-                    >
-                      {item.emoji}
-                    </motion.span>
-                    <span className="font-semibold text-sm text-gray-800 leading-snug">{item.text}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+            {/* Two-column layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
-              {/* Photo side — RIGHT */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative"
-              >
-                <div className="rounded-3xl overflow-hidden shadow-2xl" style={{ border: "4px solid white", boxShadow: "0 20px 60px rgba(108,92,231,0.2)" }}>
-                  <img src={therapistChildImg} alt="Terapeuta pracuje z dzieckiem" className="w-full object-cover" />
-                </div>
-                {/* Floating badge 1 */}
+              {/* LEFT — Dla kogo */}
+              <div>
                 <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -left-6 rounded-2xl p-4 flex items-center gap-3"
-                  style={{ background: "white", border: "2px solid #b197fc", boxShadow: "0 8px 24px rgba(121,80,242,0.2)" }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className="flex items-center gap-3 mb-6"
                 >
-                  <span className="text-2xl">&#x2705;</span>
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-xl"
+                    style={{ background: "linear-gradient(135deg, #a29bfe33, #6c5ce733)", border: "2px solid #a29bfe66" }}>
+                    &#x1F9E0;
+                  </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Skuteczno&#x15b;&#x107;</p>
-                    <p className="font-bold text-foreground text-sm">Potwierdzona klinicznie</p>
+                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: "#6c5ce7" }}>Dla kogo?</p>
+                    <h3 className="text-xl font-black text-foreground">Kiedy warto si&#x0119;gn&#x0105;&#x0107; po program?</h3>
                   </div>
                 </motion.div>
-                {/* Floating badge 2 */}
+
                 <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute -top-5 -right-4 rounded-2xl px-4 py-3 flex items-center gap-2"
-                  style={{ background: "linear-gradient(135deg, #ff6b9d, #ff9f43)", boxShadow: "0 8px 24px rgba(255,107,157,0.35)" }}
-                >
-                  <span className="text-xl">&#x1F476;</span>
-                  <p className="font-bold text-white text-sm">5&#x2013;12 lat</p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 3 - Effects */}
-        <section className="py-24 relative overflow-hidden" style={{ background: "#dbeafe" }}>
-
-          <div className="container mx-auto px-4 max-w-5xl relative">
-            {/* Header */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="text-center mb-10"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1], rotate: [0, -5, 5, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                className="text-5xl mb-4 inline-block"
-              >
-                &#x1F3C6;
-              </motion.div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-4"
-                style={{ background: "rgba(255,255,255,0.7)", color: "#1d4ed8", border: "2px solid #93c5fd" }}>
-                <Trophy className="w-4 h-4" />
-                <span>Efekty terapii</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                Co zyskuje dziecko?
-              </h2>
-              <p className="text-lg text-blue-800">
-                Potwierdzone naukowo rezultaty regularnych trening&oacute;w
-              </p>
-            </motion.div>
-
-            {/* ── MOBILE: 2-col grid ── */}
-            <div className="grid grid-cols-2 gap-3 lg:hidden">
-              {[
-                { emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego", color: "#3b82f6" },
-                { emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce",               color: "#10b981" },
-                { emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja",   color: "#8b5cf6" },
-                { emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi i koncentracji",    color: "#f97316" },
-                { emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci", color: "#ec4899" },
-                { emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie",         color: "#eab308" },
-              ].map((item, i) => (
-                <motion.div key={i}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.08 }}
-                  className="rounded-2xl p-3 text-center"
-                  style={{ background: "white", border: `2px solid ${item.color}44`, boxShadow: `0 4px 16px ${item.color}22` }}
+                  variants={staggerContainer}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
-                  <div className="text-2xl mb-1">{item.emoji}</div>
-                  <p className="text-xs font-bold text-gray-800 leading-tight">{item.text}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* ── DESKTOP: circular layout ── */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative" style={{ width: 580, height: 640 }}>
-
-                {/* SVG orbit ring + connector lines */}
-                <svg width="580" height="640" className="absolute inset-0 pointer-events-none">
-                  <circle cx="290" cy="320" r="205" fill="none" stroke="#93c5fd" strokeWidth="2" strokeDasharray="8 5" opacity="0.7" />
-                  {[0,1,2,3,4,5].map(i => {
-                    const a = (-90 + i * 60) * Math.PI / 180;
-                    return <line key={i} x1="290" y1="320" x2={290 + 205 * Math.cos(a)} y2={320 + 205 * Math.sin(a)} stroke="#bfdbfe" strokeWidth="1.5" strokeDasharray="5 4" />;
-                  })}
-                </svg>
-
-                {/* Center badge */}
-                <div className="absolute" style={{ left: 215, top: 245, width: 150, height: 150 }}>
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: "2px dashed #60a5fa" }}
-                  />
-                  <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-3 rounded-full flex flex-col items-center justify-center text-center gap-1"
-                    style={{ background: "linear-gradient(135deg, #1d4ed8, #0ea5e9)", boxShadow: "0 8px 32px rgba(29,78,216,0.4)" }}
-                  >
-                    <span className="text-3xl">&#x1F3C6;</span>
-                    <p className="text-white font-black text-xs leading-tight px-2">Co zyskuje<br/>dziecko?</p>
-                  </motion.div>
-                </div>
-
-                {/* 6 cards around the orbit */}
-                {[
-                  { emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego", color: "#3b82f6", glow: "rgba(59,130,246,0.3)" },
-                  { emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce i szkole",       color: "#10b981", glow: "rgba(16,185,129,0.3)" },
-                  { emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja",    color: "#8b5cf6", glow: "rgba(139,92,246,0.3)" },
-                  { emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi i koncentracji",     color: "#f97316", glow: "rgba(249,115,22,0.3)" },
-                  { emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci",  color: "#ec4899", glow: "rgba(236,72,153,0.3)" },
-                  { emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie dziecka",  color: "#eab308", glow: "rgba(234,179,8,0.3)" },
-                ].map((item, i) => {
-                  const a = (-90 + i * 60) * Math.PI / 180;
-                  const cx = 290 + 205 * Math.cos(a);
-                  const cy = 320 + 205 * Math.sin(a);
-                  return (
+                  {[
+                    { emoji: "\ud83d\udc42", text: "S\u0142yszy, ale nie s\u0142ucha",          bg: "#fff0f6", border: "#ff9cc8", shadow: "rgba(255,107,157,0.18)" },
+                    { emoji: "\ud83e\udde0", text: "Nie rozumie polece\u0144",                   bg: "#f3f0ff", border: "#b197fc", shadow: "rgba(121,80,242,0.18)" },
+                    { emoji: "\ud83d\udcda", text: "Problemy z czytaniem i pisaniem",            bg: "#fff8e1", border: "#ffd43b", shadow: "rgba(245,159,0,0.18)" },
+                    { emoji: "\ud83c\udfaf", text: "Trudno\u015bci z koncentracj\u0105",        bg: "#e8f5e9", border: "#69db7c", shadow: "rgba(47,158,68,0.18)" },
+                    { emoji: "\ud83c\udfa7", text: "Wra\u017cliwe na d\u017awi\u0119ki",        bg: "#e3f2fd", border: "#74c0fc", shadow: "rgba(25,113,194,0.18)" },
+                    { emoji: "\ud83d\udce1", text: "Zaburzenia przetwarzania (CAPD)",            bg: "#fce4ec", border: "#f48fb1", shadow: "rgba(194,24,91,0.18)" },
+                    { emoji: "\ud83d\udd04", text: "Wymaga powtarzania polece\u0144",            bg: "#fff3e0", border: "#ffb74d", shadow: "rgba(230,81,0,0.18)" },
+                    { emoji: "\ud83d\udc9a", text: "Po problemach ze s\u0142uchem",              bg: "#e8f5e9", border: "#a5d6a7", shadow: "rgba(56,142,60,0.18)" },
+                  ].map((item, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.3 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ type: "spring", stiffness: 240, damping: 16, delay: i * 0.12 }}
-                      whileHover={{ scale: 1.1, boxShadow: `0 0 0 4px ${item.glow}, 0 12px 28px ${item.glow}`, transition: { duration: 0.18 } }}
-                      style={{
-                        position: "absolute",
-                        left: cx - 80,
-                        top: cy - 38,
-                        width: 160,
-                        background: "white",
-                        border: `2px solid ${item.color}55`,
-                        borderRadius: 16,
-                        padding: "10px 12px",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 10,
-                        cursor: "default",
-                        boxShadow: `0 4px 18px ${item.glow}`,
-                      }}
+                      variants={fadeInUp}
+                      whileHover={{ scale: 1.05, y: -3, transition: { type: "spring", stiffness: 400 } }}
+                      className="flex items-center gap-3 p-3 rounded-2xl cursor-default"
+                      style={{ background: item.bg, border: `2px solid ${item.border}`, boxShadow: `0 4px 14px ${item.shadow}` }}
                     >
                       <motion.span
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ duration: 1.8 + i * 0.18, repeat: Infinity, ease: "easeInOut", delay: i * 0.22 }}
-                        style={{ fontSize: 26, flexShrink: 0 }}
+                        animate={{ rotate: [0, 8, -8, 0] }}
+                        transition={{ duration: 3 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+                        className="text-xl shrink-0"
                       >
                         {item.emoji}
                       </motion.span>
-                      <p style={{ fontSize: 11, fontWeight: 700, color: "#1e293b", lineHeight: 1.35 }}>{item.text}</p>
+                      <span className="font-semibold text-xs text-gray-800 leading-snug">{item.text}</span>
                     </motion.div>
-                  );
-                })}
+                  ))}
+                </motion.div>
               </div>
+
+              {/* RIGHT — Co zyskuje */}
+              <div>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className="flex items-center gap-3 mb-6"
+                >
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-xl"
+                    style={{ background: "linear-gradient(135deg, #bfdbfe55, #3b82f655)", border: "2px solid #93c5fd88" }}>
+                    &#x1F3C6;
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-blue-700">Co zyskuje?</p>
+                    <h3 className="text-xl font-black text-foreground">Efekty regularnych trening&oacute;w</h3>
+                  </div>
+                </motion.div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego",          color: "#3b82f6", glow: "rgba(59,130,246,0.28)",  bg: "#eff6ff", stripe: "#3b82f6" },
+                    { emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce i szkole",                  color: "#10b981", glow: "rgba(16,185,129,0.28)", bg: "#ecfdf5", stripe: "#10b981" },
+                    { emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja",              color: "#8b5cf6", glow: "rgba(139,92,246,0.28)",  bg: "#f5f3ff", stripe: "#8b5cf6" },
+                    { emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi i koncentracji",               color: "#f97316", glow: "rgba(249,115,22,0.28)",  bg: "#fff7ed", stripe: "#f97316" },
+                    { emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci na d\u017awi\u0119ki", color: "#ec4899", glow: "rgba(236,72,153,0.28)", bg: "#fdf2f8", stripe: "#ec4899" },
+                    { emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie dziecka",             color: "#eab308", glow: "rgba(234,179,8,0.28)",   bg: "#fefce8", stripe: "#eab308" },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.5, rotate: -6 }}
+                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.1 }}
+                      whileHover={{ boxShadow: `0 0 0 3px ${item.glow}, 0 10px 28px ${item.glow}`, scale: 1.04, transition: { duration: 0.18 } }}
+                      className="rounded-2xl overflow-hidden cursor-default"
+                      style={{ background: item.bg, border: `2px solid ${item.color}33` }}
+                    >
+                      <div className="h-1 w-full" style={{ background: item.stripe }} />
+                      <div className="p-3 flex items-center gap-2">
+                        <motion.span
+                          animate={{ y: [0, -10, 0] }}
+                          transition={{ duration: 1.8 + i * 0.15, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+                          className="text-xl shrink-0"
+                        >
+                          {item.emoji}
+                        </motion.span>
+                        <p className="font-bold text-xs text-gray-800 leading-snug">{item.text}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
