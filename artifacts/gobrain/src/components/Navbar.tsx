@@ -26,7 +26,10 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col leading-none">
             <span className="font-black text-2xl tracking-tight text-foreground" style={{ letterSpacing: "-0.02em" }}>GoBrain</span>
-            <span className="text-[10px] font-semibold text-orange-500 uppercase tracking-widest">{'Trening s\u0142uchowy'}</span>
+            <span className="flex flex-col text-[9px] font-semibold text-orange-500 uppercase tracking-widest leading-tight">
+              <span>Interaktywny Trening</span>
+              <span>{"Słuchowy"}</span>
+            </span>
           </div>
         </Link>
 
