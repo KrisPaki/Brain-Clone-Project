@@ -159,14 +159,14 @@ export default function StrefaTerapeutyPage() {
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="h-14 px-8 text-base font-semibold bg-primary hover:bg-primary/90" asChild>
+                <Button size="lg" className="h-14 px-8 text-base font-semibold bg-white text-primary hover:bg-white/90" asChild>
                   <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
                     Kup dostęp do Platformy
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="h-14 px-8 text-base border-white/30 text-white hover:bg-white/10" asChild>
-                  <Link to="/szkolenia-i-webinary">Szkolenia dla terapeutów</Link>
+                <Button size="lg" className="h-14 px-8 text-base font-semibold bg-orange-500 hover:bg-orange-600 text-white border-0" asChild>
+                  <Link to="/szkolenia-i-webinary">{'Szkolenia dla terapeutów'}</Link>
                 </Button>
               </motion.div>
             </motion.div>

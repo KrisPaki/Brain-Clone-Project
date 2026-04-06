@@ -237,7 +237,7 @@ export default function SzkoleniaPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-foreground text-background text-center">
+        <section className="py-20 bg-gradient-to-br from-primary to-blue-700 text-white text-center">
           <div className="container mx-auto px-4">
             <motion.div
               initial="hidden"
@@ -246,11 +246,11 @@ export default function SzkoleniaPage() {
               variants={fadeInUp}
               className="max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Chcesz zostać terapeutą GoBrain?</h2>
-              <p className="text-background/70 mb-10 text-lg">Zapisz się na kurs certyfikacyjny i dołącz do rosnącej sieci Providerów GoBrain w całej Polsce.</p>
-              <Button size="lg" className="h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">{'Chcesz zostać terapeutą GoBrain?'}</h2>
+              <p className="text-white/80 mb-10 text-lg">{'Zapisz się na kurs certyfikacyjny i dołącz do rosnącej sieci Providerów GoBrain w całej Polsce.'}</p>
+              <Button size="lg" className="h-14 px-8 text-base bg-white text-primary hover:bg-white/90 font-semibold" asChild>
                 <a href="https://gobrain.pl/gobrain_szkolenie_inst" target="_blank" rel="noopener noreferrer">
-                  Zapisz się na szkolenie
+                  {'Zapisz się na szkolenie'}
                 </a>
               </Button>
             </motion.div>
