@@ -55,13 +55,13 @@ export default function ItsPage() {
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold" asChild>
-                  <a href="https://gobrain.pl/its-gobrain-etap1" target="_blank" rel="noopener noreferrer">
+                  <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
                     Kup ITS GoBrain Etap 1
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" className="h-14 px-8 text-base" asChild>
-                  <a href="https://gobrain.pl/its_gobrain_etap_2" target="_blank" rel="noopener noreferrer">
+                  <a href="https://automater.pl/rest/order-viewer/buy/918222" target="_blank" rel="noopener noreferrer">
                     Kup ITS GoBrain Etap 2
                   </a>
                 </Button>
@@ -100,7 +100,7 @@ export default function ItsPage() {
                   Pierwszy etap ITS GoBrain „Zabawy z dźwiękami" to wprowadzenie do treningu słuchowego. Program składa się z 10–25 sesji treningowych interaktywnych ćwiczeń słuchowych ćwiczących mózg dziecka. Korzystaj 2–3 razy w tygodniu.
                 </p>
                 <Button asChild className="w-full">
-                  <a href="https://gobrain.pl/its-gobrain-etap1" target="_blank" rel="noopener noreferrer">
+                  <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
                     Kup Etap 1
                   </a>
                 </Button>
@@ -116,7 +116,7 @@ export default function ItsPage() {
                   Gdy w I etapie dziecko miało problemy lub nie zakończyło wszystkich zadań — należy zastosować Etap 2. Z każdym treningiem pamięć i koncentracja będą się poprawiać. Przerwa między etapami nie jest wymagana.
                 </p>
                 <Button asChild variant="outline" className="w-full">
-                  <a href="https://gobrain.pl/its_gobrain_etap_2" target="_blank" rel="noopener noreferrer">
+                  <a href="https://automater.pl/rest/order-viewer/buy/918222" target="_blank" rel="noopener noreferrer">
                     Kup Etap 2
                   </a>
                 </Button>
