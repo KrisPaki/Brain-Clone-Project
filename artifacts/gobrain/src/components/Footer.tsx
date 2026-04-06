@@ -1,23 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Facebook } from "lucide-react";
-
-function GoBrainLogo({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
-      <path d="M30,3 C40,3 44,12 44,22 C44,33 38,41 35,44 L25,46 L15,46 L17,40 C11,37 7,31 6,25 C4,17 7,9 13,6 C18,3 24,3 30,3 Z" fill="currentColor"/>
-      <ellipse cx="26" cy="25" rx="14" ry="12" fill="white"/>
-      <path d="M17,24 C19,21 22,22 26,25" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-      <path d="M26,25 C30,22 33,23 35,26" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-      <path d="M18,30 C21,27 24,28 26,31" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-      <path d="M22,20 C20.5,24 20,28 20.5,31 L31.5,31 C32,28 31.5,24 30,20 C28.5,17.5 23.5,17.5 22,20 Z" fill="currentColor"/>
-      <rect x="20.5" y="31" width="11" height="2" rx="1" fill="currentColor"/>
-      <rect x="22" y="33.5" width="8" height="1.8" rx="0.9" fill="currentColor"/>
-      <line x1="26" y1="16" x2="26" y2="14" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <line x1="30" y1="17.5" x2="31.5" y2="16" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <line x1="22" y1="17.5" x2="20.5" y2="16" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-    </svg>
-  );
-}
+import logoImg from "@/assets/gobrain-logo-new.png";
 
 export default function Footer() {
   return (
@@ -26,9 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4" data-testid="link-footer-logo">
-              <div className="bg-primary/10 p-2 rounded-lg">
-                <GoBrainLogo className="w-6 h-6 text-primary" />
-              </div>
+              <img src={logoImg} alt="GoBrain logo" className="w-9 h-9 rounded-lg object-contain" />
               <span className="font-bold text-xl tracking-tight text-foreground">GoBrain</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-5">
