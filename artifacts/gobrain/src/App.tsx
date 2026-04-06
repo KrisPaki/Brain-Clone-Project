@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
+import TrainingPopup from "@/components/TrainingPopup";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
 import ItsPage from "@/pages/ItsPage";
@@ -34,6 +35,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
+          <TrainingPopup />
           <Toaster />
         </BrowserRouter>
       </TooltipProvider>
