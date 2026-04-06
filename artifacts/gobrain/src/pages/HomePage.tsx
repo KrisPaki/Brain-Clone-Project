@@ -368,7 +368,83 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 3 - Products */}
+        {/* SECTION 3 - Effects */}
+        <section className="py-24 bg-card border-y border-border overflow-hidden">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center mb-16"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+                <Trophy className="w-4 h-4" />
+                <span>Efekty terapii</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Co zyskuje Twoje dziecko?</h2>
+              <p className="text-xl text-muted-foreground">Potwierdzone naukowo rezultaty regularnych trening\u00f3w</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Effects cards */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              >
+                {[
+                  { icon: Ear, emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego", color: "bg-blue-50 border-blue-200", iconColor: "text-blue-600", iconBg: "bg-blue-100" },
+                  { icon: GraduationCap, emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce i szkole", color: "bg-green-50 border-green-200", iconColor: "text-green-600", iconBg: "bg-green-100" },
+                  { icon: Activity, emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja", color: "bg-purple-50 border-purple-200", iconColor: "text-purple-600", iconBg: "bg-purple-100" },
+                  { icon: Brain, emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi, koncentracji i pami\u0119ci", color: "bg-orange-50 border-orange-200", iconColor: "text-orange-600", iconBg: "bg-orange-100" },
+                  { icon: Headphones, emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci na d\u017awi\u0119ki", color: "bg-pink-50 border-pink-200", iconColor: "text-pink-600", iconBg: "bg-pink-100" },
+                  { icon: Smile, emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie dziecka", color: "bg-yellow-50 border-yellow-200", iconColor: "text-yellow-600", iconBg: "bg-yellow-100" },
+                ].map((effect, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className={`rounded-2xl p-5 border ${effect.color} flex items-start gap-4 transition-all`}
+                  >
+                    <div className={`w-12 h-12 ${effect.iconBg} rounded-xl flex items-center justify-center shrink-0 text-2xl`}>
+                      {effect.emoji}
+                    </div>
+                    <p className="font-semibold text-foreground text-sm leading-snug mt-1">{effect.text}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Classroom photo */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative"
+              >
+                <div className="rounded-3xl overflow-hidden shadow-2xl">
+                  <img src={childrenClassroomImg} alt="Dzieci ucz\u0105 si\u0119 z GoBrain w klasie" className="w-full object-cover" />
+                </div>
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-5 -left-5 bg-background rounded-2xl border border-border shadow-xl p-4 flex items-center gap-3"
+                >
+                  <span className="text-3xl">\ud83c\udfc6</span>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Ocena szk\u00f3\u0142</p>
+                    <p className="font-bold text-foreground">100% poleca!</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 4 - Products */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             {/* Section header with child tablet image */}
@@ -556,82 +632,6 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 5 - Effects */}
-        <section className="py-24 bg-card border-y border-border overflow-hidden">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="text-center mb-16"
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                <Trophy className="w-4 h-4" />
-                <span>Efekty terapii</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Co zyskuje Twoje dziecko?</h2>
-              <p className="text-xl text-muted-foreground">Potwierdzone naukowo rezultaty regularnych treningów</p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Effects cards */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
-                {[
-                  { icon: Ear, emoji: "👂", text: "Poprawa przetwarzania słuchowego", color: "bg-blue-50 border-blue-200", iconColor: "text-blue-600", iconBg: "bg-blue-100" },
-                  { icon: GraduationCap, emoji: "📚", text: "Lepsze wyniki w nauce i szkole", color: "bg-green-50 border-green-200", iconColor: "text-green-600", iconBg: "bg-green-100" },
-                  { icon: Activity, emoji: "🗣️", text: "Lepsza wymowa i komunikacja", color: "bg-purple-50 border-purple-200", iconColor: "text-purple-600", iconBg: "bg-purple-100" },
-                  { icon: Brain, emoji: "🧠", text: "Więcej uwagi, koncentracji i pamięci", color: "bg-orange-50 border-orange-200", iconColor: "text-orange-600", iconBg: "bg-orange-100" },
-                  { icon: Headphones, emoji: "🎧", text: "Normalizacja wrażliwości na dźwięki", color: "bg-pink-50 border-pink-200", iconColor: "text-pink-600", iconBg: "bg-pink-100" },
-                  { icon: Smile, emoji: "😊", text: "Wzrost pewności siebie dziecka", color: "bg-yellow-50 border-yellow-200", iconColor: "text-yellow-600", iconBg: "bg-yellow-100" },
-                ].map((effect, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    className={`rounded-2xl p-5 border ${effect.color} flex items-start gap-4 transition-all`}
-                  >
-                    <div className={`w-12 h-12 ${effect.iconBg} rounded-xl flex items-center justify-center shrink-0 text-2xl`}>
-                      {effect.emoji}
-                    </div>
-                    <p className="font-semibold text-foreground text-sm leading-snug mt-1">{effect.text}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* Classroom photo */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative"
-              >
-                <div className="rounded-3xl overflow-hidden shadow-2xl">
-                  <img src={childrenClassroomImg} alt="Dzieci uczą się z GoBrain w klasie" className="w-full object-cover" />
-                </div>
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-5 -left-5 bg-background rounded-2xl border border-border shadow-xl p-4 flex items-center gap-3"
-                >
-                  <span className="text-3xl">🏆</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Ocena szkół</p>
-                    <p className="font-bold text-foreground">100% poleca!</p>
-                  </div>
-                </motion.div>
-              </motion.div>
             </div>
           </div>
         </section>
