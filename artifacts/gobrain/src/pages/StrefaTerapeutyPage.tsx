@@ -39,20 +39,11 @@ const staggerContainer: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-function AnimatedBar({ label, before, after, color, delay = 0 }: {
-  label: string; before: number; after: number; color: string; delay?: number;
+function AnimatedBar({ label, before, after, color, barColor, delay = 0 }: {
+  label: string; before: number; after: number; color: string; barColor: string; delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    if (inView && !started) {
-      const timer = setTimeout(() => setStarted(true), delay * 1000);
-      return () => clearTimeout(timer);
-    }
-    return undefined;
-  }, [inView, started, delay]);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
     <div ref={ref} className="space-y-2">
@@ -64,20 +55,21 @@ function AnimatedBar({ label, before, after, color, delay = 0 }: {
         </div>
       </div>
       <div className="relative h-5 bg-muted rounded-full overflow-hidden">
-        <motion.div
+        <div
           className="absolute left-0 top-0 h-full bg-muted-foreground/30 rounded-full"
           style={{ width: `${before}%` }}
         />
         <motion.div
-          className={`absolute left-0 top-0 h-full rounded-full ${color.replace("text-", "bg-")}`}
+          className={`absolute left-0 top-0 h-full rounded-full ${barColor}`}
           initial={{ width: 0 }}
-          animate={{ width: started ? `${after}%` : 0 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.1 }}
+          animate={{ width: inView ? `${after}%` : 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: inView ? delay + 0.1 : 0 }}
         />
         <div className="absolute inset-0 flex items-center justify-end pr-2">
           <motion.span
             className="text-[10px] font-black text-white drop-shadow"
-            animate={{ opacity: started ? 1 : 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inView ? 1 : 0 }}
             transition={{ duration: 0.3, delay: 0.8 }}
           >
             +{after - before}%
@@ -235,12 +227,12 @@ export default function StrefaTerapeutyPage() {
                   <BarChart2 className="w-5 h-5 text-primary" /> Średnie wyniki po 8 tygodniach treningu
                 </motion.h3>
                 {[
-                  { label: "Pamięć słuchowa", before: 41, after: 78, color: "text-blue-600", delay: 0 },
-                  { label: "Koncentracja uwagi", before: 35, after: 74, color: "text-green-600", delay: 0.15 },
-                  { label: "Rozróżnianie dźwięków", before: 48, after: 82, color: "text-purple-600", delay: 0.3 },
-                  { label: "Czas reakcji słuchowej", before: 39, after: 71, color: "text-orange-500", delay: 0.45 },
-                  { label: "Odporność na rozpraszanie", before: 30, after: 68, color: "text-pink-600", delay: 0.6 },
-                  { label: "Rozumienie poleceń", before: 44, after: 80, color: "text-teal-600", delay: 0.75 },
+                  { label: "Pamięć słuchowa",         before: 41, after: 78, color: "text-blue-600",   barColor: "bg-blue-500",   delay: 0 },
+                  { label: "Koncentracja uwagi",       before: 35, after: 74, color: "text-green-600",  barColor: "bg-green-500",  delay: 0.15 },
+                  { label: "Rozróżnianie dźwięków",    before: 48, after: 82, color: "text-purple-600", barColor: "bg-purple-500", delay: 0.3 },
+                  { label: "Czas reakcji słuchowej",   before: 39, after: 71, color: "text-orange-500", barColor: "bg-orange-500", delay: 0.45 },
+                  { label: "Odporność na rozpraszanie",before: 30, after: 68, color: "text-pink-600",   barColor: "bg-pink-500",   delay: 0.6 },
+                  { label: "Rozumienie poleceń",       before: 44, after: 80, color: "text-teal-600",   barColor: "bg-teal-500",   delay: 0.75 },
                 ].map((bar, i) => (
                   <motion.div key={i} variants={fadeInUp}>
                     <AnimatedBar {...bar} />
