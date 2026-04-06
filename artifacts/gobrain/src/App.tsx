@@ -15,6 +15,7 @@ import PomocPage from "@/pages/PomocPage";
 import SklepPage from "@/pages/SklepPage";
 import PomoceDydaktycznePage from "@/pages/PomoceDydaktycznePage";
 import ItsSchoolPage from "@/pages/ItsSchoolPage";
+import KartaMowyPage from "@/pages/KartaMowyPage";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="/pomoc" element={<PomocPage />} />
               <Route path="/sklep" element={<SklepPage />} />
               <Route path="/pomoce-dydaktyczne" element={<PomoceDydaktycznePage />} />
+              <Route path="/karta-mowy" element={<KartaMowyPage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

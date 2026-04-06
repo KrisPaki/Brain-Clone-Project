@@ -34,6 +34,7 @@ import {
   Users,
   BarChart2,
   TrendingUp,
+  Mic,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -305,7 +306,7 @@ export default function HomePage() {
                   <span>Nasze programy</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Wybierz program dla swojego dziecka</h2>
-                <p className="text-xl text-muted-foreground">Trzy rozwiązania dostosowane do różnych potrzeb — dla domu, szkoły i gabinetu terapeutycznego.</p>
+                <p className="text-xl text-muted-foreground">Cztery rozwiązania dostosowane do różnych potrzeb — dla domu, szkoły i gabinetu terapeutycznego.</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -324,14 +325,14 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
               {[
                 {
                   icon: Brain,
                   title: 'ITS GoBrain',
                   subtitle: '"Zabawy z dźwiękami"',
-                  desc: 'Dla dzieci od pi\u0105tego roku \u017cycia, do stosowania w domu.',
+                  desc: 'Dla dzieci od piątego roku życia, do stosowania w domu.',
                   link: '/its',
                   color: 'text-primary',
                   bg: 'bg-primary/10'
@@ -339,17 +340,26 @@ export default function HomePage() {
                 {
                   icon: School,
                   title: 'ITS GoBrain School',
-                  subtitle: 'Pre-end school',
-                  desc: 'Dla terapeut\u00f3w, gabinet\u00f3w, szk\u00f3\u0142, przedszkoli, poradni i instytucji.',
+                  subtitle: 'Licencja dla placówek',
+                  desc: 'Dla terapeutów, gabinetów, szkół, przedszkoli, poradni i instytucji.',
                   link: '/its-school',
                   color: 'text-accent',
                   bg: 'bg-accent/10'
                 },
                 {
+                  icon: Mic,
+                  title: 'Karta Mowy',
+                  subtitle: 'Diagnostyka logopedyczna',
+                  desc: 'Narzędzie cyfrowe do badania, dokumentowania i utrwalania prawidłowej wymowy.',
+                  link: '/karta-mowy',
+                  color: 'text-green-600',
+                  bg: 'bg-green-50'
+                },
+                {
                   icon: Stethoscope,
                   title: 'Platforma Terapeuta',
                   subtitle: 'Narzędzie specjalisty',
-                  desc: 'Dla terapeut\u00f3w: logoped\u00f3w, pedagog\u00f3w, psycholog\u00f3w, itp.',
+                  desc: 'Dla terapeutów: logopedów, pedagogów, psychologów, itp.',
                   link: '/strefa-terapeuty',
                   color: 'text-foreground',
                   bg: 'bg-muted'
@@ -885,64 +895,92 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-center"
             >
-              {/* Card 1: School */}
-              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
-                <h3 className="text-2xl font-bold text-foreground mb-2">GoBrain School</h3>
-                <p className="text-muted-foreground mb-6 h-10">{'Dla terapeutów, szkół, przedszkoli, poradni i instytucji'}</p>
-                <ul className="space-y-4 mb-8 min-h-[200px]">
-                  {["Wieloużytkownikowy dostęp", "Panel nauczyciela/terapeuty", "Monitoring postępu", "Licencja instytucjonalna"].map((feat, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="outline" className="w-full h-12" asChild data-testid="pricing-school-btn">
-                  <Link to="/strefa-terapeuty">Zamów licencję</Link>
-                </Button>
-              </motion.div>
-
-              {/* Card 2: Main (Most Popular) */}
-              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border-2 border-primary shadow-xl relative transform md:-translate-y-4">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">
+              {/* Card 1: ITS GoBrain (Most Popular) */}
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border-2 border-primary shadow-xl relative xl:col-span-1">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full whitespace-nowrap">
                   Najpopularniejszy
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-2 mt-2">ITS GoBrain</h3>
-                <p className="text-muted-foreground mb-4">{'Dla dzieci od piątego roku życia, do stosowania w domu'}</p>
-                <div className="flex gap-2 mb-6 flex-wrap">
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Licencja 365 dni</span>
-                  <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full font-medium">Licencja bezterminowa</span>
+                <h3 className="text-xl font-bold text-foreground mb-2 mt-2">ITS GoBrain</h3>
+                <p className="text-muted-foreground mb-4 text-sm">{'Dla dzieci od piątego roku życia, do stosowania w domu'}</p>
+                <div className="flex gap-2 mb-4 flex-wrap">
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">329 PLN</span>
                 </div>
-                <ul className="space-y-4 mb-8 min-h-[200px]">
-                  {["Pełny trening słuchowy (2 etapy)", "Program Zabawy z dźwiękami", "Postęp zapisywany automatycznie", "PC (Windows) i Android"].map((feat, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                <ul className="space-y-3 mb-6">
+                  {["Pełny trening słuchowy (2 etapy)", "Zabawy z dźwiękami", "PC (Windows) i Android"].map((feat, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       {feat}
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full h-12 text-base font-semibold" asChild data-testid="pricing-main-btn">
+                <Button className="w-full h-11 text-sm font-semibold" asChild data-testid="pricing-main-btn">
                   <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
                     Kup kod aktywacyjny
                   </a>
                 </Button>
               </motion.div>
 
-              {/* Card 3: Therapist */}
-              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
-                <h3 className="text-2xl font-bold text-foreground mb-2">Terapeuta</h3>
-                <p className="text-muted-foreground mb-6 h-10">{'Dla terapeutów: logopedów, pedagogów, psychologów, itp.'}</p>
-                <ul className="space-y-4 mb-8 min-h-[200px]">
-                  {["Platforma diagnostyczna", "Test 8 obszarów", "Kwestionariusze i ankiety", "Porównanie wyników przed/po", "Dostęp do materiałów szkoleniowych"].map((feat, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+              {/* Card 2: Karta Mowy */}
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border-2 border-green-400 shadow-lg relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full whitespace-nowrap">
+                  Nowość
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2 mt-2">Karta Mowy</h3>
+                <p className="text-muted-foreground mb-4 text-sm">{'Cyfrowe narzędzie diagnostyczne dla logopedów i terapeutów'}</p>
+                <div className="flex gap-2 mb-4 flex-wrap">
+                  <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">299 PLN</span>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {["Karta badania mowy", "Gry logopedyczne online", "Materiały PDF do druku"].map((feat, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                       {feat}
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full h-12" asChild data-testid="pricing-therapist-btn">
+                <Button className="w-full h-11 text-sm font-semibold bg-green-600 hover:bg-green-700 text-white" asChild data-testid="pricing-karta-btn">
+                  <Link to="/karta-mowy">Dowiedz się więcej</Link>
+                </Button>
+              </motion.div>
+
+              {/* Card 3: School */}
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
+                <h3 className="text-xl font-bold text-foreground mb-2">GoBrain School</h3>
+                <p className="text-muted-foreground mb-4 text-sm">{'Dla terapeutów, szkół, przedszkoli, poradni i instytucji'}</p>
+                <div className="flex gap-2 mb-4">
+                  <span className="text-xs bg-orange-50 text-orange-600 px-2 py-1 rounded-full font-medium">799 PLN / rok</span>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {["Wieloużytkownikowy dostęp", "Panel terapeuty", "Monitoring postępu"].map((feat, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full h-11 text-sm" asChild data-testid="pricing-school-btn">
+                  <Link to="/its-school">Zamów licencję</Link>
+                </Button>
+              </motion.div>
+
+              {/* Card 4: Therapist */}
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
+                <h3 className="text-xl font-bold text-foreground mb-2">Terapeuta</h3>
+                <p className="text-muted-foreground mb-4 text-sm">{'Dla terapeutów: logopedów, pedagogów, psychologów, itp.'}</p>
+                <div className="flex gap-2 mb-4">
+                  <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-full font-medium">Cena na zapytanie</span>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {["Platforma diagnostyczna", "Test 8 obszarów", "Kwestionariusze i ankiety"].map((feat, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full h-11 text-sm" asChild data-testid="pricing-therapist-btn">
                   <Link to="/strefa-terapeuty">Dowiedz się więcej</Link>
                 </Button>
               </motion.div>
