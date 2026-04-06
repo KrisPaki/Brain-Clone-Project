@@ -134,10 +134,10 @@ const products = [
       "Działa offline — dane lokalne",
       "PC (Windows) i Android",
     ],
-    cta: "Dowiedz się więcej",
-    ctaHref: "/karta-mowy",
+    cta: "Kup kod aktywacyjny",
+    ctaHref: "https://automater.pl/rest/order-viewer/buy/1073862",
     highlight: false,
-    internal: true,
+    internal: false,
   },
   {
     id: "programy-edukacyjne",
