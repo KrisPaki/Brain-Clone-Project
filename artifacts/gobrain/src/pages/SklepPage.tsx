@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ShoppingCart, Shield, CreditCard, Truck, ChevronRight, Play, Monitor, Smartphone, School } from "lucide-react";
+import { CheckCircle2, ShoppingCart, Shield, CreditCard, Truck, ChevronRight, Play, Monitor, Smartphone, School, Building2, Users, Star, Mail } from "lucide-react";
 import parentChildImg from "@/assets/parent-child-home.png";
 import { Button } from "@/components/ui/button";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
@@ -441,6 +441,86 @@ export default function SklepPage() {
                 skontaktuj się z nami
               </Link>
               .
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Provider Section */}
+      <section className="py-16 md:py-24 border-t border-border bg-gradient-to-br from-slate-900 via-primary/90 to-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="container mx-auto px-4 max-w-5xl relative">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 text-white text-sm font-semibold mb-6">
+                <Building2 className="w-4 h-4" />
+                Program partnerski
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Zostań Providerem GoBrain
+              </h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+                Dołącz do sieci placówek i terapeutów korzystających z GoBrain na co dzień.
+                Uzyskaj dostęp do specjalnych warunków, wsparcia i narzędzi dla profesjonalistów.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  icon: <Users className="w-6 h-6" />,
+                  title: "Licencje grupowe",
+                  desc: "Pakietowy dostęp do programu dla całej placówki lub gabinetu — wygodnie, bez limitów stanowisk.",
+                },
+                {
+                  icon: <Star className="w-6 h-6" />,
+                  title: "Preferencyjne ceny",
+                  desc: "Specjalne warunki handlowe, rabaty i pierwszeństwo dostępu do nowych modułów programu.",
+                },
+                {
+                  icon: <School className="w-6 h-6" />,
+                  title: "Wsparcie merytoryczne",
+                  desc: "Szkolenia, materiały dydaktyczne i bezpośredni kontakt z zespołem GoBrain dla Twoich pracowników.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/15">
+                  <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/15 flex flex-col md:flex-row items-center gap-6">
+              <div className="flex-1">
+                <p className="font-semibold text-lg mb-1">Zainteresowany programem Provider?</p>
+                <p className="text-white/70 text-sm">
+                  Skontaktuj się z nami — przygotujemy ofertę dopasowaną do potrzeb Twojej placówki lub gabinetu.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold h-12 px-6" asChild>
+                  <a href="mailto:gobrainterapeuta@gmail.com?subject=Program%20Provider%20GoBrain">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Napisz do nas
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 h-12 px-6 bg-transparent" asChild>
+                  <a href="tel:+48608650435">
+                    tel. 608 650 435
+                  </a>
+                </Button>
+              </div>
             </motion.div>
           </motion.div>
         </div>
