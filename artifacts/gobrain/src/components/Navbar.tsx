@@ -12,32 +12,39 @@ function GoBrainLogo({ className }: { className?: string }) {
       className={className}
       aria-hidden="true"
     >
-      <circle cx="24" cy="24" r="21" stroke="currentColor" strokeWidth="2" />
+      {/* Head silhouette – profile facing left */}
       <path
-        d="M11 24 Q11 11 24 11 Q37 11 37 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M30,3
+           C40,3 44,12 44,22
+           C44,33 38,41 35,44
+           L25,46 L15,46 L17,40
+           C11,37 7,31 6,25
+           C4,17 7,9 13,6
+           C18,3 24,3 30,3 Z"
+        fill="currentColor"
       />
+      {/* White brain ellipse */}
+      <ellipse cx="26" cy="25" rx="14" ry="12" fill="white" />
+      {/* Subtle brain fold lines */}
+      <path d="M17,24 C19,21 22,22 26,25" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+      <path d="M26,25 C30,22 33,23 35,26" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+      <path d="M18,30 C21,27 24,28 26,31" stroke="#b3d4f0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+      {/* Lightbulb body */}
       <path
-        d="M11 24 Q13 30 19 28 Q24 32 29 28 Q35 30 37 24"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
+        d="M22,20
+           C20.5,24 20,28 20.5,31
+           L31.5,31
+           C32,28 31.5,24 30,20
+           C28.5,17.5 23.5,17.5 22,20 Z"
+        fill="currentColor"
       />
-      <line x1="24" y1="11" x2="24" y2="25" stroke="currentColor" strokeWidth="1" strokeDasharray="2.5 2" strokeLinecap="round" />
-      <path
-        d="M21 25 Q20 29 21.5 30.5 L26.5 30.5 Q28 29 27 25 Q27 21.5 24 21.5 Q21 21.5 21 25Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <line x1="21.5" y1="30.5" x2="26.5" y2="30.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="22" y1="32.5" x2="26" y2="32.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="24" y1="19.5" x2="24" y2="17.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-      <line x1="27.2" y1="20.8" x2="28.5" y2="19.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-      <line x1="20.8" y1="20.8" x2="19.5" y2="19.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      {/* Lightbulb cap */}
+      <rect x="20.5" y="31" width="11" height="2"   rx="1"   fill="currentColor"/>
+      <rect x="22"   y="33.5" width="8"  height="1.8" rx="0.9" fill="currentColor"/>
+      {/* Spark rays */}
+      <line x1="26" y1="16"  x2="26" y2="14"  stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <line x1="30" y1="17.5" x2="31.5" y2="16" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <line x1="22" y1="17.5" x2="20.5" y2="16" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
     </svg>
   );
 }
