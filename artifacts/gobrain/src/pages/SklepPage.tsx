@@ -86,10 +86,10 @@ const products = [
       "Licencja 365 dni lub bezterminowa",
       "Faktura VAT w cenie",
     ],
-    cta: "Dowiedz się więcej",
-    ctaHref: "/its-school",
+    cta: "Zamów licencję",
+    ctaHref: "https://automater.pl/rest/order-viewer/buy/979412",
     highlight: false,
-    internal: true,
+    internal: false,
   },
   {
     id: "terapeuta",

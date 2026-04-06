@@ -58,7 +58,7 @@ export default function ItsSchoolPage() {
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-14 px-8 text-base font-semibold bg-orange-500 hover:bg-orange-600 text-white" asChild>
-                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain Pre & School">
+                <a href="https://automater.pl/rest/order-viewer/buy/979412" target="_blank" rel="noopener noreferrer">
                   Zamów licencję
                   <ChevronRight className="ml-2 w-4 h-4" />
                 </a>
