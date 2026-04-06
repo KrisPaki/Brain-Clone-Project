@@ -1,8 +1,8 @@
 import { motion, type Variants, animate, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import profGalkowskiImg from "@/assets/prof-galkowski.png";
 import anetaPakielaImg from "@/assets/aneta-pakiela-real.webp";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 import heroChildImg from "@/assets/hero-child-headphones.png";
 import childTabletImg from "@/assets/child-tablet-fun.png";
 import therapistChildImg from "@/assets/therapist-child.png";
@@ -705,39 +705,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 6 - Prof Recommendation */}
-        <section className="py-24 bg-blue-50 border-y border-blue-100">
-          <div className="container mx-auto px-4 max-w-5xl relative">
-            <Quote className="absolute top-0 left-4 w-24 h-24 text-primary/10 -translate-y-8 -translate-x-8" />
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="relative z-10 flex flex-col md:flex-row gap-10 items-start"
-            >
-              <div className="shrink-0 flex flex-col items-center gap-4">
-                <img 
-                  src={profGalkowskiImg} 
-                  alt="Prof. dr hab. Tadeusz Stanisław Gałkowski" 
-                  className="w-36 h-36 rounded-full object-cover object-top border-4 border-primary/20 shadow-xl"
-                />
-                <div className="text-center hidden md:block">
-                  <p className="font-bold text-sm leading-tight max-w-[140px]">Prof. dr hab. T.S. Gałkowski</p>
-                </div>
-              </div>
-              <div className="flex-1">
-                <blockquote className="text-lg md:text-xl font-medium leading-relaxed mb-8">
-                  „Chciałbym powiedzieć jako przewodniczący Polskiego Komitetu Audiofonologii, że program Zabawy z dźwiękami to jest pomysł wspaniały dostosowany do potrzeb rozwojowych dzieci mających dość często duże kłopoty z przetwarzaniem bodźców słuchowych. Program GoBrain z czystym sumieniem mogę polecić i zachęcić do stosowania zarówno w domu jak i ośrodkach logopedycznych program ten ćwiczy i uwagę i pamięć słuchową. GoBrain przyczynia się do postępu szkolnych dzieci, zwłaszcza jeśli chodzi o czytanie i pisanie. Także GoBrain to dobry pomysł warty wykorzystania tam wszędzie gdzie to możliwe zarówno w placówkach szkolnych, w poradniach jak i na terenie rodzinnego domu."
-                </blockquote>
-                <div className="border-t border-blue-200 pt-6">
-                  <p className="font-bold text-lg text-foreground">{'Prof. dr hab. Tadeusz Stanisław Gałkowski'}</p>
-                  <p className="text-muted-foreground text-sm mt-1">{'Wybitny polski psycholog, profesor nauk humanistycznych, pracownik naukowy Wydziału Psychologii Uniwersytetu Warszawskiego. Przewodniczący Polskiego Komitetu Audiofonologii.'}</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* SECTION 6 - Reviews Carousel */}
+        <ReviewsCarousel />
 
         {/* SECTION 7 - Founder — expanded expert profile */}
         <section className="py-24 bg-background overflow-hidden">

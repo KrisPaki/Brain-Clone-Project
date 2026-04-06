@@ -1,8 +1,9 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ShoppingCart, Shield, CreditCard, Truck, ChevronRight, Star, Play, Monitor, Smartphone, School } from "lucide-react";
+import { CheckCircle2, ShoppingCart, Shield, CreditCard, Truck, ChevronRight, Play, Monitor, Smartphone, School } from "lucide-react";
 import parentChildImg from "@/assets/parent-child-home.png";
 import { Button } from "@/components/ui/button";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 import productItsImg from "@/assets/product-its-gobrain.png";
 import productSchoolImg from "@/assets/product-its-school.png";
 import productTerapeutaImg from "@/assets/product-terapeuta.png";
@@ -112,26 +113,6 @@ const products = [
   },
 ];
 
-const reviews = [
-  {
-    name: "Katarzyna W.",
-    role: "Mama 7-latka",
-    rating: 5,
-    text: "Program działa — po 3 miesiącach syn zaczął skupiać się na lekcjach. Polecam każdemu rodzicowi, który walczy z problemami z koncentracją.",
-  },
-  {
-    name: "Logopeda Joanna M.",
-    role: "Logopeda, Warszawa",
-    rating: 5,
-    text: "Platforma Terapeuta ułatwiła mi pracę z dziećmi z CAPD. Bardzo czytelne raporty i łatwy dostęp do wyników.",
-  },
-  {
-    name: "Magdalena K.",
-    role: "Mama 9-latki",
-    rating: 5,
-    text: "Córka uwielbia grać w te zadania! A co ważniejsze — nauczycielka w szkole sama zwróciła uwagę, że dziecko poprawiło koncentrację.",
-  },
-];
 
 export default function SklepPage() {
   return (
@@ -355,36 +336,10 @@ export default function SklepPage() {
       </section>
 
       {/* Reviews */}
-      <section className="py-16 bg-card/40 border-y border-border">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-              Co mówią nasi klienci
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {reviews.map((r, i) => (
-                <motion.div key={i} variants={fadeInUp} className="bg-background rounded-2xl border border-border p-6">
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: r.rating }).map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">„{r.text}"</p>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">{r.name}</p>
-                    <p className="text-xs text-muted-foreground">{r.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <ReviewsCarousel
+        title="Co mówią nasi klienci?"
+        subtitle="Dołącz do ponad 5 000 rodzin i setek terapeutów, którzy już zaufali GoBrain."
+      />
 
       {/* How to buy */}
       <section className="py-16 md:py-20">
