@@ -1145,24 +1145,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 12 - Final CTA */}
-        <section className="py-24 bg-foreground text-background text-center">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="max-w-2xl mx-auto"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">Chcesz zostać terapeutą GoBrain? Zapisz się na szkolenie!</h2>
-              <Button size="lg" className="h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild data-testid="final-cta-btn">
-                <Link to="/szkolenia-i-webinary">Szkolenia i webinary</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
       </div>
       
 
