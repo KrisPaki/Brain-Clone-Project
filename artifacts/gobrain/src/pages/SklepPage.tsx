@@ -7,6 +7,8 @@ import ReviewsCarousel from "@/components/ReviewsCarousel";
 import productItsImg from "@/assets/product-its-gobrain.png";
 import productSchoolImg from "@/assets/product-its-school.png";
 import productTerapeutaImg from "@/assets/product-terapeuta.png";
+import therapistChildImg from "@/assets/therapist-child.png";
+import childrenClassroomImg from "@/assets/children-classroom.png";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -98,7 +100,7 @@ const products = [
     priceNote: "Cena na zapytanie",
     img: productTerapeutaImg,
     imgAlt: "Platforma Terapeuta GoBrain",
-    target: "Dla terapeut\u00f3w: logoped\u00f3w, pedagog\u00f3w, psycholog\u00f3w, itp.",
+    target: "Dla terapeutów: logopedów, pedagogów, psychologów, itp.",
     features: [
       "PreTest i PostTest (diagnoza słuchu)",
       "Monitoring postępów podopiecznych",
@@ -110,6 +112,55 @@ const products = [
     cta: "Zapytaj o cenę",
     ctaHref: "mailto:gobrainterapeuta@gmail.com?subject=Platforma Terapeuta - zapytanie o cenę",
     highlight: false,
+    internal: false,
+  },
+  {
+    id: "karty-mowy",
+    badge: "Materiały fizyczne",
+    badgeColor: "bg-green-500 text-white",
+    title: "Karty mowy",
+    subtitle: "Pomoce do terapii logopedycznej",
+    price: "59",
+    priceNote: "PLN (brutto)",
+    img: therapistChildImg,
+    imgAlt: "Karty mowy GoBrain — pomoce logopedyczne",
+    target: "Dla logopedów, pedagogów i rodziców pracujących z dzieckiem",
+    features: [
+      "Ponad 200 kolorowych kart obrazkowych",
+      "Pogrupowane według głosek i tematów",
+      "Dla dzieci od 2. roku życia",
+      "Trwały, laminowany materiał",
+      "Wskazówki metodyczne w zestawie",
+      "Możliwość pracy indywidualnej i grupowej",
+    ],
+    cta: "Zamów karty",
+    ctaHref: "mailto:gobrainterapeuta@gmail.com?subject=Zamówienie: Karty mowy GoBrain",
+    highlight: false,
+    internal: false,
+  },
+  {
+    id: "pomoce-dydaktyczne",
+    badge: "Zestawy materiałów",
+    badgeColor: "bg-orange-500 text-white",
+    title: "Pomoce dydaktyczne",
+    subtitle: "Autorskie materiały edukacyjne",
+    price: null,
+    priceNote: "Od 39 PLN",
+    img: childrenClassroomImg,
+    imgAlt: "Pomoce dydaktyczne GoBrain — materiały edukacyjne",
+    target: "Dla rodziców, nauczycieli, logopedów i placówek edukacyjnych",
+    features: [
+      "Karty słów, zeszyty ćwiczeń i zestawy",
+      "Opracowane przez Anetę Pakieła",
+      "Kompatybilne z programem ITS GoBrain",
+      "Dostępne jako wydruk i PDF",
+      "Dla dzieci w różnym wieku i na różnym etapie",
+      "Pakiet terapeuty w promocji",
+    ],
+    cta: "Zobacz pomoce",
+    ctaHref: "/pomoce-dydaktyczne",
+    highlight: false,
+    internal: true,
   },
 ];
 
@@ -161,7 +212,7 @@ export default function SklepPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
           >
             {products.map((p) => (
               <motion.div
@@ -220,10 +271,17 @@ export default function SklepPage() {
                     className={`w-full font-semibold ${p.highlight ? "shadow-lg shadow-primary/20" : ""}`}
                     variant={p.highlight ? "default" : "outline"}
                   >
-                    <a href={p.ctaHref} target={p.ctaHref.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      {p.cta}
-                    </a>
+                    {p.internal ? (
+                      <Link to={p.ctaHref}>
+                        <ShoppingCart className="w-4 h-4 mr-2" />
+                        {p.cta}
+                      </Link>
+                    ) : (
+                      <a href={p.ctaHref} target={p.ctaHref.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                        <ShoppingCart className="w-4 h-4 mr-2" />
+                        {p.cta}
+                      </a>
+                    )}
                   </Button>
                 </div>
               </motion.div>

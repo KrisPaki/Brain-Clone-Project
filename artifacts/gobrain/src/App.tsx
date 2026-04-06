@@ -13,6 +13,7 @@ import BlogPage from "@/pages/BlogPage";
 import FaqPage from "@/pages/FaqPage";
 import PomocPage from "@/pages/PomocPage";
 import SklepPage from "@/pages/SklepPage";
+import PomoceDydaktycznePage from "@/pages/PomoceDydaktycznePage";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/faq" element={<FaqPage />} />
               <Route path="/pomoc" element={<PomocPage />} />
               <Route path="/sklep" element={<SklepPage />} />
+              <Route path="/pomoce-dydaktyczne" element={<PomoceDydaktycznePage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
