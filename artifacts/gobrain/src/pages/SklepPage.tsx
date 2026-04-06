@@ -71,12 +71,12 @@ const products = [
     id: "its-school",
     badge: "Licencja wielostanowiskowa",
     badgeColor: "bg-orange-500 text-white",
-    title: "ITS GoBrain School",
+    title: "ITS GoBrain Pre & School",
     subtitle: "Dla placówek, gabinetów i szkół",
     price: "799",
     priceNote: "PLN / rok (brutto)",
     img: productSchoolImg,
-    imgAlt: "Program ITS GoBrain School dla terapeutów i instytucji",
+    imgAlt: "Program ITS GoBrain Pre & School dla terapeutów i instytucji",
     target: "Dla terapeutów, gabinetów, szkół, przedszkoli, poradni, instytucji",
     features: [
       "Nieograniczona liczba użytkowników",
@@ -372,10 +372,10 @@ export default function SklepPage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
                 <School className="w-4 h-4" /> {'DLA TERAPEUTÓW I PLACÓWEK'}
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">ITS GoBrain School DEMO</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-2">ITS GoBrain Pre & School DEMO</h3>
               <p className="text-lg text-foreground font-medium mb-4">{'Przetestuj przed wdrożeniem w gabinecie, szkole lub poradni'}</p>
               <p className="text-muted-foreground mb-8">
-                {'Wersja demonstracyjna ITS GoBrain School — dla terapeutów, gabinetów, szkół, przedszkoli i poradni. Sprawdź program w realnych warunkach.'}
+                {'Wersja demonstracyjna ITS GoBrain Pre & School — dla terapeutów, gabinetów, szkół, przedszkoli i poradni. Sprawdź program w realnych warunkach.'}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="outline" className="w-full sm:w-auto justify-start" asChild data-testid="demo-school-sklep-pc">

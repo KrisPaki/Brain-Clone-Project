@@ -339,7 +339,7 @@ export default function HomePage() {
                 },
                 {
                   icon: School,
-                  title: 'ITS GoBrain School',
+                  title: 'ITS GoBrain Pre & School',
                   subtitle: 'Licencja dla placówek',
                   desc: 'Dla terapeutów, gabinetów, szkół, przedszkoli, poradni i instytucji.',
                   link: '/its-school',
@@ -1029,38 +1029,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 11 - Partners */}
-        <section className="py-20 bg-card border-y border-border">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="text-center"
-            >
-              <h2 className="text-2xl font-bold text-foreground mb-12">Nasi partnerzy</h2>
-              <div className="flex flex-wrap justify-center items-center gap-16">
-                {/* SAS Centre */}
-                <a href="https://www.sascentre.pl" target="_blank" rel="noopener noreferrer" 
-                   className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
-                  <div className="w-20 h-20 rounded-2xl bg-background border border-border shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
-                    <span className="text-2xl font-bold text-primary tracking-tight">SAS</span>
-                  </div>
-                  <span className="text-sm font-semibold text-foreground">SAS Centre</span>
-                </a>
-                {/* Jakanie.pl */}
-                <a href="https://jakanie.pl" target="_blank" rel="noopener noreferrer"
-                   className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
-                  <div className="w-20 h-20 rounded-2xl bg-background border border-border shadow-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
-                    <span className="text-2xl font-bold text-foreground tracking-tight" style={{ fontFamily: "Georgia, serif" }}>J.</span>
-                  </div>
-                  <span className="text-sm font-semibold text-foreground">Jakanie.pl</span>
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
       </div>
       

@@ -49,7 +49,7 @@ export default function ItsSchoolPage() {
 
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
               ITS GoBrain{" "}
-              <span className="text-orange-500">School</span>
+              <span className="text-orange-500">Pre & School</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -58,7 +58,7 @@ export default function ItsSchoolPage() {
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-14 px-8 text-base font-semibold bg-orange-500 hover:bg-orange-600 text-white" asChild>
-                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain School">
+                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain Pre & School">
                   Zamów licencję
                   <ChevronRight className="ml-2 w-4 h-4" />
                 </a>
@@ -233,7 +233,7 @@ export default function ItsSchoolPage() {
             >
               <img
                 src={childrenClassroomImg}
-                alt="Dzieci korzystające z ITS GoBrain School w placówce"
+                alt="Dzieci korzystające z ITS GoBrain Pre & School w placówce"
                 className="w-full object-cover"
               />
             </motion.div>
@@ -252,7 +252,7 @@ export default function ItsSchoolPage() {
                 Profesjonalne narzędzie dla terapeutów
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-6">
-                ITS GoBrain School to wersja programu zaprojektowana z myślą o specjalistach. Daje terapeucie pełną kontrolę nad procesem treningowym — od planowania sesji po analizę wyników każdego dziecka.
+                ITS GoBrain Pre & School to wersja programu zaprojektowana z myślą o specjalistach. Daje terapeucie pełną kontrolę nad procesem treningowym — od planowania sesji po analizę wyników każdego dziecka.
               </motion.p>
               <motion.ul variants={staggerContainer} className="space-y-3">
                 {[
@@ -318,7 +318,7 @@ export default function ItsSchoolPage() {
             >
               <img
                 src={therapistDashboardImg}
-                alt="Panel terapeuty ITS GoBrain School"
+                alt="Panel terapeuty ITS GoBrain Pre & School"
                 className="w-full object-cover"
               />
             </motion.div>
@@ -407,7 +407,7 @@ export default function ItsSchoolPage() {
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-13 px-8 text-base font-semibold bg-white text-orange-600 hover:bg-white/90" asChild>
-                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain School">
+                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain Pre & School">
                   <Mail className="w-4 h-4 mr-2" />
                   gobrainterapeuta@gmail.com
                 </a>
