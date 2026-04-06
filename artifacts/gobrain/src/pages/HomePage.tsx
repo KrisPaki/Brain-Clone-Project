@@ -418,75 +418,123 @@ export default function HomePage() {
         </section>
 
         {/* SECTION 3 - Effects */}
-        <section className="py-24 bg-card border-y border-border overflow-hidden">
-          <div className="container mx-auto px-4">
-            <motion.div 
+        <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #fffbf0 0%, #fff0e8 50%, #fce8f3 100%)" }}>
+          {/* Floating sparkle stars */}
+          {[
+            { top: "8%",  left: "5%",  size: 28, delay: 0,   dur: 2.5 },
+            { top: "15%", right: "8%", size: 22, delay: 0.4, dur: 3 },
+            { top: "55%", left: "3%",  size: 18, delay: 0.8, dur: 2.8 },
+            { top: "70%", right: "5%", size: 24, delay: 0.2, dur: 3.2 },
+            { top: "35%", left: "48%", size: 16, delay: 1.1, dur: 2.2 },
+            { top: "85%", left: "20%", size: 20, delay: 0.6, dur: 2.7 },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.9, 0.4], rotate: [0, 180, 360] }}
+              transition={{ duration: s.dur, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
+              className="absolute pointer-events-none text-yellow-400"
+              style={{ top: s.top, left: (s as any).left, right: (s as any).right, fontSize: s.size }}
+            >
+              &#x2B50;
+            </motion.div>
+          ))}
+
+          <div className="container mx-auto px-4 max-w-6xl relative">
+            {/* Header */}
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-center mb-16"
+              className="text-center mb-14"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+              <motion.div
+                animate={{ scale: [1, 1.2, 1], rotate: [0, -5, 5, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="text-5xl mb-4 inline-block"
+              >
+                &#x1F3C6;
+              </motion.div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-4"
+                style={{ background: "linear-gradient(135deg, #fdcb6e33, #e1705533)", color: "#c0392b", border: "2px solid #fdcb6e88" }}>
                 <Trophy className="w-4 h-4" />
                 <span>Efekty terapii</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Co zyskuje Twoje dziecko?</h2>
-              <p className="text-xl text-muted-foreground">Potwierdzone naukowo rezultaty regularnych trening\u00f3w</p>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
+                Co zyskuje Twoje dziecko?
+              </h2>
+              <p className="text-xl" style={{ color: "#666" }}>
+                Potwierdzone naukowo rezultaty regularnych trening&oacute;w
+              </p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Effects cards */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
+              {/* Effect cards — spring pop-in, pulse glow on hover */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: Ear, emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego", color: "bg-blue-50 border-blue-200", iconColor: "text-blue-600", iconBg: "bg-blue-100" },
-                  { icon: GraduationCap, emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce i szkole", color: "bg-green-50 border-green-200", iconColor: "text-green-600", iconBg: "bg-green-100" },
-                  { icon: Activity, emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja", color: "bg-purple-50 border-purple-200", iconColor: "text-purple-600", iconBg: "bg-purple-100" },
-                  { icon: Brain, emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi, koncentracji i pami\u0119ci", color: "bg-orange-50 border-orange-200", iconColor: "text-orange-600", iconBg: "bg-orange-100" },
-                  { icon: Headphones, emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci na d\u017awi\u0119ki", color: "bg-pink-50 border-pink-200", iconColor: "text-pink-600", iconBg: "bg-pink-100" },
-                  { icon: Smile, emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie dziecka", color: "bg-yellow-50 border-yellow-200", iconColor: "text-yellow-600", iconBg: "bg-yellow-100" },
-                ].map((effect, i) => (
+                  { emoji: "\ud83d\udc42", text: "Poprawa przetwarzania s\u0142uchowego",  stripe: "#3b82f6", glow: "rgba(59,130,246,0.35)",  bg: "#eff6ff" },
+                  { emoji: "\ud83d\udcda", text: "Lepsze wyniki w nauce i szkole",        stripe: "#10b981", glow: "rgba(16,185,129,0.35)", bg: "#ecfdf5" },
+                  { emoji: "\ud83d\udde3\ufe0f", text: "Lepsza wymowa i komunikacja",     stripe: "#8b5cf6", glow: "rgba(139,92,246,0.35)",  bg: "#f5f3ff" },
+                  { emoji: "\ud83e\udde0", text: "Wi\u0119cej uwagi i koncentracji",      stripe: "#f97316", glow: "rgba(249,115,22,0.35)",  bg: "#fff7ed" },
+                  { emoji: "\ud83c\udfa7", text: "Normalizacja wra\u017cliwo\u015bci na d\u017awi\u0119ki", stripe: "#ec4899", glow: "rgba(236,72,153,0.35)", bg: "#fdf2f8" },
+                  { emoji: "\ud83d\ude0a", text: "Wzrost pewno\u015bci siebie dziecka",   stripe: "#eab308", glow: "rgba(234,179,8,0.35)",   bg: "#fefce8" },
+                ].map((item, i) => (
                   <motion.div
                     key={i}
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    className={`rounded-2xl p-5 border ${effect.color} flex items-start gap-4 transition-all`}
+                    initial={{ opacity: 0, scale: 0.5, rotate: -8 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.1 }}
+                    whileHover={{ boxShadow: `0 0 0 4px ${item.glow}, 0 12px 32px ${item.glow}`, scale: 1.03, transition: { duration: 0.2 } }}
+                    className="rounded-2xl overflow-hidden cursor-default"
+                    style={{ background: item.bg, border: `2px solid ${item.stripe}33` }}
                   >
-                    <div className={`w-12 h-12 ${effect.iconBg} rounded-xl flex items-center justify-center shrink-0 text-2xl`}>
-                      {effect.emoji}
+                    {/* Colored top stripe */}
+                    <div className="h-1.5 w-full" style={{ background: item.stripe }} />
+                    <div className="p-4 flex items-center gap-3">
+                      <motion.span
+                        animate={{ y: [0, -12, 0] }}
+                        transition={{ duration: 1.8 + i * 0.15, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+                        className="text-3xl shrink-0"
+                      >
+                        {item.emoji}
+                      </motion.span>
+                      <p className="font-bold text-sm text-gray-800 leading-snug">{item.text}</p>
                     </div>
-                    <p className="font-semibold text-foreground text-sm leading-snug mt-1">{effect.text}</p>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
 
-              {/* Classroom photo */}
+              {/* Photo side */}
               <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
+                transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.3 }}
                 className="relative"
               >
-                <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <div className="rounded-3xl overflow-hidden" style={{ border: "4px solid white", boxShadow: "0 20px 60px rgba(249,115,22,0.2)" }}>
                   <img src={childrenClassroomImg} alt="Dzieci ucz\u0105 si\u0119 z GoBrain w klasie" className="w-full object-cover" />
                 </div>
+                {/* Badge top-left */}
                 <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-5 -left-5 bg-background rounded-2xl border border-border shadow-xl p-4 flex items-center gap-3"
+                  animate={{ scale: [1, 1.08, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-5 -left-5 rounded-2xl px-4 py-3 flex items-center gap-2"
+                  style={{ background: "linear-gradient(135deg, #f97316, #eab308)", boxShadow: "0 8px 24px rgba(249,115,22,0.4)" }}
                 >
-                  <span className="text-3xl">\ud83c\udfc6</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Ocena szk\u00f3\u0142</p>
-                    <p className="font-bold text-foreground">100% poleca!</p>
-                  </div>
+                  <span className="text-xl">&#x1F31F;</span>
+                  <p className="font-bold text-white text-sm">100% poleca!</p>
+                </motion.div>
+                {/* Badge bottom-right */}
+                <motion.div
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                  className="absolute -bottom-5 -right-4 rounded-2xl px-4 py-3 flex items-center gap-2"
+                  style={{ background: "white", border: "2px solid #fdcb6e", boxShadow: "0 8px 24px rgba(234,179,8,0.25)" }}
+                >
+                  <span className="text-xl">&#x1F4AA;</span>
+                  <p className="font-bold text-gray-800 text-sm">Widoczne efekty!</p>
                 </motion.div>
               </motion.div>
             </div>
