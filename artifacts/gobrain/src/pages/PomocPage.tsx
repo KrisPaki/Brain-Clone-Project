@@ -208,7 +208,7 @@ export default function PomocPage() {
               <motion.div variants={fadeInUp} className="bg-background rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-foreground mb-3">Problem z kodem aktywacyjnym?</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">Jeśli kod aktywacyjny nie działa, skontaktuj się ze sprzedawcą — kliknij opcję kontaktu ze sprzedawcą po zakupie.</p>
-                <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:underline">Skontaktuj się →</a>
+                <a href="mailto:gobrainterapeuta@gmail.com?subject=Problem z kodem aktywacyjnym" className="text-sm font-semibold text-primary hover:underline">Skontaktuj się →</a>
               </motion.div>
               <motion.div variants={fadeInUp} className="bg-background rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-foreground mb-3">Pytania o program</h3>

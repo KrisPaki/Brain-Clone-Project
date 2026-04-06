@@ -41,7 +41,7 @@ const products = [
       "System automatycznego dostosowania",
     ],
     cta: "Kup teraz",
-    ctaHref: "https://automater.com/rest/order-viewer/buy/1073862",
+    ctaHref: "https://automater.pl/rest/order-viewer/buy/918448",
     highlight: true,
   },
   {
@@ -50,7 +50,7 @@ const products = [
     badgeColor: "bg-accent/80 text-white",
     title: "ITS GoBrain",
     subtitle: "'Zabawy z dźwiękami' — Etap 2",
-    price: "299",
+    price: "250",
     priceNote: "PLN (brutto)",
     img: productItsImg,
     imgAlt: "Pudełko produktu ITS GoBrain Etap 2",
@@ -64,7 +64,7 @@ const products = [
       "Zalecany po ukończeniu Etapu 1",
     ],
     cta: "Kup teraz",
-    ctaHref: "https://automater.com/rest/order-viewer/buy/1073862",
+    ctaHref: "https://automater.pl/rest/order-viewer/buy/918222",
     highlight: false,
   },
   {
@@ -463,7 +463,7 @@ export default function SklepPage() {
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="font-semibold shadow-lg shadow-primary/20 h-14 px-8 text-base" asChild>
-                <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
+                <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
                   <ShoppingCart className="w-5 h-5 mr-2" />
                   Kup kod aktywacyjny
                 </a>

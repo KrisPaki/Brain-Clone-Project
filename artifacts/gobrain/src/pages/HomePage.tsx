@@ -916,7 +916,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Button className="w-full h-11 text-sm font-semibold" asChild data-testid="pricing-main-btn">
-                  <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
+                  <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
                     Kup kod aktywacyjny
                   </a>
                 </Button>

@@ -45,7 +45,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Button asChild size="sm" className="ml-2 font-semibold shadow-sm bg-orange-500 hover:bg-orange-600 text-white border-0" data-testid="button-buy-nav">
-            <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
+            <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
               Kup kod aktywacyjny
             </a>
           </Button>
@@ -76,7 +76,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Button asChild className="w-full font-semibold shadow-sm bg-orange-500 hover:bg-orange-600 text-white border-0" data-testid="button-buy-nav-mobile">
-              <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
+              <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
                 Kup kod aktywacyjny
               </a>
             </Button>

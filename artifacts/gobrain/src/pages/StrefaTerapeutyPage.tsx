@@ -152,7 +152,7 @@ export default function StrefaTerapeutyPage() {
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold bg-white text-primary hover:bg-white/90" asChild>
-                  <a href="https://automater.com/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
+                  <a href="https://gobrain.pl/its_platforma_terapeuta" target="_blank" rel="noopener noreferrer">
                     Kup dostęp do Platformy
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </a>
