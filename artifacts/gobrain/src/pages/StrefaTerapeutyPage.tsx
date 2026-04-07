@@ -153,7 +153,7 @@ export default function StrefaTerapeutyPage() {
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold bg-white text-primary hover:bg-white/90" asChild>
                   <a href="https://automater.pl/rest/order-viewer/buy/979413" target="_blank" rel="noopener noreferrer">
-                    Kup dostęp do Platformy
+                    Kup dostęp do Platformy — 799 zł
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
