@@ -189,12 +189,20 @@ export default function HomePage() {
                   <span>ITS GoBrain</span>
                 </motion.div>
                 
-                <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-                  Interaktywny Trening Słuchowy dla dzieci
+                <motion.h1 variants={fadeInUp} className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-3 uppercase">
+                  Poprawa koncentracji, pamięci i sukces edukacyjny Twojego dziecka.
                 </motion.h1>
-                
-                <motion.p variants={fadeInUp} className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  Poprawa koncentracji, pamięci i sukces edukacyjny Twojego dziecka. Zindywidualizowany program online ITS GoBrain.
+
+                <motion.p variants={fadeInUp} className="text-lg md:text-xl font-semibold text-primary mb-4">
+                  Interaktywny Trening GoBrain dla dzieci (od 5 roku życia)
+                </motion.p>
+
+                <motion.p variants={fadeInUp} className="text-base text-muted-foreground mb-3 leading-relaxed">
+                  Zauważasz, że Twoje dziecko "słyszy, ale nie słucha"? Ma problemy z czytaniem, pisaniem lub rozumieniem poleceń?
+                </motion.p>
+
+                <motion.p variants={fadeInUp} className="text-base text-muted-foreground mb-8 leading-relaxed">
+                  GoBrain to innowacyjne narzędzie stworzone, by wspierać terapię uwagi i koncentracji słuchowej najmłodszych poprzez angażującą zabawę.
                 </motion.p>
                 
                 <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-8">
