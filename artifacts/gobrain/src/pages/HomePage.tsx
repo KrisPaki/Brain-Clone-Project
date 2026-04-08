@@ -851,7 +851,7 @@ export default function HomePage() {
                   {[
                     { label: "Polski Komitet Audiofonologii", role: "Członek Zarządu · Współpraca z prof. Tadeuszem Gałkowskim", color: "border-blue-200 bg-blue-50" },
                     { label: "Warszawski Uniwersytet Medyczny", role: "Studia doktoranckie, Katedra Otolaryngologii", color: "border-green-200 bg-green-50" },
-                    { label: "Polskie Towarzystwo Neurologopedów", role: "Wieloletni Prezes Zarządu", color: "border-purple-200 bg-purple-50" },
+                    { label: "Polskie Towarzystwo Neurologopedów", role: "Wieloletnia Przewodnicząca Zarządu", color: "border-purple-200 bg-purple-50" },
                   ].map((assoc, i) => (
                     <motion.div key={i} variants={fadeInUp} className={`rounded-xl p-3 border ${assoc.color}`}>
                       <p className="font-bold text-foreground text-sm">{assoc.label}</p>
