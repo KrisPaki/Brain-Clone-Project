@@ -337,21 +337,6 @@ export default function ItsPage() {
           </div>
         </section>
 
-        {/* Brain training section */}
-        <section className="py-20 bg-background text-center">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Trening mózgu czyni mistrza</h2>
-              <p className="text-xl text-muted-foreground">Program składa się z dwóch etapów dostosowanych do postępów dziecka.</p>
-            </motion.div>
-          </div>
-        </section>
-
       </div>
 
 
