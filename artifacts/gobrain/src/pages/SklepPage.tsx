@@ -101,7 +101,7 @@ const products = [
     priceNote: "zł",
     img: productTerapeutaImg,
     imgAlt: "Platforma Terapeuta GoBrain",
-    target: "Dla terapeutów: logopedów, pedagogów, psychologów, itp.",
+    target: "Dla terapeutów: logopedów, pedagogów, terapeutów SI, psychologów itp.",
     features: [
       "PreTest i PostTest (diagnoza słuchu)",
       "Monitoring postępów podopiecznych",
