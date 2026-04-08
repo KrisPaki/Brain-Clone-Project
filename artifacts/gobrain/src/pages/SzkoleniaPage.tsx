@@ -12,6 +12,7 @@ import {
   X,
   Send,
   CheckCircle,
+  TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -403,6 +404,7 @@ export default function SzkoleniaPage() {
                   { icon: Video, title: "Darmowe webinary", desc: "Regularne webinary prowadzone przez specjalistów GoBrain — dostępne dla wszystkich." },
                   { icon: BookOpen, title: "Scenariusze i pomoce", desc: "Bogata biblioteka gotowych scenariuszy terapeutycznych i materiałów dydaktycznych." },
                   { icon: Users, title: "Społeczność specjalistów", desc: "Dołącz do sieci Providerów GoBrain, dziel się doświadczeniami i poszerzaj sieć kontaktów." },
+                  { icon: TrendingUp, title: "Program afiliacyjny", desc: "Zarabiaj więcej jako Provider GoBrain — polecaj program i otrzymuj prowizję za każdą sprzedaż. Dodatkowe źródło dochodu dla Twojego gabinetu." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-5 rounded-2xl bg-card border border-border">
                     <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
