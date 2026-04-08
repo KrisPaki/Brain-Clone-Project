@@ -8,7 +8,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { label: "Strona g\u0142\u00f3wna", href: "/" },
+    { label: "Strona główna", href: "/" },
+    { label: "ITS GoBrain", href: "/its" },
     { label: "Sklep", href: "/sklep" },
     { label: "Strefa terapeuty", href: "/strefa-terapeuty" },
     { label: "Szkolenia", href: "/szkolenia-i-webinary" },
