@@ -406,16 +406,16 @@ export default function ItsSchoolPage() {
               Wsparcie dla terapeutów
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Zainteresowany licencją School?
+              Zainteresowany licencją ITS Pre & School?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-white/80 text-lg mb-8">
               Skontaktuj się z nami — dobierzemy odpowiedni plan dla Twojej placówki i odpowiemy na wszystkie pytania.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-13 px-8 text-base font-semibold bg-white text-orange-600 hover:bg-white/90" asChild>
-                <a href="mailto:gobrainterapeuta@gmail.com?subject=Zamówienie ITS GoBrain Pre & School">
-                  <Mail className="w-4 h-4 mr-2" />
-                  gobrainterapeuta@gmail.com
+                <a href="https://automater.pl/rest/order-viewer/buy/979412" target="_blank" rel="noopener noreferrer">
+                  Kup licencję ITS Pre & School
+                  <ChevronRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-white text-white hover:bg-white hover:text-orange-600" asChild>
