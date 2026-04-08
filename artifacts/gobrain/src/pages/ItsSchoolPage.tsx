@@ -201,7 +201,7 @@ export default function ItsSchoolPage() {
               {
                 icon: "🌸",
                 title: "Przedszkola",
-                desc: "Wczesna stymulacja słuchowa dla dzieci w wieku przedszkolnym. Praca z grupami i indywidualnie.",
+                desc: "Wczesna stymulacja słuchowa dla dzieci w wieku przedszkolnym. Praca z grupami i indywidualnie. Szkolni logopedzi, psycholodzy, pedagodzy.",
               },
               {
                 icon: "🎓",
