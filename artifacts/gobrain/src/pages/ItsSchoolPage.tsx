@@ -360,8 +360,8 @@ export default function ItsSchoolPage() {
                 <thead>
                   <tr className="bg-card border-b border-border">
                     <th className="text-left p-3 md:p-4 font-semibold text-foreground">Funkcja</th>
-                    <th className="text-center p-3 md:p-4 font-semibold text-foreground whitespace-nowrap">Domowa</th>
-                    <th className="text-center p-3 md:p-4 font-bold text-orange-500 bg-orange-50 whitespace-nowrap">ITS Pre & School</th>
+                    <th className="text-center p-3 md:p-4 font-semibold text-foreground whitespace-nowrap">GoBrain Indywidualny</th>
+                    <th className="text-center p-3 md:p-4 font-bold text-orange-500 bg-orange-50 whitespace-nowrap">Pre & School</th>
                   </tr>
                 </thead>
                 <tbody>
