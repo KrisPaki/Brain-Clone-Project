@@ -1,7 +1,7 @@
 import { motion, type Variants, animate, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import anetaPakielaImg from "@/assets/aneta-pakiela-real.webp";
+import anetaPakielaImg from "@/assets/aneta-pakiela-new.png";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import heroChildImg from "@/assets/hero-child-headphones.png";
 import childTabletImg from "@/assets/child-tablet-fun.png";
@@ -762,7 +762,7 @@ export default function HomePage() {
                       src={anetaPakielaImg}
                       alt="Aneta Pakieła – twórczyni metody GoBrain"
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: "65% 2%", transform: "scale(1.7) scaleX(-1)", transformOrigin: "65% 2%" }}
+                      style={{ objectPosition: "50% 15%", transform: "scale(1.25)", transformOrigin: "50% 15%" }}
                     />
                   </div>
                   <motion.div
