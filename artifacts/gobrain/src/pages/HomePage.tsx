@@ -849,9 +849,9 @@ export default function HomePage() {
                   className="w-full space-y-3"
                 >
                   {[
-                    { label: "Polski Komitet Audiofonologii", role: "Członek Zarządu", color: "border-blue-200 bg-blue-50" },
+                    { label: "Polski Komitet Audiofonologii", role: "Członek Zarządu · Współpraca z prof. Tadeuszem Gałkowskim", color: "border-blue-200 bg-blue-50" },
                     { label: "Warszawski Uniwersytet Medyczny", role: "Studia doktoranckie, Katedra Otolaryngologii", color: "border-green-200 bg-green-50" },
-                    { label: "SAS Centre Polska", role: "Certyfikowany terapeuta SAS", color: "border-purple-200 bg-purple-50" },
+                    { label: "Polskie Towarzystwo Neurologopedów", role: "Wieloletni Prezes Zarządu", color: "border-purple-200 bg-purple-50" },
                   ].map((assoc, i) => (
                     <motion.div key={i} variants={fadeInUp} className={`rounded-xl p-3 border ${assoc.color}`}>
                       <p className="font-bold text-foreground text-sm">{assoc.label}</p>
@@ -895,7 +895,7 @@ export default function HomePage() {
                       { label: 'Diagnosta CAPD', desc: 'Centralne zaburzenia przetwarzania słuchowego', color: 'bg-teal-50 border-teal-200 text-teal-700' },
                       { label: 'Integracja odruchów II st.', desc: 'Zaawansowany terapeuta', color: 'bg-orange-50 border-orange-200 text-orange-700' },
                       { label: 'Stymulacja słuchowa', desc: 'Certyfikowany specjalista terapii słuchu', color: 'bg-green-50 border-green-200 text-green-700' },
-                      { label: 'Integracja sensoryczna', desc: 'Terapia integracji jawnej i sekwencyjnej', color: 'bg-blue-50 border-blue-200 text-blue-700' },
+                      { label: 'Metoda IN-SITE', desc: 'Certyfikowany terapeuta metody IN-SITE', color: 'bg-blue-50 border-blue-200 text-blue-700' },
                       { label: 'Wczesna interwencja', desc: 'Praca terapeutyczna z dziećmi', color: 'bg-pink-50 border-pink-200 text-pink-700' },
                       { label: 'Neurologopedia', desc: 'Diagnoza i terapia neurologopedyczna', color: 'bg-purple-50 border-purple-200 text-purple-700' },
                     ].map((cert, i) => (
