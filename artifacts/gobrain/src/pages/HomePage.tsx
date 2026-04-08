@@ -921,7 +921,7 @@ export default function HomePage() {
                   preload="metadata"
                   className="w-full aspect-video"
                 >
-                  <source src="https://gobraintech.pl/current/www/ProfGalkowski01.mp4#t=21" type="video/mp4" />
+                  <source src="https://gobraintech.pl/current/www/ProfGalkowski01.mp4#t=3" type="video/mp4" />
                   {'Twoja przeglądarka nie obsługuje odtwarzania wideo.'}
                 </video>
               </motion.div>
