@@ -1009,41 +1009,47 @@ export default function HomePage() {
               </motion.div>
 
               {/* Card 3: School */}
-              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
-                <h3 className="text-xl font-bold text-foreground mb-2">GoBrain School</h3>
-                <p className="text-muted-foreground mb-4 text-sm">{'Dla terapeutów, szkół, przedszkoli, poradni i instytucji'}</p>
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border-2 border-orange-400 shadow-lg relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full whitespace-nowrap">
+                  Dla instytucji
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2 mt-2">GoBrain School</h3>
+                <p className="text-muted-foreground mb-4 text-sm">Dla terapeutów, szkół, przedszkoli, poradni i instytucji</p>
                 <div className="flex gap-2 mb-4">
                   <span className="text-xs bg-orange-50 text-orange-600 px-2 py-1 rounded-full font-medium">799 PLN / rok</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Wieloużytkownikowy dostęp", "Panel terapeuty", "Monitoring postępu"].map((feat, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
                       {feat}
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full h-11 text-sm" asChild data-testid="pricing-school-btn">
+                <Button variant="outline" className="w-full h-11 text-sm border-orange-400 text-orange-600 hover:bg-orange-50" asChild data-testid="pricing-school-btn">
                   <Link to="/its-school">Zamów licencję</Link>
                 </Button>
               </motion.div>
 
-              {/* Card 4: Therapist */}
-              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-border shadow-sm">
-                <h3 className="text-xl font-bold text-foreground mb-2">Terapeuta</h3>
-                <p className="text-muted-foreground mb-4 text-sm">{'Dla terapeutów: logopedów, pedagogów, psychologów, itp.'}</p>
+              {/* Card 4: Platforma Terapeuty */}
+              <motion.div variants={fadeInUp} className="bg-background rounded-3xl p-8 border-2 border-purple-400 shadow-lg relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-purple-600 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full whitespace-nowrap">
+                  Dla terapeutów
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2 mt-2">Platforma Terapeuty</h3>
+                <p className="text-muted-foreground mb-4 text-sm">Dla terapeutów: logopedów, pedagogów, psychologów, itp.</p>
                 <div className="flex gap-2 mb-4">
-                  <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-full font-medium">799 zł</span>
+                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">799 zł</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Platforma diagnostyczna", "Test 8 obszarów", "Kwestionariusze i ankiety"].map((feat, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
                       {feat}
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full h-11 text-sm" asChild data-testid="pricing-therapist-btn">
+                <Button variant="outline" className="w-full h-11 text-sm border-purple-400 text-purple-700 hover:bg-purple-50" asChild data-testid="pricing-therapist-btn">
                   <Link to="/strefa-terapeuty">Dowiedz się więcej</Link>
                 </Button>
               </motion.div>
