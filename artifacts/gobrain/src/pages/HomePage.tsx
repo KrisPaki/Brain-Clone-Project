@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import anetaPakielaImg from "@/assets/aneta-pakiela-new.png";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
-import heroChildImg from "@/assets/hero-child-headphones.png";
+import heroChildImg from "@/assets/hero-child-new.webp";
 import childTabletImg from "@/assets/child-tablet-fun.png";
 import therapistChildImg from "@/assets/therapist-child.png";
 import childrenClassroomImg from "@/assets/children-classroom.png";
