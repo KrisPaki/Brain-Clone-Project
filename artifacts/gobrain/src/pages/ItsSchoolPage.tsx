@@ -168,7 +168,7 @@ export default function ItsSchoolPage() {
             className="text-center mb-12"
           >
             <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-foreground mb-3">
-              Dla kogo jest licencja School?
+              Dla kogo jest licencja ITS Pre & School?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-xl mx-auto">
               Rozwiązanie stworzone z myślą o specjalistach pracujących z grupami dzieci.
