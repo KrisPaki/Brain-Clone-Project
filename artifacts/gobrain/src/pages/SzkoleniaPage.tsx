@@ -232,6 +232,9 @@ export default function SzkoleniaPage() {
                 <span className="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full">
                   <Users className="w-4 h-4 text-primary" /> Dołączenie do sieci Providerów
                 </span>
+                <span className="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full">
+                  <Award className="w-4 h-4 text-green-500" /> Możliwość zarobku
+                </span>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
