@@ -44,7 +44,7 @@ export default function ItsSchoolPage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-6">
               <School className="w-4 h-4" />
-              Licencja wielostanowiskowa
+              Bez limitu użytkowników
             </motion.div>
 
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
