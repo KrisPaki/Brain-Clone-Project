@@ -341,52 +341,54 @@ export default function ItsSchoolPage() {
             className="text-center mb-12"
           >
             <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-foreground mb-3">
-              School vs. licencja domowa
+              ITS Pre & School vs. licencja domowa
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
               Porównaj, które rozwiązanie pasuje do Twoich potrzeb.
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="overflow-hidden rounded-2xl border border-border"
-          >
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-card border-b border-border">
-                  <th className="text-left p-4 font-semibold text-foreground w-1/2">Funkcja</th>
-                  <th className="text-center p-4 font-semibold text-foreground">Domowa</th>
-                  <th className="text-center p-4 font-bold text-orange-500 bg-orange-50">School</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ["Liczba podopiecznych", "1 dziecko", "Nieograniczona"],
-                  ["Ograniczenia dobowe", "Tak", "Brak"],
-                  ["Kontrola terapeuty", "Brak", "Pełna"],
-                  ["Panel monitoringu", "Rodzic", "Terapeuta + rodzic"],
-                  ["PreTest / PostTest", "Nie", "Tak"],
-                  ["Faktura VAT", "Tak", "Tak"],
-                  ["Wsparcie techniczne", "Podstawowe", "Priorytetowe"],
-                  ["Szkolenie Providera", "Nie", "Tak"],
-                ].map(([feature, home, school], i) => (
-                  <motion.tr
-                    key={feature}
-                    variants={fadeInUp}
-                    className={`border-b border-border ${i % 2 === 0 ? "bg-background" : "bg-card/30"}`}
-                  >
-                    <td className="p-4 text-foreground font-medium">{feature}</td>
-                    <td className="p-4 text-center text-muted-foreground">{home}</td>
-                    <td className="p-4 text-center font-semibold text-orange-600 bg-orange-50/50">{school}</td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
+          <div className="overflow-x-auto rounded-2xl border border-border">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="overflow-hidden"
+            >
+              <table className="w-full text-sm min-w-[480px]">
+                <thead>
+                  <tr className="bg-card border-b border-border">
+                    <th className="text-left p-3 md:p-4 font-semibold text-foreground">Funkcja</th>
+                    <th className="text-center p-3 md:p-4 font-semibold text-foreground whitespace-nowrap">Domowa</th>
+                    <th className="text-center p-3 md:p-4 font-bold text-orange-500 bg-orange-50 whitespace-nowrap">ITS Pre & School</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Liczba podopiecznych", "1 dziecko", "Nieograniczona"],
+                    ["Ograniczenia dobowe", "Tak", "Brak"],
+                    ["Kontrola terapeuty", "Brak", "Pełna"],
+                    ["Panel monitoringu", "Rodzic", "Terapeuta + rodzic"],
+                    ["PreTest / PostTest", "Nie", "Tak"],
+                    ["Faktura VAT", "Tak", "Tak"],
+                    ["Wsparcie techniczne", "Podstawowe", "Priorytetowe"],
+                    ["Szkolenie Providera", "Nie", "Tak"],
+                  ].map(([feature, home, school], i) => (
+                    <motion.tr
+                      key={feature}
+                      variants={fadeInUp}
+                      className={`border-b border-border ${i % 2 === 0 ? "bg-background" : "bg-card/30"}`}
+                    >
+                      <td className="p-3 md:p-4 text-foreground font-medium">{feature}</td>
+                      <td className="p-3 md:p-4 text-center text-muted-foreground">{home}</td>
+                      <td className="p-3 md:p-4 text-center font-semibold text-orange-600 bg-orange-50/50">{school}</td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          </div>
         </div>
       </section>
 
