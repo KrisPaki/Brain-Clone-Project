@@ -261,6 +261,7 @@ export default function ItsSchoolPage() {
                 {[
                   "Panel zarządzania podopiecznymi w jednym miejscu",
                   "Dostęp do PreTestów i PostTestów diagnostycznych",
+                  "Gotowe scenariusze PDF do wydruku — obrazki i karty do tradycyjnej pracy terapeutycznej",
                   "Możliwość pracy stacjonarnej i zdalnej",
                   "Szkolenie i certyfikat Providera GoBrain w pakiecie",
                   "Wsparcie techniczne i merytoryczne od twórców",
