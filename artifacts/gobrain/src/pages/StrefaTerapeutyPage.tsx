@@ -515,7 +515,7 @@ export default function StrefaTerapeutyPage() {
                 {
                   icon: Users, emoji: "👥",
                   title: "Śledzenie postępów",
-                  desc: "Data i godzina aktywności, rodzaj zadań i wyniki każdego podopiecznego w czasie rzeczywistym.",
+                  desc: "Data i godzina aktywności, rodzaj zadań i wyniki każdego podopiecznego w czasie rzeczywistym. Monitorowanie aktywności terapeutycznej poza gabinetem oraz wsparcie rodziców w prowadzeniu terapii w domu.",
                   color: "bg-orange-50 border-orange-200",
                 },
                 {
