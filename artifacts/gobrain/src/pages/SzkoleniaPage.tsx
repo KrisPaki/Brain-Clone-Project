@@ -269,7 +269,7 @@ export default function SzkoleniaPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Program szkolenia</h2>
-              <p className="text-lg text-muted-foreground">Cztery moduły video omawiające kompleksowo metodę ITS GoBrain</p>
+              <p className="text-lg text-muted-foreground">Pięć modułów video omawiających kompleksowo metodę ITS GoBrain</p>
             </motion.div>
 
             <motion.div

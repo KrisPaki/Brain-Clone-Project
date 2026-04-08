@@ -385,7 +385,7 @@ export default function ItsPage() {
                 >
                   {[
                     "Dziecko słyszy, ale nie słucha i wymaga powtarzania poleceń",
-                    "Brak efektów terapii logopedycznej w codziennej mowie",
+                    "Brak efektów w terapii logopedycznej w codziennej mowie",
                     "Ma trudności z doprowadzeniem zadań do końca",
                     "Ma problemy z nauką czytania i pisania",
                     "Wykazuje nieadekwatną samoocenę",
