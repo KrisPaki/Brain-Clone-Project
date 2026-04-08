@@ -35,6 +35,8 @@ import {
   BarChart2,
   TrendingUp,
   Mic,
+  Award,
+  Volume2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -295,6 +297,68 @@ export default function HomePage() {
                   <span className="text-primary-foreground/80 text-sm font-medium">{stat.label}</span>
                 </motion.div>
               ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CO NAS WYRÓZNIA */}
+        <section className="py-14 bg-background border-b border-border">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+                Co nas wyróżnia:
+              </motion.h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {[
+                  {
+                    icon: Zap,
+                    color: "bg-blue-50 text-blue-600",
+                    title: "Adaptacja w czasie rzeczywistym",
+                    desc: "Automatycznie dopasowuje poziom trudności i liczbę dystraktorów do możliwości dziecka.",
+                  },
+                  {
+                    icon: TrendingUp,
+                    color: "bg-green-50 text-green-600",
+                    title: "Bez frustracji",
+                    desc: "System sam analizuje postępy i dobiera zadania — eliminuje efekt za trudne / za łatwe.",
+                  },
+                  {
+                    icon: Star,
+                    color: "bg-yellow-50 text-yellow-600",
+                    title: "Trening jak gra",
+                    desc: "Angażująca forma i atrakcyjna grafika budują motywację i wytrwałość dziecka.",
+                  },
+                  {
+                    icon: Award,
+                    color: "bg-red-50 text-red-600",
+                    title: "Skuteczny tam, gdzie inne zawodzą",
+                    desc: "Idealny dla dzieci unikających treningów — działa nawet przy niskiej motywacji.",
+                  },
+                  {
+                    icon: Ear,
+                    color: "bg-purple-50 text-purple-600",
+                    title: "Unikalne podejście słuchowe",
+                    desc: "Przewaga bodźców słuchowych nad wzrokowymi ze stopniowym wycofywaniem wsparcia wizualnego.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeInUp}
+                    className="flex flex-col gap-3 p-5 rounded-2xl border border-border hover:shadow-md transition-shadow bg-background"
+                  >
+                    <div className={`w-10 h-10 rounded-xl ${item.color} flex items-center justify-center shrink-0`}>
+                      <item.icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="font-bold text-foreground text-sm leading-snug">{item.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>
