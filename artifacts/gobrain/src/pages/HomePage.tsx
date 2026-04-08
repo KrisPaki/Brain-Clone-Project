@@ -221,7 +221,7 @@ export default function HomePage() {
                   {[
                     { icon: "🧠", label: "5000+ dzieci" },
                     { icon: "⭐", label: "4.9/5.0 ocena" },
-                    { icon: "🎵", label: "20 ćwiczeń" },
+                    { icon: "🎵", label: "100 ćwiczeń" },
                   ].map((s, i) => (
                     <div key={i} className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-background border border-border shadow-sm text-sm font-medium text-foreground">
                       <span>{s.icon}</span>{s.label}
@@ -287,7 +287,7 @@ export default function HomePage() {
               {[
                 { target: 5000, suffix: "+", label: "Dzieci skorzystało" },
                 { target: 98, suffix: "%", label: "Zadowolonych rodziców" },
-                { target: 20, suffix: "", label: "Zadań treningowych" },
+                { target: 100, suffix: "", label: "Zadań treningowych" },
                 { target: 4, suffix: "", label: "Poziomy trudności" },
               ].map((stat, i) => (
                 <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center gap-1">
