@@ -293,12 +293,12 @@ export default function SzkoleniaPage() {
                 {
                   module: "Moduł 3",
                   title: "Centralne zaburzenia przetwarzania słuchowego (CAPD)",
-                  desc: "Definicja CAPD, diagnozowanie, różnicowanie z ADHD i dysleksją. Jak stosować platformę TERAPEUTA do diagnozy i monitorowania postępów? Obsługa PreTestu i PostTestu.",
+                  desc: "Definicja CAPD, diagnozowanie, różnicowanie z ADHD i dysleksją. Jak stosować platformę TERAPEUTA do diagnozy i monitorowania postępów.",
                 },
                 {
                   module: "Moduł 4",
                   title: "Typy kliniczne i wytyczne terapeutyczne",
-                  desc: "Praktyczne zastosowanie ITS GoBrain w terapii logopedycznej, pedagogicznej i psychologicznej. Wskazania i przeciwwskazania. Scenariusze pracy z dziećmi o różnych profilach trudności.",
+                  desc: "Praktyczne zastosowanie ITS GoBrain w terapii logopedycznej, pedagogicznej i psychologicznej. Wskazania i przeciwwskazania. Scenariusze pracy z dziećmi o różnych profilach trudności. Obsługa PreTestu i PostTestu — jak przeprowadzać badania diagnostyczne i interpretować wyniki.",
                 },
                 {
                   module: "Moduł 5",
