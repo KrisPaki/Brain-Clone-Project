@@ -139,6 +139,150 @@ export default function ItsPage() {
           </div>
         </section>
 
+        {/* ─── DLACZEGO ITS GOBRAIN ─── */}
+        <section className="py-20 md:py-28 bg-background">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <Zap className="w-4 h-4" />
+                <span>Zalety programu</span>
+              </motion.div>
+              <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight mb-4">
+                Dlaczego ITS GoBrain?
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Program zaprojektowany tak, aby dziecko chciało pracować — i robiło realne postępy.
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
+            >
+              {[
+                {
+                  icon: Zap,
+                  color: "bg-blue-50 text-blue-600",
+                  border: "border-blue-100",
+                  title: "Adaptacja w czasie rzeczywistym",
+                  bullets: [
+                    "Automatycznie dopasowuje poziom trudności do możliwości dziecka",
+                    "Stopniowo zwiększa liczbę rozpraszaczy (dystraktorów)",
+                    "Uczy koncentracji w trudnym, „głośnym" środowisku",
+                    "Rozwija kierunkową uwagę i przetwarzanie słuchowe",
+                    "Wzmacnia uwagę słuchową (z naciskiem na prawą stronę)",
+                  ],
+                },
+                {
+                  icon: TrendingUp,
+                  color: "bg-green-50 text-green-600",
+                  border: "border-green-100",
+                  title: "Maksymalne dopasowanie — bez frustracji",
+                  bullets: [
+                    "System sam analizuje postępy dziecka",
+                    "Dobiera zadania w czasie rzeczywistym",
+                    "Eliminuje efekt „za trudne / za łatwe"",
+                    "Dorosły wspiera — system prowadzi",
+                  ],
+                },
+                {
+                  icon: Star,
+                  color: "bg-yellow-50 text-yellow-600",
+                  border: "border-yellow-100",
+                  title: "Trening, który dziecko chce wykonywać",
+                  bullets: [
+                    "Forma angażującej gry",
+                    "Atrakcyjna grafika zwiększająca motywację",
+                    "Naturalne wciągnięcie dziecka w działanie",
+                    "Budowanie wytrwałości i chęci podejmowania wyzwań",
+                  ],
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  className={`rounded-2xl border ${card.border} bg-background p-7 flex flex-col gap-5 shadow-sm hover:shadow-md transition-shadow`}
+                >
+                  <div className={`w-12 h-12 rounded-2xl ${card.color} flex items-center justify-center`}>
+                    <card.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground leading-snug">{card.title}</h3>
+                  <ul className="flex flex-col gap-2">
+                    {card.bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              {[
+                {
+                  icon: Award,
+                  color: "bg-red-50 text-red-600",
+                  border: "border-red-100",
+                  title: "Skuteczny tam, gdzie inne metody zawodzą",
+                  bullets: [
+                    "Idealny dla dzieci unikających treningów",
+                    "Obniża opór przed wysiłkiem",
+                    "Wprowadza dziecko w rozwój bez presji",
+                    "Działa nawet przy niskiej motywacji",
+                  ],
+                },
+                {
+                  icon: Ear,
+                  color: "bg-purple-50 text-purple-600",
+                  border: "border-purple-100",
+                  title: "Unikalne podejście słuchowe",
+                  bullets: [
+                    "Przewaga bodźców słuchowych nad wzrokowymi",
+                    "Stopniowe wycofywanie wsparcia wizualnego",
+                    "Skuteczne wsparcie trudności przetwarzania słuchowego",
+                  ],
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  className={`rounded-2xl border ${card.border} bg-background p-7 flex flex-col gap-5 shadow-sm hover:shadow-md transition-shadow`}
+                >
+                  <div className={`w-12 h-12 rounded-2xl ${card.color} flex items-center justify-center`}>
+                    <card.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground leading-snug">{card.title}</h3>
+                  <ul className="flex flex-col gap-2">
+                    {card.bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
         {/* ─── EFFECTS STRIP ─── */}
         <section className="py-16 bg-primary text-white">
           <div className="container mx-auto px-4 max-w-6xl">
