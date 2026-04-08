@@ -89,7 +89,7 @@ export default function ItsSchoolPage() {
             className="text-center mb-12"
           >
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Co zawiera licencja School?
+              Co zawiera licencja Pre & School?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-xl mx-auto">
               Wszystkie narzędzia potrzebne do prowadzenia skutecznego treningu słuchowego w placówce.
