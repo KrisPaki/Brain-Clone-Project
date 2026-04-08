@@ -314,7 +314,7 @@ export default function HomePage() {
                   <Brain className="w-4 h-4" />
                   <span>Nasze programy</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Wybierz program dla swojego dziecka</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Wybierz skuteczny program dla dziecka</h2>
                 <p className="text-xl text-muted-foreground">Cztery rozwiązania dostosowane do różnych potrzeb — dla domu, szkoły i gabinetu terapeutycznego.</p>
               </motion.div>
               <motion.div
