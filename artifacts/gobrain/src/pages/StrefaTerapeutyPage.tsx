@@ -503,7 +503,7 @@ export default function StrefaTerapeutyPage() {
                 {
                   icon: ClipboardList, emoji: "📋",
                   title: "Kwestionariusze i ankiety",
-                  desc: "Kwestionariusze, wywiad, karta oceny rozwoju dziecka, karta lateralizacji i pomoce do ćwiczeń.",
+                  desc: "Kwestionariusze, wywiad, próby diagnostyczne dziecka — ocena przygotowania do nauki, karta lateralizacji i pomoce do ćwiczeń.",
                   color: "bg-purple-50 border-purple-200",
                 },
                 {
