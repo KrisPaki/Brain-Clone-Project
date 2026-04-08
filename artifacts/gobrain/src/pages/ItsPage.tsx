@@ -113,6 +113,34 @@ export default function ItsPage() {
           </div>
         </section>
 
+        {/* ─── EFFECTS STRIP ─── */}
+        <section className="py-16 bg-primary text-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center"
+            >
+              {[
+                { icon: Ear, text: "Przetwarzanie słuchowe" },
+                { icon: GraduationCap, text: "Wyniki w nauce" },
+                { icon: Activity, text: "Wymowa i komunikacja" },
+                { icon: Brain, text: "Uwaga i pamięć" },
+                { icon: Volume2, text: "Wrażliwość słuchowa" },
+              ].map((effect, i) => (
+                <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center gap-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <effect.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-sm font-medium text-white/90">{effect.text}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
         {/* ─── KARTY ZALET ─── */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 max-w-6xl">
@@ -316,34 +344,6 @@ export default function ItsPage() {
               </motion.div>
 
             </div>
-          </div>
-        </section>
-
-        {/* ─── EFFECTS STRIP ─── */}
-        <section className="py-16 bg-primary text-white">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center"
-            >
-              {[
-                { icon: Ear, text: "Przetwarzanie słuchowe" },
-                { icon: GraduationCap, text: "Wyniki w nauce" },
-                { icon: Activity, text: "Wymowa i komunikacja" },
-                { icon: Brain, text: "Uwaga i pamięć" },
-                { icon: Volume2, text: "Wrażliwość słuchowa" },
-              ].map((effect, i) => (
-                <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <effect.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <p className="text-sm font-medium text-white/90">{effect.text}</p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
