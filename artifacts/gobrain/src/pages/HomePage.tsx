@@ -523,13 +523,13 @@ export default function HomePage() {
                 >
                   {[
                     { icon: Ear, text: "Słyszy, ale nie słucha" },
-                    { icon: Brain, text: "Nie rozumie poleceń" },
+                    { icon: Brain, text: "Nie rozumie poleceń i wymaga powtarzania" },
                     { icon: BookOpen, text: "Problemy z czytaniem i pisaniem" },
                     { icon: Target, text: "Trudności z koncentracją" },
                     { icon: Headphones, text: "Wrażliwe na dźwięki" },
                     { icon: Activity, text: "Zaburzenia przetwarzania (CAPD)" },
-                    { icon: GraduationCap, text: "Wymaga powtarzania poleceń" },
-                    { icon: Heart, text: "Po problemach ze słuchem" },
+                    { icon: GraduationCap, text: "Wymaga powtarzania poleceń, co zmienia się w niepokojące zachowania" },
+                    { icon: Heart, text: "Po usunięciu trzeciego migdałka oraz drenach" },
                   ].map((item, i) => (
                     <motion.div key={i} variants={fadeInUp} className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-sm transition-all">
                       <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
