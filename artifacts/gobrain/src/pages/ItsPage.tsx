@@ -384,14 +384,15 @@ export default function ItsPage() {
                   className="grid grid-cols-1 gap-3"
                 >
                   {[
-                    "Dziecko słyszy, ale nie słucha i wymaga powtarzania poleceń",
+                    "Nie rozumie poleceń i wymaga powtarzania",
+                    "Wymaga powtarzania poleceń, co zmienia się w niepokojące zachowania",
                     "Brak efektów w terapii logopedycznej w codziennej mowie",
                     "Ma trudności z doprowadzeniem zadań do końca",
                     "Ma problemy z nauką czytania i pisania",
                     "Wykazuje nieadekwatną samoocenę",
                     "Jest nadwrażliwe na dźwięki (zatyka uszy)",
                     "Ma zaburzenia przetwarzania słuchowego (CAPD)",
-                    "Miało problemy ze słuchem (np. przerost migdałków)",
+                    "Po usunięciu trzeciego migdałka oraz drenach.",
                     "Wykazuje objawy dysleksji",
                     "Ma trudności z koncentracją i uwagą słuchową",
                   ].map((item, i) => (
