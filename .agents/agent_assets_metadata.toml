@@ -107,3 +107,9 @@ id = "0qIpGj-Ir68cFGIqUf4QK"
 uri = "file://gobrain-fb-cover.png"
 type = "image"
 title = "GoBrain — okładka Facebook (1640×624 px)"
+
+[[outputs]]
+id = "S8MER0Y-Laa_caaD1NHSa"
+uri = "file://gobrain-fb-cover-v2.png"
+type = "image"
+title = "GoBrain — okładka Facebook v2 (1640×624 px)"
