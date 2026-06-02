@@ -1035,7 +1035,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">ITS GoBrain</h3>
                 <p className="text-muted-foreground mb-4 text-sm">{'Dla dzieci od piątego roku życia, do stosowania w domu'}</p>
                 <div className="flex gap-2 mb-4 flex-wrap">
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">250 PLN</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">390 PLN</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Pełny trening słuchowy (2 etapy)", "Zabawy z dźwiękami", "PC (Windows) i Android"].map((feat, i) => (
@@ -1060,7 +1060,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">Karta Mowy</h3>
                 <p className="text-muted-foreground mb-4 text-sm">{'Cyfrowe narzędzie diagnostyczne dla logopedów i terapeutów'}</p>
                 <div className="flex gap-2 mb-4 flex-wrap">
-                  <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">299 PLN</span>
+                  <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">389 PLN</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Karta badania mowy", "Gry logopedyczne online", "Materiały PDF do druku"].map((feat, i) => (

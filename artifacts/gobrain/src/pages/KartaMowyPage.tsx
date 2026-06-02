@@ -66,7 +66,7 @@ export default function KartaMowyPage() {
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-14 px-8 text-base font-semibold bg-green-600 hover:bg-green-700 text-white" asChild>
                 <a href="https://automater.pl/rest/order-viewer/buy/1073862" target="_blank" rel="noopener noreferrer">
-                  Kup kod aktywacyjny — 299 PLN
+                  Kup kod aktywacyjny — 389 PLN
                   <ChevronRight className="ml-2 w-4 h-4" />
                 </a>
               </Button>
@@ -406,7 +406,7 @@ export default function KartaMowyPage() {
               Karta Mowy czeka na Ciebie. Licencja na 365 dni od aktywacji.
             </motion.p>
             <motion.p variants={fadeInUp} className="text-white font-bold text-2xl mb-8">
-              299 PLN (brutto)
+              389 PLN (brutto)
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="h-13 px-8 text-base font-semibold bg-white text-green-700 hover:bg-white/90" asChild>
