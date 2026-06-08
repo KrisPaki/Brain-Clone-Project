@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoBrain — Wytyczne UX i Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #111827; line-height: 1.6; }
+  
+  .page { max-width: 1000px; margin: 0 auto; padding: 48px 32px; }
+  
+  /* Cover */
+  .cover { background: linear-gradient(135deg, #0055bf 0%, #0066cc 40%, #7c3aed 80%, #ea580c 100%); color: #fff; border-radius: 20px; padding: 60px 48px; margin-bottom: 48px; }
+  .cover-logo { font-size: 42px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; }
+  .cover-sub { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.8; margin-bottom: 32px; color: #ffa94d; }
+  .cover h1 { font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+  .cover p { font-size: 15px; opacity: 0.85; max-width: 500px; }
+  .cover-meta { margin-top: 40px; font-size: 13px; opacity: 0.6; }
+
+  /* Section */
+  .section { background: #fff; border: 1px solid #e8ecf0; border-radius: 16px; padding: 36px; margin-bottom: 24px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #0066cc; margin-bottom: 8px; }
+  .section h2 { font-size: 22px; font-weight: 800; color: #111827; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid #f1f5f9; }
+
+  /* Color palette */
+  .colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .color-chip { border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.07); }
+  .color-swatch { height: 72px; }
+  .color-info { padding: 10px 12px; background: #fff; }
+  .color-name { font-size: 12px; font-weight: 700; color: #111827; }
+  .color-hex { font-size: 11px; font-family: monospace; color: #6b7280; margin-top: 2px; }
+  .color-role { font-size: 10px; color: #9ca3af; margin-top: 2px; }
+
+  /* Typo */
+  .typo-row { display: flex; align-items: baseline; gap: 20px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+  .typo-row:last-child { border-bottom: none; }
+  .typo-label { font-size: 11px; font-weight: 600; color: #9ca3af; min-width: 130px; font-family: monospace; }
+  .typo-example { color: #111827; }
+
+  /* Buttons */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap-8px; padding: 10px 20px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; cursor: default; border: none; text-decoration: none; }
+  .btn-primary { background: #0066cc; color: #fff; }
+  .btn-primary-lg { background: #0066cc; color: #fff; padding: 14px 32px; font-size: 16px; border-radius: 12px; }
+  .btn-orange { background: #f97316; color: #fff; }
+  .btn-outline { background: transparent; color: #111827; border: 1.5px solid #e2e8f0; }
+  .btn-ghost { background: transparent; color: #0066cc; }
+  .btn-green { background: #00a85a; color: #fff; }
+  .btn-purple { background: #7c3aed; color: #fff; }
+  .btn-label { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+
+  /* Badges */
+  .badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .badge-blue { background: #eff6ff; color: #0066cc; }
+  .badge-orange { background: #fff7ed; color: #f97316; }
+  .badge-green { background: #f0fdf4; color: #00a85a; }
+  .badge-purple { background: #f5f3ff; color: #7c3aed; }
+  .badge-dark { background: #0066cc; color: #fff; }
+  .badge-gradient { background: linear-gradient(90deg, #0066cc, #7c3aed, #ea580c); color: #fff; }
+
+  /* Cards */
+  .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { border: 1px solid #e8ecf0; border-radius: 16px; padding: 24px; background: #fff; }
+  .card-highlight { border: 2px solid #0066cc; background: linear-gradient(135deg, #eff6ff 0%, #fff 100%); }
+  .card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
+  .card-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 6px; }
+  .card-body { font-size: 13px; color: #6b7280; line-height: 1.5; }
+  .card-price { font-size: 28px; font-weight: 900; color: #0066cc; margin-top: 12px; }
+  .card-price span { font-size: 14px; font-weight: 500; color: #9ca3af; }
+
+  /* Navbar preview */
+  .navbar-preview { background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border: 1px solid #e8ecf0; border-radius: 12px; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,102,204,0.08); }
+  .navbar-logo { display: flex; align-items: center; gap: 10px; }
+  .navbar-logo-icon { width: 40px; height: 40px; background: rgba(0,102,204,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .navbar-brand { font-size: 20px; font-weight: 900; letter-spacing: -0.02em; }
+  .navbar-brand-sub { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #f97316; line-height: 1; }
+  .navbar-links { display: flex; gap: 20px; font-size: 13px; font-weight: 500; color: #6b7280; }
+  
+  /* Spacing */
+  .spacing-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+  .spacing-chip { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .spacing-bar { background: #0066cc; border-radius: 4px; width: 24px; }
+  .spacing-val { font-size: 10px; font-family: monospace; color: #6b7280; }
+
+  /* Animation table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; border-bottom: 2px solid #f1f5f9; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f8fafc; color: #374151; vertical-align: top; }
+  td code { font-family: monospace; font-size: 12px; background: #f8fafc; padding: 2px 6px; border-radius: 4px; color: #0066cc; }
+  tr:last-child td { border-bottom: none; }
+
+  /* UX rules */
+  .ux-rule { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f1f5f9; }
+  .ux-rule:last-child { border-bottom: none; }
+  .ux-icon { width: 32px; height: 32px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .ux-text h4 { font-size: 14px; font-weight: 700; color: #111827; margin-bottom: 3px; }
+  .ux-text p { font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+  /* Gradient strip */
+  .gradient-strip { height: 6px; border-radius: 999px; margin-bottom: 12px; }
+
+  /* Routes */
+  .route-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f8fafc; align-items: center; }
+  .route-path { font-family: monospace; font-size: 12px; color: #0066cc; background: #eff6ff; padding: 3px 8px; border-radius: 6px; min-width: 200px; }
+  .route-name { font-size: 13px; color: #374151; font-weight: 500; }
+  .route-note { font-size: 12px; color: #9ca3af; margin-left: auto; }
+
+  /* Page structure */
+  .page-structure { background: #f8fafc; border-radius: 12px; padding: 20px; font-size: 12px; font-family: monospace; color: #374151; line-height: 2; }
+
+  /* Footer of doc */
+  .doc-footer { text-align: center; padding: 32px; color: #9ca3af; font-size: 12px; }
+
+  @media print {
+    body { background: #fff; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-logo">GoBrain</div>
+    <div class="cover-sub">Interaktywny Trening Słuchowy</div>
+    <h1>Design System & Wytyczne UX<br>dla strony siostry</h1>
+    <p>Kompletny przewodnik kolorystyki, typografii, komponentów i zasad UX do zachowania spójności marki GoBrain.</p>
+    <div class="cover-meta">gobrain.pl &nbsp;·&nbsp; Wersja 1.0 &nbsp;·&nbsp; Opracowanie: maj 2026</div>
+  </div>
+
+
+  <!-- 1. KOLORYSTYKA -->
+  <div class="section">
+    <div class="section-title">01 — Kolorystyka</div>
+    <h2>Paleta kolorów</h2>
+
+    <div class="gradient-strip" style="background: linear-gradient(90deg, #0066cc, #7c3aed, #ea580c);"></div>
+    <p style="font-size:13px;color:#6b7280;margin-bottom:20px;">Sygnatura marki GoBrain — gradient główny stosowany w hero badge, akcentach i przyciskach CTA.</p>
+
+    <div class="colors">
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#0066cc;"></div>
+        <div class="color-info">
+          <div class="color-name">Primary Blue</div>
+          <div class="color-hex">#0066CC &nbsp;·&nbsp; hsl(211,100%,40%)</div>
+          <div class="color-role">Przyciski główne, linki, ikony, nagłówki akcentowe</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#f97316;"></div>
+        <div class="color-info">
+          <div class="color-name">Orange Accent</div>
+          <div class="color-hex">#F97316 &nbsp;·&nbsp; orange-500</div>
+          <div class="color-role">Przycisk CTA w Navbarze, podtytuł logo, accenty</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#7c3aed;"></div>
+        <div class="color-info">
+          <div class="color-name">Purple</div>
+          <div class="color-hex">#7C3AED &nbsp;·&nbsp; violet-600</div>
+          <div class="color-role">Platforma Terapeuty, sekcja gradient</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#00a85a;"></div>
+        <div class="color-info">
+          <div class="color-name">Green Accent</div>
+          <div class="color-hex">#00A85A &nbsp;·&nbsp; hsl(152,100%,33%)</div>
+          <div class="color-role">Karta Mowy, success states, checkmarki</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#111827;"></div>
+        <div class="color-info">
+          <div class="color-name">Foreground</div>
+          <div class="color-hex">#111827 &nbsp;·&nbsp; hsl(220,13%,9%)</div>
+          <div class="color-role">Nagłówki, tekst podstawowy</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#6b7280;"></div>
+        <div class="color-info">
+          <div class="color-name">Muted Foreground</div>
+          <div class="color-hex">#6B7280 &nbsp;·&nbsp; hsl(220,9%,46%)</div>
+          <div class="color-role">Opisy, podtytuły, linki nav</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#ffffff; border-bottom:1px solid #e8ecf0;"></div>
+        <div class="color-info">
+          <div class="color-name">Background</div>
+          <div class="color-hex">#FFFFFF &nbsp;·&nbsp; hsl(0,0%,100%)</div>
+          <div class="color-role">Tło strony (tryb jasny)</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#f7f9fc;"></div>
+        <div class="color-info">
+          <div class="color-name">Card / Surface</div>
+          <div class="color-hex">#F7F9FC &nbsp;·&nbsp; hsl(210,20%,98%)</div>
+          <div class="color-role">Karty, sekcje tła, panele</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#e2e8f0;"></div>
+        <div class="color-info">
+          <div class="color-name">Border</div>
+          <div class="color-hex">#E2E8F0 &nbsp;·&nbsp; hsl(214,13%,90%)</div>
+          <div class="color-role">Obramowania kart, separatory</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#eff6ff;"></div>
+        <div class="color-info">
+          <div class="color-name">Primary Light</div>
+          <div class="color-hex">#EFF6FF &nbsp;·&nbsp; blue-50</div>
+          <div class="color-role">Tło badge, ikony, hover states</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:#131720;"></div>
+        <div class="color-info">
+          <div class="color-name">Dark BG (sekcje)</div>
+          <div class="color-hex">#131720 &nbsp;·&nbsp; hsl(220,13%,9%)</div>
+          <div class="color-role">Ciemne sekcje hero, pasek statystyk</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#eff6ff,#fff);"></div>
+        <div class="color-info">
+          <div class="color-name">Card Highlight BG</div>
+          <div class="color-hex">gradient: #EFF6FF → #FFF</div>
+          <div class="color-role">Wyróżniona karta produktu (Bestseller)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px; padding:16px; background:#f8fafc; border-radius:12px; font-size:13px; color:#374151;">
+      <strong>Zasada stosowania kolorów:</strong>
+      <ul style="margin-top:8px; padding-left:20px; line-height:2;">
+        <li>Niebieski <code style="background:#eff6ff;padding:1px 5px;border-radius:4px;color:#0066cc">#0066cc</code> — akcja główna, CTA, linki</li>
+        <li>Pomarańczowy <code style="background:#fff7ed;padding:1px 5px;border-radius:4px;color:#f97316">#f97316</code> — Navbar CTA, wyróżnienia premium</li>
+        <li>Zielony <code style="background:#f0fdf4;padding:1px 5px;border-radius:4px;color:#00a85a">#00a85a</code> — sekcja Karta Mowy, success, checkmarki</li>
+        <li>Fioletowy <code style="background:#f5f3ff;padding:1px 5px;border-radius:4px;color:#7c3aed">#7c3aed</code> — Platforma Terapeuty, gradient</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- 2. TYPOGRAFIA -->
+  <div class="section">
+    <div class="section-title">02 — Typografia</div>
+    <h2>System typograficzny</h2>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#374151;">
+      <strong>Font główny:</strong> <strong style="color:#0066cc;">Inter</strong> — Google Fonts<br>
+      <code style="font-size:12px;color:#6b7280;">@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');</code><br>
+      <div style="margin-top:6px;"><strong>Wagi:</strong> 400 (Regular) · 500 (Medium) · 600 (SemiBold) · 700 (Bold) · 800 (ExtraBold) · 900 (Black)</div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-label">H1 / Hero title<br>5xl · ExtraBold · uppercase<br>3rem / 48px</div>
+      <div class="typo-example" style="font-size:36px;font-weight:800;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;">Poprawa koncentracji</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">H2 / Section title<br>3xl · ExtraBold<br>1.875rem / 30px</div>
+      <div class="typo-example" style="font-size:28px;font-weight:800;line-height:1.2;">Wybierz program dla dziecka</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">H3 / Card title<br>xl · Bold<br>1.25rem / 20px</div>
+      <div class="typo-example" style="font-size:20px;font-weight:700;">ITS GoBrain Pre & School</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Lead / Subtitle<br>xl · SemiBold · primary<br>1.25rem / 20px</div>
+      <div class="typo-example" style="font-size:18px;font-weight:600;color:#0066cc;">Interaktywny Trening GoBrain dla dzieci (od 5 roku życia)</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Body<br>base · Regular<br>1rem / 16px</div>
+      <div class="typo-example" style="font-size:16px;font-weight:400;color:#6b7280;max-width:400px;">Zauważasz, że Twoje dziecko "słyszy, ale nie słucha"? Ma problemy z czytaniem, pisaniem lub rozumieniem poleceń?</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Small / Caption<br>sm · Medium<br>0.875rem / 14px</div>
+      <div class="typo-example" style="font-size:14px;font-weight:500;color:#6b7280;">Dla dzieci od piątego roku życia — do stosowania w domu</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Overline / Label<br>xs · Bold · uppercase<br>0.7rem / 11px</div>
+      <div class="typo-example" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#0066cc;">Interaktywny Trening Słuchowy</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Navbar Brand<br>2xl · Black<br>letter-spacing: -0.02em</div>
+      <div class="typo-example" style="font-size:24px;font-weight:900;letter-spacing:-0.02em;">GoBrain</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-label">Price / Stat<br>4xl–5xl · Black<br>color: primary</div>
+      <div class="typo-example" style="font-size:40px;font-weight:900;color:#0066cc;">390 <span style="font-size:16px;font-weight:500;color:#9ca3af;">PLN</span></div>
+    </div>
+  </div>
+
+
+  <!-- 3. KOMPONENTY -->
+  <div class="section">
+    <div class="section-title">03 — Komponenty</div>
+    <h2>Przyciski (Buttons)</h2>
+
+    <div class="btn-row">
+      <div>
+        <div class="btn btn-primary-lg">Przejdź do sklepu</div>
+        <div class="btn-label">Primary LG — h-14 · px-8 · shadow-lg</div>
+      </div>
+      <div>
+        <div class="btn btn-primary">Kup teraz</div>
+        <div class="btn-label">Primary — h-10 · px-4</div>
+      </div>
+      <div>
+        <div class="btn btn-orange">Kup kod aktywacyjny</div>
+        <div class="btn-label">Orange CTA — Navbar</div>
+      </div>
+      <div>
+        <div class="btn btn-outline">Dowiedz się więcej</div>
+        <div class="btn-label">Outline — border-border</div>
+      </div>
+      <div>
+        <div class="btn btn-green">Kup Kartę Mowy</div>
+        <div class="btn-label">Green — sekcja Karta Mowy</div>
+      </div>
+      <div>
+        <div class="btn btn-purple">Platforma Terapeuty</div>
+        <div class="btn-label">Purple — sekcja Terapeuty</div>
+      </div>
+    </div>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;font-size:13px;color:#374151;margin-top:12px;">
+      <strong>Zasady przycisków:</strong>
+      <ul style="margin-top:6px;padding-left:18px;line-height:2;">
+        <li>Border-radius: <code>rounded-xl</code> = 12px (primary), <code>rounded-lg</code> = 10px (secondary)</li>
+        <li>Wysokość: <code>h-14</code> (56px) dla CTA hero · <code>h-10</code> (40px) standardowo</li>
+        <li>Font-weight: 600 (semibold) zawsze</li>
+        <li>Cień primary: <code>shadow-lg shadow-primary/20</code></li>
+        <li>Hover: ciemniejszy odcień koloru (nie zmiana kształtu)</li>
+        <li>Przycisk CTA Navbar zawsze pomarańczowy, zawsze z prawej strony</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">03 — Komponenty</div>
+    <h2>Odznaki (Badges)</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+      <span class="badge badge-blue">ITS GoBrain</span>
+      <span class="badge badge-orange">Licencja wielostanowiskowa</span>
+      <span class="badge badge-green">Narzędzie cyfrowe</span>
+      <span class="badge badge-purple">Dla terapeutów</span>
+      <span class="badge badge-dark">Bestseller</span>
+      <span class="badge badge-gradient">ITS GOBRAIN</span>
+    </div>
+    <div style="font-size:13px;color:#6b7280;">
+      Border-radius: <code>rounded-full</code> (999px) &nbsp;·&nbsp; Font: 12px bold uppercase &nbsp;·&nbsp; Padding: 4px 12px
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">03 — Komponenty</div>
+    <h2>Karty produktów (Product Cards)</h2>
+
+    <div class="cards-grid">
+      <div class="card card-highlight">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <span class="badge badge-dark">Bestseller</span>
+        </div>
+        <div class="card-icon" style="background:#eff6ff;">🎧</div>
+        <div class="card-title">ITS GoBrain</div>
+        <div style="font-size:12px;color:#0066cc;font-weight:600;margin-bottom:6px;">'Zabawy z dźwiękami' — Etap 1</div>
+        <div class="card-body">Dla dzieci od piątego roku życia — do stosowania w domu</div>
+        <div class="card-price">390 <span>PLN (brutto)</span></div>
+        <div style="margin-top:12px;" class="btn btn-primary" style="width:100%;justify-content:center;">Kup teraz</div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <span class="badge badge-orange">Licencja wielostanowiskowa</span>
+        </div>
+        <div class="card-icon" style="background:#fff7ed;">🏫</div>
+        <div class="card-title">ITS GoBrain Pre & School</div>
+        <div style="font-size:12px;color:#6b7280;font-weight:500;margin-bottom:6px;">Dla placówek, gabinetów i szkół</div>
+        <div class="card-body">Nieograniczona liczba użytkowników, panel terapeuty</div>
+        <div class="card-price" style="color:#f97316;">799 <span>PLN / rok</span></div>
+        <div style="margin-top:12px;" class="btn btn-orange">Kup teraz</div>
+      </div>
+    </div>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;font-size:13px;color:#374151;margin-top:16px;">
+      <strong>Zasady kart:</strong>
+      <ul style="margin-top:6px;padding-left:18px;line-height:2;">
+        <li>Border-radius: <code>rounded-2xl</code> = 16px</li>
+        <li>Wyróżniona karta (Bestseller): <code>border-2 border-primary</code> + gradient tło <code>#eff6ff → #fff</code></li>
+        <li>Ikona w karcie: 44×44px, border-radius 12px, bg = kolor z 10% opacity</li>
+        <li>Padding: 24px wewnętrzny</li>
+        <li>Cień: <code>shadow-sm</code> domyślnie, <code>shadow-lg</code> na hover</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">03 — Komponenty</div>
+    <h2>Navbar</h2>
+
+    <div class="navbar-preview">
+      <div class="navbar-logo">
+        <div class="navbar-logo-icon">🧠</div>
+        <div>
+          <div class="navbar-brand">GoBrain</div>
+          <div class="navbar-brand-sub">Interaktywny Trening<br>Słuchowy</div>
+        </div>
+      </div>
+      <div class="navbar-links">
+        <span>Strona główna</span>
+        <span>ITS GoBrain</span>
+        <span>Sklep</span>
+        <span>Strefa terapeuty</span>
+        <span>Szkolenia</span>
+        <span>FAQ</span>
+      </div>
+      <div class="btn btn-orange" style="font-size:13px;padding:8px 16px;">Kup kod aktywacyjny</div>
+    </div>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;font-size:13px;color:#374151;margin-top:16px;">
+      <ul style="padding-left:18px;line-height:2;">
+        <li>Pozycja: <code>fixed top-0</code>, z-index: 50</li>
+        <li>Tło: <code>bg-background/90 backdrop-blur-md</code> (efekt mlecznego szkła)</li>
+        <li>Wysokość: 72px (<code>h-18</code>)</li>
+        <li>Obramowanie dolne: <code>border-b border-border</code></li>
+        <li>Cień: <code>shadow-sm</code></li>
+        <li>Logo: ikona w ramce + "GoBrain" (black 24px) + podpis pomarańczowy uppercase 9px</li>
+        <li>Linki nav: 13px medium, kolor muted → primary on hover</li>
+        <li>CTA: pomarańczowy przycisk, <code>bg-orange-500 hover:bg-orange-600</code></li>
+        <li>Mobile: hamburger menu po lewej (≤ md), drawer z pełną nawigacją</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- 4. SPACING & BORDER-RADIUS -->
+  <div class="section">
+    <div class="section-title">04 — Spacing & Layout</div>
+    <h2>Odstępy i zaokrąglenia</h2>
+
+    <table style="margin-bottom:24px;">
+      <tr><th>Token</th><th>Wartość</th><th>Zastosowanie</th></tr>
+      <tr><td><code>--radius</code></td><td>0.75rem (12px)</td><td>Baza systemu radius — przyciski, inputy</td></tr>
+      <tr><td><code>rounded-sm</code></td><td>8px</td><td>Małe elementy (tagi, mini ikony)</td></tr>
+      <tr><td><code>rounded-md</code></td><td>10px</td><td>Przyciski standardowe</td></tr>
+      <tr><td><code>rounded-lg</code></td><td>12px</td><td>Inputy, małe karty</td></tr>
+      <tr><td><code>rounded-xl</code></td><td>16px</td><td>Ikony w kartach, logo wrapper</td></tr>
+      <tr><td><code>rounded-2xl</code></td><td>20px</td><td>Karty produktów, sekcje</td></tr>
+      <tr><td><code>rounded-3xl</code></td><td>24px</td><td>Hero image, duże karty</td></tr>
+      <tr><td><code>rounded-full</code></td><td>999px</td><td>Badges, pill buttons, avatary</td></tr>
+    </table>
+
+    <table>
+      <tr><th>Spacing</th><th>Wartość</th><th>Zastosowanie</th></tr>
+      <tr><td><code>py-16 md:py-24</code></td><td>64px / 96px</td><td>Sekcje pełnoekranowe (hero, features)</td></tr>
+      <tr><td><code>py-12 md:py-20</code></td><td>48px / 80px</td><td>Sekcje standardowe</td></tr>
+      <tr><td><code>gap-12</code></td><td>48px</td><td>Grid hero (2 kolumny)</td></tr>
+      <tr><td><code>gap-6 md:gap-8</code></td><td>24px / 32px</td><td>Siatka kart (3-4 kolumny)</td></tr>
+      <tr><td><code>mb-6</code></td><td>24px</td><td>Odstęp pod nagłówkiem sekcji</td></tr>
+      <tr><td><code>container mx-auto px-4</code></td><td>max 1280px + 16px gutters</td><td>Kontener treści</td></tr>
+      <tr><td><code>pt-16</code></td><td>64px</td><td>Offset navbar na pierwszej sekcji</td></tr>
+    </table>
+  </div>
+
+
+  <!-- 5. ANIMACJE -->
+  <div class="section">
+    <div class="section-title">05 — Animacje</div>
+    <h2>System animacji (Framer Motion)</h2>
+
+    <table>
+      <tr><th>Wzorzec</th><th>Kod / Wartości</th><th>Zastosowanie</th></tr>
+      <tr>
+        <td><strong>fadeInUp</strong></td>
+        <td><code>opacity: 0→1, y: 40→0<br>duration: 0.6s, easeOut</code></td>
+        <td>Pojawienie się sekcji, tytułów, kart</td>
+      </tr>
+      <tr>
+        <td><strong>staggerChildren</strong></td>
+        <td><code>staggerChildren: 0.1s</code></td>
+        <td>Lista kart/bullet points (animują się kolejno)</td>
+      </tr>
+      <tr>
+        <td><strong>whileInView</strong></td>
+        <td><code>once: true, margin: "-100px"</code></td>
+        <td>Animacje triggerowane scrollem</td>
+      </tr>
+      <tr>
+        <td><strong>Float (ikony)</strong></td>
+        <td><code>y: [0, -12, 0], rotate: [0, 8, -8, 0]<br>duration: 3-4s, repeat: Infinity</code></td>
+        <td>Pływające ikony w hero (dyskretne)</td>
+      </tr>
+      <tr>
+        <td><strong>Hero image</strong></td>
+        <td><code>opacity: 0→1, scale: 0.95→1<br>duration: 0.8s, delay: 0.2s</code></td>
+        <td>Zdjęcie w sekcji hero</td>
+      </tr>
+      <tr>
+        <td><strong>Floating badge</strong></td>
+        <td><code>y: [0, -6, 0], duration: 3s, repeat: Infinity</code></td>
+        <td>Odznaki przy zdjęciach (np. ocena rodziców)</td>
+      </tr>
+      <tr>
+        <td><strong>Progress bars</strong></td>
+        <td><code>width: 0→X%, duration: 1.3s, easeOut</code></td>
+        <td>Animowane słupki wyników</td>
+      </tr>
+      <tr>
+        <td><strong>Counter</strong></td>
+        <td><code>0→target, duration: 2s, easeOut</code></td>
+        <td>Animowane liczniki statystyk</td>
+      </tr>
+    </table>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;font-size:13px;color:#374151;margin-top:16px;">
+      <strong>Zasada:</strong> Animacje mają być subtelne i nie przeszkadzać. <code>once: true</code> — każda animacja odpala się tylko raz (nie przy każdym scroll). Unikać animacji trwających ponad 0.8s dla elementów UI.
+    </div>
+  </div>
+
+
+  <!-- 6. SEKCJE STRONY -->
+  <div class="section">
+    <div class="section-title">06 — Struktura strony</div>
+    <h2>Układ i sekcje (przykład: Strona główna)</h2>
+
+    <div class="page-structure">
+&lt;Navbar /&gt; — fixed, 72px, backdrop-blur<br>
+│<br>
+├── 1. HERO (section, py-24, Aurora background)<br>
+│   ├── Lewa kolumna: badge pill | H1 uppercase | lead niebieski | opis body<br>
+│   │   ├── 2 × Button (primary LG + outline LG)<br>
+│   │   └── 3 × stat pill (emoji + tekst)<br>
+│   └── Prawa kolumna: zdjęcie rounded-3xl + 2 floating badges<br>
+│<br>
+├── 2. STATS BAR (section, bg-primary, białe cyfry)<br>
+│   └── 4 × stat (liczba bold + etykieta muted)<br>
+│<br>
+├── 3. FEATURES / CO NAS WYRÓŻNIA (section, bg-background)<br>
+│   ├── Overline + H2 centered<br>
+│   └── 4-5 × FeatureCard (ikona + tytuł + bullet lista)<br>
+│<br>
+├── 4. PRODUKTY / PROGRAMS (section, bg-card)<br>
+│   ├── H2 + podtytuł<br>
+│   └── 4 × ProductCard w grid<br>
+│<br>
+├── 5. DLA KOGO (section, split: obraz | tekst)<br>
+│<br>
+├── 6. WYNIKI BADAŃ (section, pasek wyników + ring charts)<br>
+│<br>
+├── 7. OPINIE (ReviewsCarousel)<br>
+│<br>
+└── 8. CTA SEKCJA (section, bg-primary lub gradient)<br>
+    └── H2 + opis + 2 × Button<br>
+&lt;Footer /&gt;
+    </div>
+  </div>
+
+
+  <!-- 7. ROUTING -->
+  <div class="section">
+    <div class="section-title">07 — Strony i routing</div>
+    <h2>Mapa podstron</h2>
+
+    <div class="route-row">
+      <div class="route-path">/</div>
+      <div class="route-name">Strona główna</div>
+      <div class="route-note">Hero, features, produkty, opinie, CTA</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/its</div>
+      <div class="route-name">ITS GoBrain — zalety</div>
+      <div class="route-note">Szczegóły programu, dla kogo, filary</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/its-school</div>
+      <div class="route-name">ITS Pre & School</div>
+      <div class="route-note">Licencja dla placówek, tabela porównawcza</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/sklep</div>
+      <div class="route-name">Sklep</div>
+      <div class="route-note">Karty produktów z cenami i CTA do automater.pl</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/strefa-terapeuty</div>
+      <div class="route-name">Platforma Terapeuta</div>
+      <div class="route-note">PreTest/PostTest, wykresy, 4 etapy</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/karta-mowy</div>
+      <div class="route-name">Karta Mowy</div>
+      <div class="route-note">Narzędzie diagnostyczne, green theme</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/szkolenia-i-webinary</div>
+      <div class="route-name">Szkolenia — Provider GoBrain</div>
+      <div class="route-note">5 modułów, certyfikat, formularz</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/darmowe-webinary</div>
+      <div class="route-name">Darmowe webinary</div>
+      <div class="route-note">4 webinary, rejestracja, Q&A</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/faq</div>
+      <div class="route-name">FAQ</div>
+      <div class="route-note">12 pytań/odpowiedzi, accordion</div>
+    </div>
+    <div class="route-row">
+      <div class="route-path">/pomoc</div>
+      <div class="route-name">Pomoc i kontakt</div>
+      <div class="route-note">Formularz, dane kontaktowe</div>
+    </div>
+  </div>
+
+
+  <!-- 8. UX ZASADY -->
+  <div class="section">
+    <div class="section-title">08 — Zasady UX</div>
+    <h2>Kluczowe reguły UX</h2>
+
+    <div class="ux-rule">
+      <div class="ux-icon">🍎</div>
+      <div class="ux-text">
+        <h4>Apple-style minimalizm</h4>
+        <p>Dużo białej przestrzeni, clean layout, skupienie na jednym CTA per sekcję. Brak bałaganu wizualnego — każdy element ma oddychać.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">🎯</div>
+      <div class="ux-text">
+        <h4>Jeden główny CTA per sekcja</h4>
+        <p>Każda sekcja kończy się jednym wyraźnym działaniem. Primary button (niebieski) = akcja główna. Outline = akcja drugoplanowa. Nigdy 3+ równorzędne CTA obok siebie.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">📊</div>
+      <div class="ux-text">
+        <h4>Liczby i dowód społeczny</h4>
+        <p>Statystyki (5000+ dzieci, 98% zadowolonych) jako animowane liczniki. Oceny gwiazdkowe. Opinie rodziców i terapeutów w karuzeli. Trust signals widoczne w hero.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">📱</div>
+      <div class="ux-text">
+        <h4>Mobile-first responsywność</h4>
+        <p>Breakpointy: sm (640px), md (768px), lg (1024px), xl (1280px). Na mobile: grid 1-kolumnowy, przyciski pełnej szerokości, hamburger menu. Obrazy skalują się proporcjonalnie.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">🎨</div>
+      <div class="ux-text">
+        <h4>Kodowanie kolorem per produkt</h4>
+        <p>ITS GoBrain = niebieski · Karta Mowy = zielony · Platforma Terapeuty = fioletowy · ITS Pre & School = pomarańczowy. Konsekwentne stosowanie w badge, przyciskach, ikonach.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">🖼️</div>
+      <div class="ux-text">
+        <h4>Zdjęcia z zaokrąglonymi rogami</h4>
+        <p>Wszystkie zdjęcia: <code>rounded-2xl</code> lub <code>rounded-3xl</code>. Efekt cienia: <code>shadow-2xl shadow-primary/10</code>. Przy zdjęciach produktowych: floating badge z oceną lub opisem.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">⚡</div>
+      <div class="ux-text">
+        <h4>Animacje wejścia scroll-triggered</h4>
+        <p>Elementy pojawiają się z dołu (fadeInUp) gdy wchodzą do viewportu. Listy animują się cascadowo (stagger). Każda animacja odpala się tylko raz (once: true). Czas: max 0.6s.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">🌊</div>
+      <div class="ux-text">
+        <h4>Aurora Background w hero</h4>
+        <p>Sekcja hero ma animowane tło Aurora (subtelny efekt świetlny). Realizacja: CSS animation z gradientami — nie obciąża GPU. Kolory: niebieski, indigo, fioletowy.</p>
+      </div>
+    </div>
+    <div class="ux-rule">
+      <div class="ux-icon">🔤</div>
+      <div class="ux-text">
+        <h4>Wszystkie treści po polsku</h4>
+        <p>100% UI w języku polskim. Brak angielskich etykiet przycisków czy placeholderów. Nazwy produktów: ITS GoBrain, Karta Mowy, Platforma Terapeuta (bez tłumaczenia).</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 9. STACK TECHNICZNY -->
+  <div class="section">
+    <div class="section-title">09 — Stack techniczny</div>
+    <h2>Technologie i zależności</h2>
+
+    <table>
+      <tr><th>Warstwa</th><th>Technologia</th><th>Uwagi</th></tr>
+      <tr><td>Framework</td><td>React 18 + Vite</td><td>SPA z React Router v6</td></tr>
+      <tr><td>Styling</td><td>Tailwind CSS v4</td><td>Brak tailwind.config.js — konfiguracja w CSS; @tailwindcss/vite plugin</td></tr>
+      <tr><td>Komponenty UI</td><td>shadcn/ui</td><td>Button, Card, Input, Badge, Dialog, Accordion</td></tr>
+      <tr><td>Animacje</td><td>Framer Motion</td><td>fadeInUp, stagger, whileInView, animate()</td></tr>
+      <tr><td>Ikony</td><td>Lucide React</td><td>Brain, Headphones, CheckCircle2, ChevronRight, Star…</td></tr>
+      <tr><td>Font</td><td>Google Fonts — Inter</td><td>wagi: 400, 500, 600, 700, 800</td></tr>
+      <tr><td>Routing</td><td>React Router DOM v6</td><td>BrowserRouter + nested Layout z Outlet</td></tr>
+      <tr><td>Język</td><td>TypeScript</td><td>Strict mode, path alias @/ = src/</td></tr>
+    </table>
+  </div>
+
+
+  <!-- 10. KONTAKT / DANE -->
+  <div class="section">
+    <div class="section-title">10 — Dane marki</div>
+    <h2>Dane do stopki i formularzy</h2>
+
+    <table>
+      <tr><th>Element</th><th>Wartość</th></tr>
+      <tr><td>Strona</td><td>gobrain.pl</td></tr>
+      <tr><td>Telefon</td><td>608 650 435</td></tr>
+      <tr><td>E-mail</td><td>gobrainterapeuta@gmail.com</td></tr>
+      <tr><td>Facebook</td><td>facebook.com/gobrainpl &nbsp;·&nbsp; @zabawyzdzwiekami</td></tr>
+      <tr><td>Twórczyni</td><td>mgr Aneta Pakieła — neurologopeda, surdologopeda</td></tr>
+      <tr><td>Tytuły Anety</td><td>Przewodnicząca PTN · Dyrektor Logomedic · Prezes Fundacji Usłysz Marzenia</td></tr>
+      <tr><td>Sklep / płatności</td><td>automater.pl (kody aktywacyjne, faktury VAT automatyczne)</td></tr>
+      <tr><td>Demo PC</td><td>gobraintech.pl/current/Sklep_PC/ITS_Starter.exe</td></tr>
+      <tr><td>Demo Android</td><td>gobraintech.pl/current/Sklep_Android/ITS_Gobrain_Starter.apk</td></tr>
+    </table>
+  </div>
+
+  <div class="doc-footer">
+    GoBrain Design System v1.0 &nbsp;·&nbsp; gobrain.pl &nbsp;·&nbsp; Wygenerowano automatycznie ze źródeł strony &nbsp;·&nbsp; maj 2026
+  </div>
+
+</div>
+</body>
+</html>

@@ -113,3 +113,9 @@ id = "S8MER0Y-Laa_caaD1NHSa"
 uri = "file://gobrain-fb-cover-v2.png"
 type = "image"
 title = "GoBrain — okładka Facebook v2 (1640×624 px)"
+
+[[outputs]]
+id = "4MRUiQ-COI43v35lyGbny"
+uri = "file://gobrain-pakiet-dla-programisty.zip"
+type = "unspecified"
+title = "GoBrain — Pakiet dla programisty (wytyczne + teksty + 18 grafik)"
