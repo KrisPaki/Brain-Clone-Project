@@ -44,6 +44,8 @@ jobs:
 
       - name: Build website
         run: pnpm --filter @workspace/gobrain build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
