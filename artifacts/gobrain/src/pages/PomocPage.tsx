@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import contentData from "@/data/content.json";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -67,7 +68,7 @@ export default function PomocPage() {
 
                 <div className="space-y-5 mb-10">
                   <a
-                    href="tel:+48608650435"
+                    href={`tel:${contentData.kontakt.phoneUrl}`}
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -75,12 +76,12 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Telefon</p>
-                      <p className="font-semibold text-foreground text-lg">608 650 435</p>
+                      <p className="font-semibold text-foreground text-lg">{contentData.kontakt.phone}</p>
                     </div>
                   </a>
 
                   <a
-                    href="mailto:gobrainterapeuta@gmail.com"
+                    href={`mailto:${contentData.kontakt.email}`}
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -88,12 +89,12 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">E-mail</p>
-                      <p className="font-semibold text-foreground">gobrainterapeuta@gmail.com</p>
+                      <p className="font-semibold text-foreground">{contentData.kontakt.email}</p>
                     </div>
                   </a>
 
                   <a
-                    href="https://www.facebook.com/zabawyzdzwiekami"
+                    href={contentData.kontakt.facebookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
@@ -103,7 +104,7 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Facebook</p>
-                      <p className="font-semibold text-foreground">@zabawyzdzwiekami</p>
+                      <p className="font-semibold text-foreground">{contentData.kontakt.facebook}</p>
                     </div>
                   </a>
                 </div>

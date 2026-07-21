@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import anetaPakielaImg from "@/assets/aneta-pakiela-new.png";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import contentData from "@/data/content.json";
 import heroChildImg from "@/assets/hero-child-new.webp";
 import childTabletImg from "@/assets/child-tablet-fun.png";
 import therapistChildImg from "@/assets/therapist-child.png";
@@ -1035,7 +1036,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">ITS GoBrain</h3>
                 <p className="text-muted-foreground mb-4 text-sm">{'Dla dzieci od piątego roku życia, do stosowania w domu'}</p>
                 <div className="flex gap-2 mb-4 flex-wrap">
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">390 PLN</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">{contentData.cennik.its_etap1_price} PLN</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Pełny trening słuchowy (2 etapy)", "Zabawy z dźwiękami", "PC (Windows) i Android"].map((feat, i) => (
@@ -1046,7 +1047,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Button className="w-full h-11 text-sm font-semibold" asChild data-testid="pricing-main-btn">
-                  <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
+                  <a href={contentData.cennik.its_etap1_href} target="_blank" rel="noopener noreferrer">
                     Kup kod aktywacyjny
                   </a>
                 </Button>
@@ -1060,7 +1061,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">Karta Mowy</h3>
                 <p className="text-muted-foreground mb-4 text-sm">{'Cyfrowe narzędzie diagnostyczne dla logopedów i terapeutów'}</p>
                 <div className="flex gap-2 mb-4 flex-wrap">
-                  <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">389 PLN</span>
+                  <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">{contentData.cennik.karty_mowy_price} PLN</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Karta badania mowy", "Gry logopedyczne online", "Materiały PDF do druku"].map((feat, i) => (
@@ -1083,7 +1084,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">ITS GoBrain Pre & School</h3>
                 <p className="text-muted-foreground mb-4 text-sm">Dla terapeutów, szkół, przedszkoli, poradni i instytucji</p>
                 <div className="flex gap-2 mb-4">
-                  <span className="text-xs bg-orange-50 text-orange-600 px-2 py-1 rounded-full font-medium">799 PLN / rok</span>
+                  <span className="text-xs bg-orange-50 text-orange-600 px-2 py-1 rounded-full font-medium">{contentData.cennik.its_school_price} PLN / rok</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Wieloużytkownikowy dostęp", "Panel terapeuty", "Monitoring postępu"].map((feat, i) => (
@@ -1106,7 +1107,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-foreground mb-2 mt-2">Platforma Terapeuty</h3>
                 <p className="text-muted-foreground mb-4 text-sm">Dla terapeutów: logopedów, pedagogów, psychologów, itp.</p>
                 <div className="flex gap-2 mb-4">
-                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">799 zł</span>
+                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">{contentData.cennik.terapeuta_price} zł</span>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {["Platforma diagnostyczna", "Test 8 obszarów", "Kwestionariusze i ankiety"].map((feat, i) => (

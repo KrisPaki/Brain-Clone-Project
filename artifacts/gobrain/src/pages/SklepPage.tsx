@@ -9,6 +9,7 @@ import productSchoolImg from "@/assets/product-its-school.png";
 import productTerapeutaImg from "@/assets/product-terapeuta.png";
 import therapistChildImg from "@/assets/therapist-child.png";
 import childrenClassroomImg from "@/assets/children-classroom.png";
+import contentData from "@/data/content.json";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -27,11 +28,11 @@ const products = [
     badgeColor: "bg-primary text-primary-foreground",
     title: "ITS GoBrain",
     subtitle: "'Zabawy z dźwiękami' — Etap 1",
-    price: "390",
+    price: contentData.cennik.its_etap1_price,
     priceNote: "PLN (brutto)",
     img: productItsImg,
     imgAlt: "Pudełko produktu ITS GoBrain Etap 1",
-    target: "Dla dzieci od pi\u0105tego roku \u017cycia \u2014 do stosowania w domu",
+    target: "Dla dzieci od piątego roku życia — do stosowania w domu",
     features: [
       "4 poziomy trudności",
       "20 zadań treningowych",
@@ -41,7 +42,7 @@ const products = [
       "System automatycznego dostosowania",
     ],
     cta: "Kup teraz",
-    ctaHref: "https://automater.pl/rest/order-viewer/buy/918448",
+    ctaHref: contentData.cennik.its_etap1_href,
     highlight: true,
   },
   {
@@ -50,7 +51,7 @@ const products = [
     badgeColor: "bg-accent/80 text-white",
     title: "ITS GoBrain",
     subtitle: "'Zabawy z dźwiękami' — Etap 2",
-    price: "390",
+    price: contentData.cennik.its_etap2_price,
     priceNote: "PLN (brutto)",
     img: productItsImg,
     imgAlt: "Pudełko produktu ITS GoBrain Etap 2",
@@ -64,7 +65,7 @@ const products = [
       "Zalecany po ukończeniu Etapu 1",
     ],
     cta: "Kup teraz",
-    ctaHref: "https://automater.pl/rest/order-viewer/buy/918222",
+    ctaHref: contentData.cennik.its_etap2_href,
     highlight: false,
   },
   {
@@ -73,7 +74,7 @@ const products = [
     badgeColor: "bg-orange-500 text-white",
     title: "ITS GoBrain Pre & School",
     subtitle: "Dla placówek, gabinetów i szkół",
-    price: "799",
+    price: contentData.cennik.its_school_price,
     priceNote: "PLN / rok (brutto)",
     img: productSchoolImg,
     imgAlt: "Program ITS GoBrain Pre & School dla terapeutów i instytucji",
@@ -87,7 +88,7 @@ const products = [
       "Faktura VAT w cenie",
     ],
     cta: "Zamów licencję",
-    ctaHref: "https://automater.pl/rest/order-viewer/buy/979412",
+    ctaHref: contentData.cennik.its_school_href,
     highlight: false,
     internal: false,
   },
@@ -97,7 +98,7 @@ const products = [
     badgeColor: "bg-foreground text-background",
     title: "Platforma Terapeuta",
     subtitle: "Narzędzie diagnostyczne i terapeutyczne",
-    price: "799",
+    price: contentData.cennik.terapeuta_price,
     priceNote: "zł",
     img: productTerapeutaImg,
     imgAlt: "Platforma Terapeuta GoBrain",
@@ -111,7 +112,7 @@ const products = [
       "Wsparcie techniczne i merytoryczne",
     ],
     cta: "Kup teraz",
-    ctaHref: "https://automater.pl/rest/order-viewer/buy/979413",
+    ctaHref: contentData.cennik.terapeuta_href,
     highlight: false,
     internal: false,
   },
@@ -121,7 +122,7 @@ const products = [
     badgeColor: "bg-green-500 text-white",
     title: "Karta Mowy",
     subtitle: "Diagnostyka i terapia logopedyczna",
-    price: "389",
+    price: contentData.cennik.karty_mowy_price,
     priceNote: "PLN (brutto)",
     img: therapistChildImg,
     imgAlt: "Karta Mowy GoBrain — narzędzie do diagnozy logopedycznej",
@@ -135,7 +136,7 @@ const products = [
       "PC (Windows) i Android",
     ],
     cta: "Kup kod aktywacyjny",
-    ctaHref: "https://automater.pl/rest/order-viewer/buy/1073862",
+    ctaHref: contentData.cennik.karty_mowy_href,
     highlight: false,
     internal: false,
   },

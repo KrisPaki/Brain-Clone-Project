@@ -20,6 +20,7 @@ import ItsSchoolPage from "@/pages/ItsSchoolPage";
 import KartaMowyPage from "@/pages/KartaMowyPage";
 import DarmoveWebinaryPage from "@/pages/DarmoveWebinaryPage";
 import UlotkaPage from "@/pages/UlotkaPage";
+import AdminPage from "@/pages/AdminPage";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ function App() {
       <TooltipProvider>
         <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Routes>
+            <Route path="/admin" element={<AdminPage />} />
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/its" element={<ItsPage />} />
