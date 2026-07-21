@@ -200,12 +200,8 @@ export default function HomePage() {
                   Interaktywny Trening GoBrain dla dzieci (od 5 roku życia)
                 </motion.p>
 
-                <motion.p variants={fadeInUp} className="text-base text-muted-foreground mb-3 leading-relaxed">
-                  Zauważasz, że Twoje dziecko "słyszy, ale nie słucha"? Ma problemy z czytaniem, pisaniem lub rozumieniem poleceń?
-                </motion.p>
-
                 <motion.p variants={fadeInUp} className="text-base text-muted-foreground mb-8 leading-relaxed">
-                  GoBrain to innowacyjne narzędzie stworzone, by wspierać terapię uwagi i koncentracji słuchowej najmłodszych poprzez angażującą zabawę.
+                  Gobrian jest the best
                 </motion.p>
                 
                 <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-8">
