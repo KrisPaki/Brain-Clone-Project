@@ -1,4 +1,6 @@
 import { motion, type Variants } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   CheckCircle2,
@@ -16,8 +18,10 @@ import {
   Heart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import childrenClassroomImg from "@/assets/children-classroom.png";
-import therapistDashboardImg from "@/assets/therapist-dashboard.png";
+import childrenClassroomImg from "@/assets/children-classroom.webp";
+import itsSchoolBoyTabletImg from "@/assets/its-school-boy-tablet.webp";
+import therapistDashboardImg from "@/assets/therapist-dashboard.webp";
+import childTabletGame1Img from "@/assets/child-tablet-game1.jpg";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -32,49 +36,162 @@ const staggerContainer: Variants = {
 export default function ItsSchoolPage() {
   return (
     <div className="min-h-screen bg-background font-sans pt-16">
+      <SEO
+        title="ITS GoBrain dla szkół – trening słuchowy w edukacji"
+        description="Wdraż ITS GoBrain w swojej szkole. Program treningu słuchowego wspierający uczniów z trudnościami w koncentracji, czytaniu i pisaniu."
+        canonical="/its-school"
+      />
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/children-classroom-1280w.webp"
+          imageSrcSet="/img/children-classroom-640w.webp 640w, /img/children-classroom-1280w.webp 1280w"
+          imageSizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "ITS GoBrain Pre & School",
+          "url": "https://gobrain.pl/its-school",
+          "description": "Program treningu sluchowego dla szkol i przedszkoli — bez limitu uzytkownikow. Wspiera uczniow z trudnosciami w koncentracji, czytaniu i pisaniu.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Windows, macOS, ChromeOS, Android, iOS",
+          "inLanguage": "pl",
+          "availableOnDevice": "Desktop, Mobile, Tablet",
+          "offers": {
+            "@type": "Offer",
+            "name": "Licencja szkolna ITS GoBrain Pre & School",
+            "url": "https://gobrain.pl/its-school",
+            "price": "799",
+            "priceCurrency": "PLN",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "799",
+              "priceCurrency": "PLN",
+              "unitText": "rok"
+            },
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://gobrain.pl/#organization" }
+          },
+          "publisher": { "@id": "https://gobrain.pl/#organization" },
+          "brand": { "@id": "https://gobrain.pl/#organization" },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Szkoly podstawowe, przedszkola, poradnie psychologiczno-pedagogiczne"
+          }
+        })}</script>
+      </Helmet>
 
       {/* Hero */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-orange-50 via-white to-blue-50 border-b border-border">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="text-center"
-          >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-6">
-              <School className="w-4 h-4" />
-              Bez limitu użytkowników
+      <section className="py-16 md:py-24 bg-gradient-to-br from-orange-50 via-white to-blue-50 border-b border-border overflow-hidden">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* LEFT — tekst */}
+            <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-6">
+                <School className="w-4 h-4" />
+                Bez limitu użytkowników
+              </motion.div>
+
+              <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
+                ITS GoBrain{" "}
+                <span className="text-orange-500">Pre & School</span>
+              </motion.h1>
+
+              <motion.p variants={fadeInUp} className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Profesjonalna platforma treningu słuchowego dla gabinetów, szkół, przedszkoli i poradni. Nieograniczona liczba podopiecznych, pełna kontrola terapeuty, licencja roczna.
+              </motion.p>
+
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-6">
+                <Button size="lg" className="h-14 px-8 text-base font-semibold bg-orange-500 hover:bg-orange-600 text-white" asChild>
+                  <a href="https://automater.pl/rest/order-viewer/buy/979412" target="_blank" rel="noopener noreferrer">
+                    Zamów licencję
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="h-14 px-8 text-base" asChild>
+                  <Link to="/strefa-terapeuty">
+                    Strefa terapeuty
+                  </Link>
+                </Button>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-2xl px-6 py-3 mb-8">
+                <span className="text-2xl font-black text-orange-500">799</span>
+                <span className="text-sm text-muted-foreground">PLN / rok (brutto)</span>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="flex flex-col gap-3">
+                {[
+                  { icon: Users, label: "Nieograniczona liczba podopiecznych" },
+                  { icon: BarChart3, label: "Pełny panel terapeuty z wynikami" },
+                  { icon: Building2, label: "Dla szkół, przedszkoli i poradni" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 text-orange-500" />
+                    </div>
+                    {label}
+                  </div>
+                ))}
+              </motion.div>
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-              ITS GoBrain{" "}
-              <span className="text-orange-500">Pre & School</span>
-            </motion.h1>
+            {/* RIGHT — zdjęcie */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-200/50">
+                <img
+                  src={childrenClassroomImg}
+                  srcSet="/img/children-classroom-640w.webp 640w, /img/children-classroom-1280w.webp 1280w"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  alt="Dzieci w klasie szkolnej korzystają z programu ITS GoBrain Pre & School — trening słuchowy w placówce"
+                  className="w-full object-cover"
+                  style={{ objectPosition: "center 20%" }}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(249,115,22,0.15) 0%, transparent 60%)" }} />
+              </div>
 
-            <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Profesjonalna platforma treningu słuchowego dla gabinetów, szkół, przedszkoli i poradni. Nieograniczona liczba podopiecznych, pełna kontrola terapeuty, licencja roczna.
-            </motion.p>
+              {/* Floating badge 1 */}
+              <motion.div
+                animate={{ y: [0, -7, 0] }}
+                transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-5 -left-5 bg-white rounded-2xl border border-border shadow-xl p-4 flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-orange-500" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Licencja placówkowa</p>
+                  <p className="font-bold text-foreground text-sm">Bez limitu dzieci</p>
+                </div>
+              </motion.div>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 text-base font-semibold bg-orange-500 hover:bg-orange-600 text-white" asChild>
-                <a href="https://automater.pl/rest/order-viewer/buy/979412" target="_blank" rel="noopener noreferrer">
-                  Zamów licencję
-                  <ChevronRight className="ml-2 w-4 h-4" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base" asChild>
-                <Link to="/strefa-terapeuty">
-                  Strefa terapeuty
-                </Link>
-              </Button>
+              {/* Floating badge 2 */}
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4.0, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                className="absolute -top-4 -right-4 bg-white rounded-2xl border border-border shadow-xl p-4 flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Wyniki terapii</p>
+                  <p className="font-bold text-foreground text-sm">Raport postępów</p>
+                </div>
+              </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="mt-10 inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-2xl px-6 py-3">
-              <span className="text-2xl font-black text-orange-500">799</span>
-              <span className="text-sm text-muted-foreground">PLN / rok (brutto)</span>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -235,9 +352,11 @@ export default function ItsSchoolPage() {
               className="rounded-3xl overflow-hidden shadow-2xl"
             >
               <img
-                src={childrenClassroomImg}
-                alt="Dzieci korzystające z ITS GoBrain Pre & School w placówce"
+                src={itsSchoolBoyTabletImg}
+                alt="Chlopiec cwiczacy interaktywny trening sluchowy GoBrain na tablecie"
                 className="w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
 
@@ -265,6 +384,9 @@ export default function ItsSchoolPage() {
                   "Możliwość pracy stacjonarnej i zdalnej",
                   "Szkolenie i certyfikat Providera GoBrain w pakiecie",
                   "Wsparcie techniczne i merytoryczne od twórców",
+                  "Pełna automatyzacja procesu treningowego oraz bieżące monitorowanie postępów po każdym zadaniu, dzięki czemu dziecko szybciej się uczy",
+                  "Unikatowa funkcja wspierania uwagi słuchowej kierunkowej — dźwięk zakłócający w tle zmienia głośność w zależności od poprawności wykonywanego zadania",
+                  "Ćwiczenie funkcji słuchowych z wykorzystaniem wsparcia wizualnego w postaci obrazków",
                 ].map((item) => (
                   <motion.li key={item} variants={fadeInUp} className="flex items-center gap-3 text-sm text-foreground">
                     <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" />
@@ -274,6 +396,50 @@ export default function ItsSchoolPage() {
               </motion.ul>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Child playing section */}
+      <section className="py-16 bg-background overflow-hidden">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <div className="relative">
+              <img
+                src={childTabletGame1Img}
+                alt="Dziewczynka gra w ITS GoBrain Pre & School na tablecie — interaktywny trening słuchowy w placówce"
+                className="w-full object-cover"
+                style={{ maxHeight: "460px", objectPosition: "center 25%" }}
+                loading="lazy"
+              />
+              <div className="hidden md:block absolute inset-0" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} />
+              <div className="hidden md:flex absolute inset-0 items-center px-16">
+                <div className="max-w-lg">
+                  <p className="text-white/80 text-sm font-medium mb-2 uppercase tracking-widest">Dla przedszkoli i szkół</p>
+                  <h2 className="text-3xl font-extrabold text-white leading-tight mb-4">
+                    Trening słuchowy już od przedszkola — w formie zabawy
+                  </h2>
+                  <p className="text-white/80 text-base leading-relaxed">
+                    Kolorowe gry i animacje angażują nawet najmłodszych. Program dopasowuje poziom do każdego dziecka — bez frustracji, bez nudy.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="md:hidden bg-foreground px-6 py-6">
+              <p className="text-white/60 text-xs font-medium mb-1 uppercase tracking-widest">Dla przedszkoli i szkół</p>
+              <h2 className="text-xl font-extrabold text-white leading-tight mb-3">
+                Trening słuchowy już od przedszkola — w formie zabawy
+              </h2>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Kolorowe gry i animacje angażują nawet najmłodszych. Program dopasowuje poziom do każdego dziecka — bez frustracji, bez nudy.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -295,8 +461,11 @@ export default function ItsSchoolPage() {
               <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-foreground mb-4">
                 Pełny wgląd w postępy każdego dziecka
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-6">
+              <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-3">
                 Intuicyjny panel terapeuty pozwala na bieżące śledzenie wyników wszystkich podopiecznych. Raporty, statystyki sesji i historia treningów — wszystko w jednym miejscu.
+              </motion.p>
+              <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-6">
+                Terapeuta ma pełną kontrolę nad treningiem prowadzonym w domu — może sprawdzić, kiedy trening został wykonany, ile trwał oraz jakie dziecko osiągnęło wyniki.
               </motion.p>
               <motion.div variants={staggerContainer} className="grid grid-cols-2 gap-4">
                 {[
@@ -324,6 +493,8 @@ export default function ItsSchoolPage() {
                 src={therapistDashboardImg}
                 alt="Panel terapeuty ITS GoBrain Pre & School"
                 className="w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           </div>
@@ -422,6 +593,12 @@ export default function ItsSchoolPage() {
                 <a href="tel:+48608650435">
                   <Phone className="w-4 h-4 mr-2" />
                   608 650 435
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-white text-white hover:bg-white hover:text-orange-600" asChild>
+                <a href="tel:+48572557326">
+                  <Phone className="w-4 h-4 mr-2" />
+                  572 557 326
                 </a>
               </Button>
             </motion.div>

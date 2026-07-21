@@ -1,4 +1,6 @@
 import { motion, type Variants, useInView } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import {
@@ -22,12 +24,15 @@ import {
   FileText,
   Eye,
   Headphones,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import therapistDashboardImg from "@/assets/therapist-dashboard.png";
-import testResultsImg from "@/assets/test-results-screen.png";
-import childSuccessImg from "@/assets/child-success.png";
-import therapistOfficeImg from "@/assets/therapist-office.png";
+import therapistDashboardImg from "@/assets/therapist-dashboard.webp";
+import therapistPortraitHeroImg from "@/assets/therapist-portrait-hero.webp";
+import testResultsImg from "@/assets/test-results-screen.webp";
+import dashboardPrePostImg from "@/assets/dashboard-pretest-posttest.webp";
+import childSuccessImg from "@/assets/DSC01020.jpg";
+import therapistOfficeImg from "@/assets/therapist-office.webp";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -101,19 +106,72 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 export default function StrefaTerapeutyPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="Strefa Terapeuty – ITS GoBrain dla specjalistów"
+        description="ITS GoBrain w gabinecie terapeutycznym. Narzędzie dla logopedów, pedagogów i terapeutów SI. Panel zarządzania, raporty postępów, wsparcie merytoryczne."
+        canonical="/strefa-terapeuty"
+      />
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/therapist-portrait-hero-1280w.webp"
+          imageSrcSet="/img/therapist-portrait-hero-640w.webp 640w, /img/therapist-portrait-hero-1280w.webp 1280w"
+          imageSizes="100vw"
+        />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Platforma TERAPEUTA — ITS GoBrain",
+          "url": "https://gobrain.pl/strefa-terapeuty",
+          "description": "Profesjonalna platforma terapeutyczna ITS GoBrain dla logopedow, pedagogow i terapeutow SI. Panel zarzadzania pacjentami, raporty postepu, testy diagnostyczne.",
+          "applicationCategory": "MedicalApplication",
+          "operatingSystem": "Windows, macOS, ChromeOS, Android, iOS",
+          "inLanguage": "pl",
+          "availableOnDevice": "Desktop, Mobile, Tablet",
+          "featureList": "Panel terapeuty, Raporty postepu, Zarzadzanie profilami pacjentow, Testy diagnostyczne pre i post",
+          "offers": {
+            "@type": "Offer",
+            "name": "Licencja terapeutyczna Platforma TERAPEUTA",
+            "url": "https://gobrain.pl/strefa-terapeuty",
+            "price": "799",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://gobrain.pl/#organization" }
+          },
+          "publisher": { "@id": "https://gobrain.pl/#organization" },
+          "brand": { "@id": "https://gobrain.pl/#organization" },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Logopedzi, pedagodzy, terapeuci SI, specjalisci z zakresu przetwarzania sluchowego"
+          }
+        })}</script>
+      </Helmet>
       <div className="pt-16">
 
         {/* ─── HERO ─── */}
         <section className="relative py-20 md:py-28 overflow-hidden bg-primary text-white">
           <div className="absolute inset-0">
             <img
-              src={therapistDashboardImg}
-              alt="Terapeuta pracuje z platformą GoBrain"
-              className="w-full h-full object-cover opacity-20"
+              src={therapistPortraitHeroImg}
+              srcSet="/img/therapist-portrait-hero-640w.webp 640w, /img/therapist-portrait-hero-1280w.webp 1280w"
+              sizes="100vw"
+              alt="Terapeutka logopedka pracuje z platformą interaktywnego treningu słuchowego GoBrain"
+              className="w-full h-full object-cover opacity-60"
+              style={{ objectPosition: "100% 15%" }}
+              fetchPriority="high"
+              decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/40 to-primary/10" />
           </div>
 
           {/* Floating icons */}
@@ -192,6 +250,49 @@ export default function StrefaTerapeutyPage() {
           </div>
         </section>
 
+        {/* ─── VIDEO ─── */}
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-10"
+            >
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <span>▶</span>
+                <span>Zobacz platformę w działaniu</span>
+              </motion.div>
+              <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Platforma TERAPEUTA — prezentacja
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Obejrzyj jak wygląda praca z platformą — od diagnozy, przez sesje treningowe, aż po raporty wyników.
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="rounded-3xl overflow-hidden shadow-2xl bg-black"
+            >
+              <video
+                ref={videoRef}
+                loop
+                playsInline
+                autoPlay
+                className="w-full"
+                style={{ maxHeight: "560px", transform: "scale(1.08)", transformOrigin: "center center" }}
+              >
+                <source src="/platforma-terapeuta.mp4" type="video/mp4" />
+                Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+              </video>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ─── BEFORE / AFTER ─── */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 max-w-6xl">
@@ -260,7 +361,7 @@ export default function StrefaTerapeutyPage() {
                   transition={{ duration: 0.7 }}
                   className="relative rounded-3xl overflow-hidden shadow-2xl"
                 >
-                  <img src={testResultsImg} alt="Ekran wyników testu słuchowego w platformie GoBrain" className="w-full object-cover" />
+                  <img src={testResultsImg} alt="Ekran wyników interaktywnego treningu słuchowego w platformie GoBrain" className="w-full object-cover" loading="lazy" decoding="async" />
                   <motion.div
                     animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
@@ -281,7 +382,7 @@ export default function StrefaTerapeutyPage() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="relative rounded-2xl overflow-hidden shadow-lg"
                 >
-                  <img src={childSuccessImg} alt="Dziecko świętuje sukces z terapeutą" className="w-full object-cover max-h-52" />
+                  <img src={childSuccessImg} alt="Dziecko świętuje sukces z terapeutą" className="w-full object-cover max-h-52" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent flex items-end p-5">
                     <div>
                       <p className="text-white font-bold text-lg">Widoczny postęp już po 4 tygodniach!</p>
@@ -372,7 +473,7 @@ export default function StrefaTerapeutyPage() {
                       <ArrowRight className="w-3 h-3 text-muted-foreground" />
                     </div>
                     <h3 className="font-bold text-foreground mb-1">Monitoring postępów</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">Terapeuta ma dostęp do wyników każdego dziecka w czasie rzeczywistym — śledzi postępy na bieżąco, bez względu na miejsce pracy. Platforma automatycznie porównuje poszczególne zadania, wskazując obszary wymagające większej uwagi. Na podstawie wyników terapeuta może też dostosować terapię poza systemem GoBrain.</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">Terapeuta ma pełną kontrolę nad treningiem prowadzonym w domu — może sprawdzić, kiedy trening został wykonany, ile trwał oraz jakie dziecko osiągnęło wyniki. Platforma automatycznie porównuje poszczególne zadania, wskazując obszary wymagające większej uwagi. Na podstawie wyników terapeuta może też dostosować terapię poza systemem GoBrain.</p>
                   </div>
                 </motion.div>
 
@@ -401,7 +502,15 @@ export default function StrefaTerapeutyPage() {
                   className="relative"
                 >
                   <div className="rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={therapistOfficeImg} alt="Terapeuta przy biurku z platformą GoBrain" className="w-full object-cover" />
+                    <img
+                      src={therapistOfficeImg}
+                      srcSet="/img/therapist-office-640w.webp 640w, /img/therapist-office-1280w.webp 1280w"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      alt="Terapeutka logopedka przy biurku z platformą interaktywnego treningu słuchowego GoBrain"
+                      className="w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
@@ -425,8 +534,8 @@ export default function StrefaTerapeutyPage() {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="relative mt-6"
                 >
-                  <div className="rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={testResultsImg} alt="Wyniki testu słuchowego GoBrain" className="w-full object-cover" />
+                  <div className="rounded-3xl overflow-hidden shadow-xl bg-muted">
+                    <img src={dashboardPrePostImg} alt="Porównanie wyników PreTest i PostTest w platformie GoBrain — wykresy przed i po terapii słuchowej" className="w-full object-contain p-2" loading="lazy" decoding="async" />
                   </div>
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
@@ -437,8 +546,8 @@ export default function StrefaTerapeutyPage() {
                       <TrendingUp className="w-4 h-4 text-green-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground">Raport wyników</p>
-                      <p className="font-bold text-foreground text-sm">PDF dla rodziców</p>
+                      <p className="text-xs text-muted-foreground">PreTest vs PostTest</p>
+                      <p className="font-bold text-foreground text-sm">Mierzalny wynik terapii</p>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -451,7 +560,7 @@ export default function StrefaTerapeutyPage() {
                   className="relative mt-6"
                 >
                   <div className="rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={childSuccessImg} alt="Dziecko po udanej terapii GoBrain" className="w-full object-cover" />
+                    <img src={childSuccessImg} alt="Dziecko po udanej terapii GoBrain" className="w-full object-cover" loading="lazy" decoding="async" />
                   </div>
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
@@ -589,7 +698,7 @@ export default function StrefaTerapeutyPage() {
           </div>
         </section>
 
-        {/* ─── DOWNLOADS ─── */}
+        {/* ─── SYSTEM REQUIREMENTS ─── */}
         <section className="py-20 bg-card border-y border-border">
           <div className="container mx-auto px-4 max-w-3xl">
             <motion.div
@@ -599,8 +708,8 @@ export default function StrefaTerapeutyPage() {
               variants={fadeInUp}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-foreground mb-4">Pobierz aplikację</h2>
-              <p className="text-lg text-muted-foreground">Platforma dostępna na Windows (PC) i Android</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4">Wymagania systemowe</h2>
+              <p className="text-lg text-muted-foreground">Platforma Terapeuta działa na Windows (PC) i Android</p>
             </motion.div>
 
             <motion.div
@@ -608,61 +717,55 @@ export default function StrefaTerapeutyPage() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
             >
-              {[
-                {
-                  href: "https://gobraintech.pl/current/Sklep_PC/TERAPEUTA.exe",
-                  icon: Monitor,
-                  title: "Platforma TERAPEUTA (PC)",
-                  sub: "Windows — plik instalacyjny .exe",
-                },
-                {
-                  href: "https://gobraintech.pl/current/Sklep_Android/terapeuta.apk",
-                  icon: Smartphone,
-                  title: "Platforma TERAPEUTA (Android)",
-                  sub: "Android — plik instalacyjny .apk",
-                },
-              ].map((dl, i) => (
-                <motion.div key={i} variants={fadeInUp}>
-                  <a href={dl.href}
-                     className="flex items-center gap-4 p-6 rounded-2xl border border-border bg-background hover:border-primary hover:shadow-md transition-all group">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <dl.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-semibold text-foreground">{dl.title}</p>
-                      <p className="text-sm text-muted-foreground">{dl.sub}</p>
-                    </div>
-                    <Download className="w-4 h-4 text-muted-foreground ml-auto group-hover:text-primary transition-colors" />
-                  </a>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="bg-background rounded-2xl border border-border p-6"
-            >
-              <h3 className="font-bold text-foreground mb-4">Wymagania systemowe (Windows PC)</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  "System: Windows 8 / 10 / 11",
-                  "Procesor: 2-rdzeniowy 1.8 GHz",
-                  "Pamięć RAM: min. 4 GB",
-                  "Karta graficzna: DirectX 11",
-                  "Wolne miejsce: min. 1 GB",
-                  "Rozdzielczość: 1280 \u00d7 720",
-                ].map((req, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
-                    {req}
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <Monitor className="w-5 h-5 text-primary" />
                   </div>
-                ))}
-              </div>
+                  <h3 className="font-bold text-foreground">Windows PC</h3>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    "System: Windows 8 / 10 / 11",
+                    "Procesor: 2-rdzeniowy 1.8 GHz",
+                    "Pamięć RAM: min. 4 GB",
+                    "Karta graficzna: DirectX 11",
+                    "Wolne miejsce: min. 1 GB",
+                    "Rozdzielczość: 1280 × 720",
+                  ].map((req, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                      {req}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                    <Smartphone className="w-5 h-5 text-green-600" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Android</h3>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    "System: Android 7.0 lub nowszy",
+                    "Procesor: 4-rdzeniowy 1.5 GHz",
+                    "Pamięć RAM: min. 2 GB",
+                    "Wolne miejsce: min. 500 MB",
+                    "Rozdzielczość: min. 1280 × 720",
+                    "Słuchawki nauszne (zalecane)",
+                  ].map((req, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                      {req}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </div>
         </section>

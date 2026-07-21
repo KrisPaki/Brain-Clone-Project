@@ -48,10 +48,9 @@ Thumbs.db
 .cache/
 .local/
 
-# Env and secrets
+# Backups and temporary zip files
+Brain-Clone-Project.zip
+STRONA ALFA*
 .env
-.env.*
 
-# ZIP archives
-*.zip
 

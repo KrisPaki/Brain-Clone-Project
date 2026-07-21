@@ -1,0 +1,31 @@
+kind = "video"
+previewPath = "/gobrain-video/"
+title = "GoBrain — Film marketingowy"
+version = "1.0.0"
+id = "artifacts/gobrain-video"
+router = "path"
+
+[[integratedSkills]]
+name = "video-js"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/gobrain-video/" ]
+localPort = 24250
+
+[services.development]
+run = "pnpm --filter @workspace/gobrain-video run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gobrain-video", "run", "build" ]
+publicDir = "artifacts/gobrain-video/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24250"
+BASE_PATH = "/gobrain-video/"

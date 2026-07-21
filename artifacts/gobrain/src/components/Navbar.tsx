@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoImg from "@/assets/gobrain-logo-new.png";
+import { AUTOMATER_PRODUCTS } from "@/config/automater";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,8 @@ export default function Navbar() {
   const links = [
     { label: "Strona główna", href: "/" },
     { label: "ITS GoBrain", href: "/its" },
+    { label: "ITS School", href: "/its-school" },
+    { label: "Karta Mowy", href: "/karta-mowy" },
     { label: "Sklep", href: "/sklep" },
     { label: "Strefa terapeuty", href: "/strefa-terapeuty" },
     { label: "Szkolenia", href: "/szkolenia-i-webinary" },
@@ -46,7 +49,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Button asChild size="sm" className="ml-2 font-semibold shadow-sm bg-orange-500 hover:bg-orange-600 text-white border-0" data-testid="button-buy-nav">
-            <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
+            <a href={AUTOMATER_PRODUCTS.itsEtap1} target="_blank" rel="noopener noreferrer">
               Kup kod aktywacyjny
             </a>
           </Button>
@@ -77,7 +80,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Button asChild className="w-full font-semibold shadow-sm bg-orange-500 hover:bg-orange-600 text-white border-0" data-testid="button-buy-nav-mobile">
-              <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
+              <a href={AUTOMATER_PRODUCTS.itsEtap1} target="_blank" rel="noopener noreferrer">
                 Kup kod aktywacyjny
               </a>
             </Button>

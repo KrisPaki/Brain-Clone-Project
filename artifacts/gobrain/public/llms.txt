@@ -1,0 +1,42 @@
+# GoBrain
+> Interaktywny Trening Słuchowy ITS GoBrain — oprogramowanie do treningu słuchowego dla dzieci, rodziców, terapeutów i szkół. Twórca: Aneta Pakieła (neurologopeda, LogoMedic). Strona: https://gobrain.pl
+
+## Strony główne
+
+- https://gobrain.pl/ — strona główna, ogólny opis metody i korzyści
+- https://gobrain.pl/its — szczegółowy opis metody ITS GoBrain (Interaktywny Trening Słuchowy)
+- https://gobrain.pl/its-school — oferta dla szkół i placówek edukacyjnych
+- https://gobrain.pl/strefa-terapeuty — narzędzia i zasoby dla logopedów, terapeutów SI i pedagogów
+- https://gobrain.pl/szkolenia-i-webinary — szkolenia i webinary dla specjalistów
+- https://gobrain.pl/sklep — licencje: wersja domowa, terapeutyczna i szkolna
+- https://gobrain.pl/programy-edukacyjne — katalog programów edukacyjnych (zabawy logopedyczne, nauka liter, kreatywność)
+- https://gobrain.pl/karta-mowy — bezpłatne narzędzie diagnostyczne rozwoju mowy
+- https://gobrain.pl/darmowe-webinary — bezpłatne webinary dla rodziców i terapeutów
+
+## Wiedza i pomoc
+
+- https://gobrain.pl/blog — artykuły eksperckie o treningu słuchowym, CAPD, ADHD, dysleksji i rozwoju dzieci
+- https://gobrain.pl/faq — najczęstsze pytania i odpowiedzi
+- https://gobrain.pl/pomoc — centrum pomocy i wsparcia technicznego
+
+## Artykuły blogowe
+
+- https://gobrain.pl/blog/czym-sa-zaburzenia-capd
+- https://gobrain.pl/blog/capd-dobrze-slyszy-zle-przetwarza
+- https://gobrain.pl/blog/dysleksja-i-gobrain
+- https://gobrain.pl/blog/czym-jest-adhd
+- https://gobrain.pl/blog/szkola-podstawowa-z-gobrain
+- https://gobrain.pl/blog/przedszkole-z-gobrain
+- https://gobrain.pl/blog/pomysly-na-zabawy-z-dzieckiem
+- https://gobrain.pl/blog/prasa-why-story-2021
+- https://gobrain.pl/blog/prasa-artykul-naukowy
+
+## Programy edukacyjne (wybrane)
+
+- https://gobrain.pl/programy-edukacyjne/zabawy-logopedyczne-01
+- https://gobrain.pl/programy-edukacyjne/gloski-ciszace-01
+- https://gobrain.pl/programy-edukacyjne/szereg-szumiacy-sz
+- https://gobrain.pl/programy-edukacyjne/literki-a-o-e-u-i-y
+- https://gobrain.pl/programy-edukacyjne/kreatywny-brzdac-01
+- https://gobrain.pl/programy-edukacyjne/pamiec-i-koncentracja-01
+- https://gobrain.pl/programy-edukacyjne/mala-matematyka-01

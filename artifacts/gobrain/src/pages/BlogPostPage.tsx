@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Calendar, ArrowLeft, ExternalLink, User } from "lucide-react";
 import { blogArticles } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
+import { AUTOMATER_PRODUCTS } from "@/config/automater";
 
 function renderContent(markdown: string) {
   const lines = markdown.split('\n');
@@ -23,6 +26,18 @@ function renderContent(markdown: string) {
         <h1 key={key++} className="text-3xl font-bold text-foreground mt-8 mb-4">
           {line.replace('# ', '')}
         </h1>
+      );
+    } else if (line.startsWith('> ')) {
+      const quoteLines: string[] = [];
+      let j = i;
+      while (j < lines.length && lines[j].startsWith('> ')) {
+        quoteLines.push(lines[j].replace(/^> /, ''));
+        j++;
+      }
+      i = j - 1;
+      elements.push(
+        <blockquote key={key++} className="border-l-4 border-primary/40 pl-5 py-1 my-6 italic text-foreground/90 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: formatInline(quoteLines.join(' ')) }} />
       );
     } else if (line.startsWith('- ')) {
       const items: string[] = [];
@@ -64,8 +79,29 @@ export default function BlogPostPage() {
 
   if (!article) return <Navigate to="/blog" replace />;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    author: { "@type": "Person", name: article.author },
+    datePublished: article.publishedAt,
+    dateModified: article.modifiedAt ?? article.publishedAt,
+    url: `https://gobrain.pl/blog/${article.slug}`,
+    publisher: { "@id": "https://gobrain.pl/#organization" },
+    inLanguage: "pl",
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans pt-16">
+      <SEO
+        title={`${article.title} — Blog GoBrain`}
+        description={article.excerpt}
+        canonical={`/blog/${article.slug}`}
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
 
       {/* Hero */}
       <section className="py-12 md:py-16 bg-card/40 border-b border-border">
@@ -155,7 +191,7 @@ export default function BlogPostPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild className="bg-white text-primary hover:bg-white/90 font-semibold">
-                <a href="https://automater.pl/rest/order-viewer/buy/918448" target="_blank" rel="noopener noreferrer">
+                <a href={AUTOMATER_PRODUCTS.itsEtap1} target="_blank" rel="noopener noreferrer">
                   Kup kod aktywacyjny
                 </a>
               </Button>

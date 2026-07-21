@@ -1,4 +1,6 @@
 import { motion, type Variants } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Gamepad2,
@@ -12,8 +14,8 @@ import {
   Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import childrenClassroomImg from "@/assets/children-classroom.png";
-import { programsByCategory } from "@/data/programyData";
+import childrenClassroomImg from "@/assets/children-classroom.webp";
+import { programsByCategory, programs } from "@/data/programyData";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -87,9 +89,34 @@ function CategorySection({
 }
 
 export default function ProgramyEdukacyjnePage() {
+  const programsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Programy edukacyjne GoBrain",
+    description: "Interaktywne gry edukacyjne i logopedyczne dla dzieci od 5 lat.",
+    url: "https://gobrain.pl/programy-edukacyjne",
+    publisher: { "@id": "https://gobrain.pl/#organization" },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: programs.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://gobrain.pl/programy-edukacyjne/${p.slug}`,
+        name: p.title,
+      })),
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans pt-16">
-
+      <SEO
+        title="Programy edukacyjne ITS GoBrain — gry logopedyczne i edukacyjne"
+        description="Ponad 19 interaktywnych gier edukacyjnych i logopedycznych dla dzieci od 5 lat. Zabawy logopedyczne, zabawy z literkami i gry dla brzdaca."
+        canonical="/programy-edukacyjne"
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(programsSchema)}</script>
+      </Helmet>
       {/* Hero */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-purple-50 via-white to-blue-50 border-b border-border">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -101,7 +128,7 @@ export default function ProgramyEdukacyjnePage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
               <Gamepad2 className="w-4 h-4" />
-              Platforma PeGoBrain
+              Platforma GoBrain
             </motion.div>
 
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
@@ -128,7 +155,6 @@ export default function ProgramyEdukacyjnePage() {
           </motion.div>
         </div>
       </section>
-
       {/* Stats bar */}
       <section className="py-8 bg-purple-600">
         <div className="container mx-auto px-4">
@@ -153,7 +179,6 @@ export default function ProgramyEdukacyjnePage() {
           </motion.div>
         </div>
       </section>
-
       {/* Games catalog */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -196,7 +221,6 @@ export default function ProgramyEdukacyjnePage() {
           />
         </div>
       </section>
-
       {/* How to use */}
       <section className="py-16 bg-card/40 border-y border-border">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -210,9 +234,7 @@ export default function ProgramyEdukacyjnePage() {
             <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-foreground mb-3">
               Jak korzystać z programów?
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Programy PeGoBrain są dostępne online — wystarczy przeglądarka internetowa.
-            </motion.p>
+            <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-xl mx-auto">Programy Edukacyjne GoBrain są dostępne online — wystarczy przeglądarka internetowa.</motion.p>
           </motion.div>
 
           <motion.div
@@ -252,7 +274,6 @@ export default function ProgramyEdukacyjnePage() {
           </motion.div>
         </div>
       </section>
-
       {/* Image + description */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -266,7 +287,7 @@ export default function ProgramyEdukacyjnePage() {
             >
               <img
                 src={childrenClassroomImg}
-                alt="Dzieci korzystające z programów edukacyjnych PeGoBrain"
+                alt="Dzieci korzystające z programów edukacyjnych i interaktywnego treningu słuchowego GoBrain"
                 className="w-full object-cover"
               />
             </motion.div>
@@ -279,13 +300,13 @@ export default function ProgramyEdukacyjnePage() {
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-4">
                 <Sparkles className="w-4 h-4" />
-                Dlaczego PeGoBrain?
+                Dlaczego GoBrain?
               </motion.div>
               <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-foreground mb-4">
                 Nauka przez zabawę — najskuteczniejsza metoda
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-6">
-                Programy PeGoBrain łączą skuteczność terapii logopedycznej z angażującą formą zabawy. Dziecko ćwiczy wymowę, rozpoznaje litery i rozwija kreatywność — nieświadomie, bo jest pochłonięte zabawą.
+                Programy GoBrain łączą skuteczność terapii logopedycznej z angażującą formą zabawy. Dziecko ćwiczy wymowę, rozpoznaje litery i rozwija kreatywność — nieświadomie, bo jest pochłonięte zabawą.
               </motion.p>
               <motion.ul variants={staggerContainer} className="space-y-3">
                 {[
@@ -307,7 +328,6 @@ export default function ProgramyEdukacyjnePage() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="py-16 md:py-20 bg-purple-600">
         <div className="container mx-auto px-4 max-w-3xl text-center">
@@ -336,6 +356,12 @@ export default function ProgramyEdukacyjnePage() {
                   608 650 435
                 </a>
               </Button>
+              <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-white text-white hover:bg-white hover:text-purple-600" asChild>
+                <a href="tel:+48572557326">
+                  <Phone className="w-4 h-4 mr-2" />
+                  572 557 326
+                </a>
+              </Button>
             </motion.div>
             <motion.div variants={fadeInUp} className="mt-8">
               <Link to="/sklep" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">
@@ -345,7 +371,6 @@ export default function ProgramyEdukacyjnePage() {
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }

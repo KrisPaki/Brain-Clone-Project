@@ -20,6 +20,10 @@ export default function Footer() {
                 <Phone className="w-4 h-4 shrink-0" />
                 608 650 435
               </a>
+              <a href="tel:+48572557326" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="w-4 h-4 shrink-0" />
+                572 557 326
+              </a>
               <a href="mailto:gobrainterapeuta@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-email">
                 <Mail className="w-4 h-4 shrink-0" />
                 gobrainterapeuta@gmail.com
@@ -35,6 +39,7 @@ export default function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Produkty</h3>
             <ul className="space-y-3">
               <li><Link to="/sklep" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-sklep">Sklep</Link></li>
+              <li><Link to="/programy-edukacyjne" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-programy">Programy edukacyjne</Link></li>
               <li><Link to="/its" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-its">ITS GoBrain</Link></li>
               <li><Link to="/its-school" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-its-school">ITS GoBrain Pre & School</Link></li>
               <li><Link to="/strefa-terapeuty" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-terapeuta">Platforma Terapeuta</Link></li>
@@ -59,6 +64,7 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <Link to="/polityka-prywatnosci" className="hover:text-primary transition-colors" data-testid="link-footer-privacy">Polityka prywatności</Link>
             <Link to="/regulamin" className="hover:text-primary transition-colors" data-testid="link-footer-terms">Regulamin</Link>
+            <Link to="/regulamin-aplikacji" className="hover:text-primary transition-colors" data-testid="link-footer-terms-app">Regulamin aplikacji</Link>
           </div>
         </div>
       </div>

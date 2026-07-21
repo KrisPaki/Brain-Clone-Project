@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location));
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>GoBrain</title>
+    <title>ITS GoBrain – Trening słuchowy dla dzieci | gobrain.pl</title>
+    <meta name="description" content="GoBrain to innowacyjny trening słuchowy dla dzieci od 5 lat. Poprawia koncentrację, pamięć słuchową i mowę. Efekty widoczne po 4–8 tygodniach. Wypróbuj!" />
+    <link rel="canonical" href="https://gobrain.pl/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="ITS GoBrain" />
+    <meta property="og:title" content="ITS GoBrain – Trening słuchowy dla dzieci" />
+    <meta property="og:description" content="Innowacyjny trening słuchowy dla dzieci od 5 lat. Poprawia koncentrację, pamięć słuchową i mowę. Efekty widoczne po 4–8 tygodniach." />
+    <meta property="og:url" content="https://gobrain.pl/" />
+    <meta property="og:image" content="https://gobrain.pl/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ITS GoBrain – trening słuchowy dla dzieci" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ITS GoBrain – Trening słuchowy dla dzieci" />
+    <meta name="twitter:description" content="Innowacyjny trening słuchowy dla dzieci od 5 lat. Poprawia koncentrację, pamięć słuchową i mowę." />
+    <meta name="twitter:image" content="https://gobrain.pl/opengraph.jpg" />
+
+    <!-- Structured Data: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://gobrain.pl/#organization",
+          "name": "GoBrain",
+          "url": "https://gobrain.pl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://gobrain.pl/opengraph.jpg"
+          },
+          "email": "gobrainterapeuta@gmail.com",
+          "telephone": "+48608650435",
+          "founder": {
+            "@type": "Person",
+            "name": "Aneta Pakiela",
+            "jobTitle": "Neurologopeda, tworczyni metody ITS GoBrain"
+          },
+          "sameAs": ["https://www.facebook.com/gobrainpl"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://gobrain.pl/#website",
+          "url": "https://gobrain.pl/",
+          "name": "ITS GoBrain",
+          "description": "Innowacyjny interaktywny trening sluchowy dla dzieci od 5 lat.",
+          "publisher": { "@id": "https://gobrain.pl/#organization" },
+          "inLanguage": "pl"
+        }
+      ]
+    }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

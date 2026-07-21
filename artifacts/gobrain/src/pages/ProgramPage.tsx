@@ -1,10 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import {
   ArrowLeft,
   Monitor,
   Smartphone,
-  Play,
   ShoppingCart,
   Clock,
   Volume2,
@@ -56,8 +57,34 @@ export default function ProgramPage() {
   const cat = categoryConfig[program.category] ?? categoryConfig["Zabawy logopedyczne"];
   const CatIcon = cat.Icon;
 
+  const programSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: program.title,
+    description: program.subtitle,
+    applicationCategory: program.category,
+    operatingSystem: "Windows, Android, Web",
+    url: `https://gobrain.pl/programy-edukacyjne/${program.slug}`,
+    publisher: { "@id": "https://gobrain.pl/#organization" },
+    offers: {
+      "@type": "Offer",
+      url: program.automaterUrl,
+      priceCurrency: "PLN",
+      availability: "https://schema.org/InStock",
+    },
+    inLanguage: "pl",
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans pt-16">
+      <SEO
+        title={`${program.title} — Program edukacyjny GoBrain`}
+        description={program.subtitle}
+        canonical={`/programy-edukacyjne/${program.slug}`}
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(programSchema)}</script>
+      </Helmet>
 
       {/* Back navigation */}
       <div className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-16 z-10">
@@ -134,25 +161,6 @@ export default function ProgramPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-4"
             >
-              {/* Demo */}
-              {program.demoUrl && (
-                <div className="bg-card border border-border rounded-2xl p-5">
-                  <h3 className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
-                    <Play className="w-4 h-4 text-primary" />
-                    Wersja demo online
-                  </h3>
-                  <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-                    Wypróbuj program za darmo bezpośrednio w przeglądarce internetowej.
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full" asChild>
-                    <a href={program.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <Play className="w-3.5 h-3.5 mr-1.5" />
-                      Zagraj w demo
-                    </a>
-                  </Button>
-                </div>
-              )}
-
               {/* Download */}
               <div className="bg-card border border-border rounded-2xl p-5">
                 <h3 className="text-sm font-bold text-foreground mb-3">Pobierz aplikacje</h3>

@@ -84,6 +84,12 @@ uri = "file://artifacts/gobrain/src/assets/therapist-office.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "IycpMDOsOvKHta7SXJCtf"
+uri = "file://attached_assets/school-children-tablets-facing.png"
+type = "image"
+title = "white children using tablets in classroom"
+
 [[outputs]]
 id = "51PSUYXlNNfD4GAXQyhgX"
 uri = "file://artifacts/gobrain/public/gobrain-logo.svg"

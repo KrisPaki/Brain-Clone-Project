@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -12,7 +13,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import contentData from "@/data/content.json";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -27,8 +27,11 @@ const staggerContainer: Variants = {
 export default function PomocPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
-
-
+      <SEO
+        title="Pomoc i wsparcie techniczne – ITS GoBrain"
+        description="Centrum pomocy ITS GoBrain. Instrukcje instalacji, FAQ i wsparcie techniczne dla użytkowników oprogramowania GoBrain."
+        canonical="/pomoc"
+      />
       <div className="pt-16">
 
         {/* Hero */}
@@ -68,7 +71,7 @@ export default function PomocPage() {
 
                 <div className="space-y-5 mb-10">
                   <a
-                    href={`tel:${contentData.kontakt.phoneUrl}`}
+                    href="tel:+48608650435"
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -76,12 +79,24 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Telefon</p>
-                      <p className="font-semibold text-foreground text-lg">{contentData.kontakt.phone}</p>
+                      <p className="font-semibold text-foreground text-lg">608 650 435</p>
+                    </div>
+                  </a>
+                  <a
+                    href="tel:+48572557326"
+                    className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-0.5">Telefon</p>
+                      <p className="font-semibold text-foreground text-lg">572 557 326</p>
                     </div>
                   </a>
 
                   <a
-                    href={`mailto:${contentData.kontakt.email}`}
+                    href="mailto:gobrainterapeuta@gmail.com"
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -89,12 +104,12 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">E-mail</p>
-                      <p className="font-semibold text-foreground">{contentData.kontakt.email}</p>
+                      <p className="font-semibold text-foreground">gobrainterapeuta@gmail.com</p>
                     </div>
                   </a>
 
                   <a
-                    href={contentData.kontakt.facebookUrl}
+                    href="https://www.facebook.com/gobrainpl"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card hover:border-primary hover:shadow-md transition-all group"
@@ -104,7 +119,7 @@ export default function PomocPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Facebook</p>
-                      <p className="font-semibold text-foreground">{contentData.kontakt.facebook}</p>
+                      <p className="font-semibold text-foreground">@gobrainpl</p>
                     </div>
                   </a>
                 </div>
@@ -115,8 +130,6 @@ export default function PomocPage() {
                   <div className="space-y-3">
                     {[
                       { icon: HelpCircle, label: "Często zadawane pytania (FAQ)", href: "/faq", internal: true },
-                      { icon: Download, label: "Pobierz wersję demo PC", href: "https://gobrain.pl/archiwa/starter-pc", internal: false },
-                      { icon: Download, label: "Pobierz wersję demo Android", href: "https://gobrain.pl/archiwa/starter-android", internal: false },
                     ].map((link, i) => (
                       link.internal ? (
                         <Link key={i} to={link.href as string} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -221,8 +234,6 @@ export default function PomocPage() {
         </section>
 
       </div>
-
-
     </div>
   );
 }

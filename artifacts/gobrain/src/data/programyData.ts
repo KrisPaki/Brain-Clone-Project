@@ -1,3 +1,5 @@
+import { AUTOMATER_PRODUCTS } from "@/config/automater";
+
 export interface Program {
   slug: string;
   title: string;
@@ -7,12 +9,11 @@ export interface Program {
   age: string;
   pcDownload: string;
   androidDownload: string;
-  demoUrl: string;
   automaterUrl: string;
   sections: { heading: string; content: string }[];
 }
 
-const AUTOMATER = "https://automater.pl/rest/order-viewer/buy/776316";
+const AUTOMATER = AUTOMATER_PRODUCTS.programyEdukacyjne;
 
 export const programs: Program[] = [
   {
@@ -24,7 +25,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Logogry_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Logopedia_01.apk",
-    demoUrl: "https://gobrain.pl/online_logogry_01",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -58,7 +58,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Logopedia_Gloski_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/LogoGloski_01.apk",
-    demoUrl: "https://gobrain.pl/webgl_ciszace",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -92,7 +91,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Logo_Zabawy_02.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Logopedia_02.apk",
-    demoUrl: "https://gobrain.pl/webgl_logogry_02",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -126,7 +124,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Logo_KR_GR.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Logo_KR_GR.apk",
-    demoUrl: "https://gobrain.pl/web_gloski_krgr",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -160,7 +157,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/GP_Gloski_PR_BR.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/PR_BR.apk",
-    demoUrl: "https://gobrain.pl/web_pr_br",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -194,7 +190,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Gloski_TR_DR.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/TR_DR.apk",
-    demoUrl: "https://gobrain.pl/web_tr_dr",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -228,7 +223,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Logopedia_Gloski_02.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/LogoGloski_02.apk",
-    demoUrl: "https://gobrain.pl/web_ciszace_2",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -262,7 +256,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Szereg_Szumiacy_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Szereg_Szumiacy_01.apk",
-    demoUrl: "https://gobrain.pl/web_szumiace_sz",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -296,7 +289,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Szereg_Szumiacy_CZ.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Szereg_Szumiacy_CZ.apk",
-    demoUrl: "https://gobrain.pl/web_szumiace_cz",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -330,7 +322,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Szereg_Szumiacy_RzZ.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Szereg_Szumiacy_RzZ.apk",
-    demoUrl: "https://gobrain.pl/web_szumiace_rz",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -364,7 +355,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Zabawy_Literki_AOUEIY.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_AOUEIY.apk",
-    demoUrl: "https://gobrain.pl/web_aoueiy",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -398,7 +388,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_TD.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_TD.apk",
-    demoUrl: "https://gobrain.pl/web_litery_td",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -432,7 +421,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_PB.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_PB.apk",
-    demoUrl: "https://gobrain.pl/web_litery_pb",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -466,7 +454,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_MN.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_MN.apk",
-    demoUrl: "https://gobrain.pl/web_literki_mn",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -495,7 +482,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_KGH.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_KGH.apk",
-    demoUrl: "https://gobrain.pl/web_kgh",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -524,7 +510,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_LRJ.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_06_lrj.apk",
-    demoUrl: "https://gobrain.pl/web_literki_lrj",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -553,7 +538,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_WF.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Literki_07_WF.apk",
-    demoUrl: "https://gobrain.pl/web_wf",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -582,7 +566,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Literki_CSZ.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Zabawy_Literki_CSZ.apk",
-    demoUrl: "https://gobrain.pl/web_lierki_csz",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -611,7 +594,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Kreatywny_Brzdac_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Brzdac_01.apk",
-    demoUrl: "https://gobrain.pl/web_brzdac_01",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -645,7 +627,6 @@ export const programs: Program[] = [
     age: "3–7 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Kreatywny_Brzdac_02.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Brzdac_02.apk",
-    demoUrl: "https://gobrain.pl/web_brzdac_02",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -679,7 +660,6 @@ export const programs: Program[] = [
     age: "od 3 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Pamiac_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/pamiac_01.apk",
-    demoUrl: "https://gobrain.pl/web_pamiac_01",
     automaterUrl: AUTOMATER,
     sections: [
       {
@@ -713,7 +693,6 @@ export const programs: Program[] = [
     age: "od 5 lat",
     pcDownload: "https://gobraintech.pl/current/Sklep_PC/Matematyka_01.msi",
     androidDownload: "https://gobraintech.pl/current/Sklep_Android/Matematyka_01.apk",
-    demoUrl: "https://gobrain.pl/web_mat_01",
     automaterUrl: AUTOMATER,
     sections: [
       {
