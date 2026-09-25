@@ -281,8 +281,11 @@ export default function StrefaTerapeutyPage() {
               <video
                 ref={videoRef}
                 loop
+                muted
                 playsInline
                 autoPlay
+                preload="auto"
+                poster="/img/product-terapeuta-1280w.webp"
                 className="w-full"
                 style={{ maxHeight: "560px", transform: "scale(1.08)", transformOrigin: "center center" }}
               >

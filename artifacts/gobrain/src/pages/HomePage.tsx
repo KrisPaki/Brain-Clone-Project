@@ -1107,7 +1107,9 @@ export default function HomePage() {
               <motion.div variants={fadeInUp} className="rounded-3xl overflow-hidden shadow-2xl border border-border bg-black">
                 <video
                   controls
+                  playsInline
                   preload="metadata"
+                  poster="/opengraph.jpg"
                   className="w-full aspect-video"
                 >
                   <source src="https://gobraintech.pl/current/www/ProfGalkowski01.mp4#t=3" type="video/mp4" />
